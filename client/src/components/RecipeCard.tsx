@@ -1,0 +1,23 @@
+import React from 'react'
+import { Card } from 'antd';
+
+export const RecipeCard = (props: any) => {
+    return (
+        <div>
+            <Card title={props.data.title}>
+                <h2>Ingredients</h2>
+                {props.data.ingredients.map((ingr: any) => {
+                    return (
+                        <p>{ingr}</p>
+                    );
+                })}
+                <h2>Steps</h2>
+                {props.data.steps.map((step: any) => {
+                    return (
+                        <p>{step}</p>
+                    );
+                })}
+            </Card>
+        </div>
+    )
+}
