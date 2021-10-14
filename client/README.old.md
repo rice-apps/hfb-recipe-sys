@@ -1,2 +1,0 @@
-# Client for Houston Food Bank Recipe System
-lkgnwlkdfnsljdnlsdknfasslkdjknfslkkhahjksdhaasd
