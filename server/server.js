@@ -6,25 +6,28 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000
 const accessToken = process.env.ACCESS_TOKEN 
-const spaceID = process.env.SPACE
+const spaceID = process.env.SPACE_ID
 
 app.get('/', (req, res) => {
   res.send('HFB Recipe System Backend')
 });
 
-// console.log(process.env)
+const client = contentful.createClient({
+  // This is the space ID. A space is like a project folder in Contentful terms
+  space: spaceID,
+  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+  accessToken: accessToken
+});
 
-// const client = contentful.createClient({
-//   // This is the space ID. A space is like a project folder in Contentful terms
-//   spaceID: "developer_bookshelf",
-//   // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-//   accessToken: "0b7f6x59a0"
-// });
-// // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
-// client
-//   .getEntry("5PeGS2SoZGSa4GuiQsigQu")
-//   .then(entry => console.log(entry))
-//   .catch(err => console.log(err));
+app.get('/recipes', (req, res) => {
+  client.getEntries({
+    order: 'sys.createdAt'
+  })
+  .then(function(entries) {  
+    // for each item in entries.item, send item.field
+      res.send(entries.items.map(item => item.fields));
+    });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
