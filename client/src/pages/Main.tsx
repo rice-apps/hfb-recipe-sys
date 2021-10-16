@@ -47,7 +47,7 @@ const Main = (props: any) => {
                     padding: '15px'
                 }}
             >
-                <Input.Search size="large" placeholder="input here" />
+                <Input size="large" placeholder="Search by recipe or ingredients" />
             </AutoComplete>
             <Row gutter={[16, 16]}>
                 {props.recipes.map((recipe: any) => {
