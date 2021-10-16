@@ -6,7 +6,7 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000
 const accessToken = process.env.ACCESS_TOKEN 
-const spaceID = process.env.SPACE
+const spaceID = process.env.SPACE_ID
 
 app.get('/', (req, res) => {
   res.send('HFB Recipe System Backend')
