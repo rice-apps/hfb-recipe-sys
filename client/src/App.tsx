@@ -13,10 +13,16 @@ function App() {
         "id" : 0
     },
     {
-        "title": "not eggs",
+        "title": "Eggs Benedict",
         "ingredients": ["Oranges","Peaches"],
         "steps": ["Bake", "Clean"],
         "id": 1
+    },
+    {
+        "title": "Chicken Tikka Masala",
+        "ingredients": ["Chicken","Tikka Masala"],
+        "steps": ["Combine", "Cook"],
+        "id": 2
     }
 ]
   return (   
