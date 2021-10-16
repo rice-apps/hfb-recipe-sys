@@ -5,6 +5,7 @@ export const RecipeCard = (props: any) => {
     return (
         <div>
             <Card title={props.data.title}>
+                <h3>{props.data.id}</h3>
                 <h2>Ingredients</h2>
                 {props.data.ingredients.map((ingr: any) => {
                     return (
@@ -12,9 +13,9 @@ export const RecipeCard = (props: any) => {
                     );
                 })}
                 <h2>Steps</h2>
-                {props.data.steps.map((step: any) => {
+                {props.data.steps.map((step: any, i: number) => {
                     return (
-                        <p>{step}</p>
+                        <p>{i + 1}. {step}</p>
                     );
                 })}
             </Card>

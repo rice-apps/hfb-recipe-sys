@@ -1,31 +1,20 @@
 import React from 'react'
 import 'antd/dist/antd.css';
-import { Row } from 'antd';
-import { Col } from 'antd';
+import { Row, Col } from 'antd';
 import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
+import { useParams, useHistory } from 'react-router-dom';
 
-const Main = () => {
-    const recipes = [
-        {
-            "title": "eggs",
-            "ingredients": ["Apples"," Pears "],
-            "steps": ["Cook", "Clean"]
-        },
-        {
-            "title": "not eggs",
-            "ingredients": ["Oranges","Peaches"],
-            "steps": ["Bake", "Clean"]
-        }
-    ]
+const Main = (props: any) => {
+    const history = useHistory();
+    
     return (
         <div>
-            <Header title="Title" > </Header>
-
+            <Header title="Recipes" > </Header>
             <Row gutter={[16, 16]}>
-                {recipes.map(recipe => {
+                {props.recipes.map((recipe: any) => {
                     return (
-                    <Col span={8}>
+                    <Col span={8} onClick ={() => history.push(`/recipes/${recipe.id}`)} >
                         <RecipeCard data={recipe}></RecipeCard>
                     </Col>
                     );
