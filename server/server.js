@@ -1,13 +1,18 @@
 const express = require('express');
 const contentful = require("contentful");
 
+require('dotenv').config();
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000
+const accessToken = process.env.ACCESS_TOKEN 
+const spaceID = process.env.SPACE
 
 app.get('/', (req, res) => {
   res.send('HFB Recipe System Backend')
 });
 
+// console.log(process.env)
 
 // const client = contentful.createClient({
 //   // This is the space ID. A space is like a project folder in Contentful terms
