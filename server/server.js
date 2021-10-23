@@ -1,10 +1,18 @@
 const express = require('express');
 const contentful = require("contentful");
+// Import the library:
+var cors = require('cors');
+
+
+// Then use it before your routes are set up:
+
 
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3000
+
+app.use(cors());
+const port = process.env.PORT || 8000
 const accessToken = process.env.ACCESS_TOKEN 
 const spaceID = process.env.SPACE_ID
 
