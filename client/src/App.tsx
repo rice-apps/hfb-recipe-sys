@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 function App() {
   interface RecipeData {
     title: string,
+    photo: any,
     course: string[],
     cuisine: string[],
     servings: number,
@@ -16,8 +17,12 @@ function App() {
     ingredients: string[],
     instructions: string,
     keywords: string[]
+    glutenFree: boolean,
+    vegan: boolean,
+    vegetarian: boolean,
+    nutFree: boolean
   }
-
+  
   const [recipes, setRecipes] = useState<RecipeData[]>([])
 
   useEffect(() => {
@@ -29,6 +34,7 @@ function App() {
     });
   }, []);
   
+
   return (   
     <Router>
       <div className="App">

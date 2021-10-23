@@ -41,27 +41,26 @@ const Main = (props: any) => {
         ),
     });
 
-    var options = [
+    const [ searchOptions, setSearchOptions ] = useState([
         {
             label: renderTitle("Recipes"),
             options: props.recipes.map((recipe: any) => { 
-                return renderItem(recipe.title, recipe.id);
+                return renderItem(recipe.title, recipe[searchCat]);
             })
         }
-    ]
+    ]);
 
     useEffect(() => {
-        options = [
+        console.log("search cat", searchCat);
+        setSearchOptions([
             {
-                label: renderTitle("Recipes"),
-                options: props.recipes.map((recipe: any) => { 
-                    const searchTerms = recipe[searchCat].map((term: string) => {
-                        return term;
-                    })
-                    return renderItem(recipe.title, searchTerms);
+                label: renderTitle(searchCat),
+                options: props.recipes.map((recipe: any) => {
+                    console.log("search terms", recipe[searchCat]);
+                    return renderItem(recipe.title, recipe[searchCat]);
                 })
             }
-        ]
+        ]);
     }, [searchCat]);
 
     return (
@@ -75,7 +74,7 @@ const Main = (props: any) => {
             <AutoComplete
                 dropdownClassName="certain-category-search-dropdown"
                 dropdownMatchSelectWidth={500}
-                options={options}
+                options={searchOptions}
                 filterOption={true}
                 onSelect={(value) => history.push(`/recipes/${value[1]}`)}
                 style={{
@@ -86,10 +85,10 @@ const Main = (props: any) => {
                 <Input size="large" placeholder="Search by recipe or ingredients" />
             </AutoComplete>
             <Row gutter={[16, 16]}>
-                {props.recipes.map((recipe: any) => {
+                {props.recipes.map((recipe: any, id: number) => {
                     return (
-                    <Col span={8} onClick ={() => history.push(`/recipes/${recipe.id}`)} >
-                        <RecipeCard data={recipe}></RecipeCard>
+                    <Col span={8} onClick ={() => history.push(`/recipes/${id}`)} >
+                        <RecipeCard id={id} title={recipe.title} course={recipe.course} cuisine={recipe.cuisine} servings={recipe.servings} calories={recipe.calories} ingredients={recipe.ingredients} instructions={recipe.instructions} image={recipe.photo.fields.file.url}></RecipeCard>
                     </Col>
                     );
                 })}
