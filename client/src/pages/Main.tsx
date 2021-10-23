@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
-import { Row, Col, Input, AutoComplete } from 'antd';
+import { Row, Col, Input, AutoComplete, Dropdown, Button, Menu } from 'antd';
 import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory} from 'react-router-dom';
 
 const Main = (props: any) => {
     const history = useHistory();
+    const [ searchCat, setSearchCat ] = useState("title");
+
+    const searchByMenu = (
+        <Menu onClick={(e) => setSearchCat(e.key)}>
+            <Menu.Item key="title">
+            Title
+            </Menu.Item>
+            <Menu.Item key="ingredients">
+            Ingredient
+            </Menu.Item>
+            <Menu.Item key="cuisine">
+            Cuisine
+            </Menu.Item>
+            <Menu.Item key="course">
+            Course
+            </Menu.Item>
+        </Menu>
+    );
 
     const renderTitle = (title: string) => (
         <span>
@@ -14,8 +32,8 @@ const Main = (props: any) => {
         </span>
     );
         
-    const renderItem = (title: string, id: string) => ({
-        value: [title, id],
+    const renderItem = (title: string, searchTerms: any) => ({
+        value: searchTerms,
         label: (
             <span>
                 {title}
@@ -23,7 +41,7 @@ const Main = (props: any) => {
         ),
     });
 
-    const options = [
+    var options = [
         {
             label: renderTitle("Recipes"),
             options: props.recipes.map((recipe: any) => { 
@@ -32,10 +50,28 @@ const Main = (props: any) => {
         }
     ]
 
+    useEffect(() => {
+        options = [
+            {
+                label: renderTitle("Recipes"),
+                options: props.recipes.map((recipe: any) => { 
+                    const searchTerms = recipe[searchCat].map((term: string) => {
+                        return term;
+                    })
+                    return renderItem(recipe.title, searchTerms);
+                })
+            }
+        ]
+    }, [searchCat]);
+
     return (
         <div>
             <Header title="Recipes" > </Header>
-            {console.log(options)}
+            <Dropdown overlay={searchByMenu}>
+                <Button>
+                    Search by: {searchCat}
+                </Button>
+            </Dropdown>
             <AutoComplete
                 dropdownClassName="certain-category-search-dropdown"
                 dropdownMatchSelectWidth={500}
