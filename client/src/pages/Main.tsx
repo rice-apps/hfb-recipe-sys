@@ -88,7 +88,7 @@ const Main = (props: any) => {
                 {props.recipes.map((recipe: any, id: number) => {
                     return (
                     <Col span={8} onClick ={() => history.push(`/recipes/${id}`)} >
-                        <RecipeCard id={id} title={recipe.title} course={recipe.course} cuisine={recipe.cuisine} servings={recipe.servings} calories={recipe.calories} ingredients={recipe.ingredients} instructions={recipe.instructions} image={recipe.photo.fields.file.url}></RecipeCard>
+                        <RecipeCard id={id} title={recipe.title} course={recipe.course} cuisine={recipe.cuisine} servings={recipe.servings} calories={recipe.calories} ingredients={recipe.ingredients} instructions={recipe.instructions} image={recipe.photo}></RecipeCard>
                     </Col>
                     );
                 })}
