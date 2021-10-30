@@ -14,7 +14,7 @@ function App() {
     cuisine: string[],
     servings: number,
     calories: number,
-    ingredients: string[],
+    ingredientList: {}[],
     instructions: string,
     keywords: string[]
     glutenFree: boolean,
@@ -30,7 +30,7 @@ function App() {
       response => response.json()
     ).then((data => setRecipes(data))
     ).catch(err => {
-      console.log(recipes)
+      console.log("APP TSX FETCH ERROR")
     });
   }, []);
   
@@ -44,7 +44,6 @@ function App() {
           </Route>
           <Route path={`/recipes`}>
             <Main recipes = {recipes}/>
-            {console.log(recipes)}
           </Route>
         </Switch>
       </div>

@@ -174,8 +174,8 @@ const Main = (props: any) => {
             <Row gutter={[16, 16]}>
                 {props.recipes.map((recipe: any, id: number) => {
                     return (
-                    <Col span={8} onClick ={() => history.push(`/recipes/${id}`)} >
-                        <RecipeCard id={id} title={recipe.title} course={recipe.course} cuisine={recipe.cuisine} servings={recipe.servings} calories={recipe.calories} ingredients={recipe.ingredientList} instructions={recipe.instructions} image={recipe.photo}></RecipeCard>
+                    <Col span={6} onClick ={() => history.push(`/recipes/${id}`)} >
+                        <RecipeCard id={id} title={recipe.title} course={recipe.course} cuisine={recipe.cuisine} servings={recipe.servings} calories={recipe.calories} ingredients={recipe.ingredients} instructions={recipe.instructions} image={recipe.photo} glutenFree={recipe.glutenFree} vegan={recipe.vegan} vegetarian={recipe.vegetarian} nutFree={recipe.nutFree}></RecipeCard>
                     </Col>
                     );
                 })}
