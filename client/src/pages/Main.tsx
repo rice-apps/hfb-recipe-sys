@@ -54,7 +54,7 @@ const Main = (props: any) => {
                 return <p>{glutenFree ? 'True' : 'False'}</p>
             },
             filters:[
-                {text: 'True', value: true},
+                {text: 'Gluten-Free', value: true},
             ],
             onFilter:(value: any, record:any) => {
                 return record.glutenFree;
@@ -142,6 +142,7 @@ const Main = (props: any) => {
         ]);
     }, [searchCat]);
 
+
     return (
         <div>
             <Header title="Recipes" > </Header>
@@ -152,10 +153,10 @@ const Main = (props: any) => {
             </Dropdown>
             <Table 
             columns={columns}
-            dataSource={dataSource}/>
-            {/* {
-                <Checkbox.Group options={options} onChange={onchange} />
-            } */}
+            dataSource={dataSource}
+            />
+
+
             
             <AutoComplete
                 dropdownClassName="certain-category-search-dropdown"
