@@ -3,12 +3,16 @@ import { Card, Row, Col, Typography } from 'antd';
 import styled from 'styled-components';
 const { Text } = Typography;
 
-const Tag = styled.p`
-    color: darkGray,
-    background-color: gray,
-    padding: 5px,
-    border-radius: 10px
-`;
+const CourseTag = (props: any) => {
+    return (
+        <p
+        style={{
+            color: 'red',
+            backgroundColor: 'tomato',
+            padding: '5px',
+        }}>{props.text}</p>
+    );
+}
 
 export const RecipeCard = (props: any) => {
     return (
@@ -20,12 +24,12 @@ export const RecipeCard = (props: any) => {
                 }} />
                 <Row gutter={[16, 16]}>
                     <Col span={6}>
-                        <Tag>{props.cuisine}</Tag>
+                        <CourseTag text={props.cuisine}></CourseTag>
                     </Col>
                     {props.course.map((c: string) => {
                         return (
                             <Col span={6}>
-                                <Tag>{c}</Tag>
+                                <CourseTag>{c}</CourseTag>
                             </Col>
                         );
                     })}
