@@ -27,7 +27,7 @@ const Main = (props: any) => {
         // Doesn't actually go anywhere, need to add like a table or something
     );
 
-    const options = ['glutenFree', 'vegan', 'vegetarian', 'vegetarian']
+    const options = ['Gluten-Free', 'Vegan', 'Vegetarian', 'Nut-Free']
     const dataSource = props.recipes.map((recipe: any, id: number)  => {
         return { 
             ...recipe,
@@ -37,14 +37,14 @@ const Main = (props: any) => {
 
     const columns = [
         {
-        title: 'Title',
-        dataIndex: 'title',
-        key: 'title',
+            title: 'Title',
+            dataIndex: 'title',
+            key: 'title',
         },
         {
-        title: 'ID',
-        dataIndex: 'id',
-        key: 'id',
+            title: 'ID',
+            dataIndex: 'id',
+            key: 'id',
         },
         {
             title: 'Gluten-Free',
@@ -52,6 +52,12 @@ const Main = (props: any) => {
             key: 'glutenFree',
             render : (glutenFree: any) => {
                 return <p>{glutenFree ? 'True' : 'False'}</p>
+            },
+            filters:[
+                {text: 'True', value: true},
+            ],
+            onFilter:(value: any, record:any) => {
+                return record.glutenFree;
             }
         },
         {
@@ -60,6 +66,12 @@ const Main = (props: any) => {
             key: 'vegan',
             render : (vegan: any) => {
                 return <p>{vegan ? 'True' : 'False'}</p>
+            },
+            filters:[
+                {text: 'Vegan', value: true}
+            ],
+            onFilter:(value: any, record:any) => {
+                return record.vegan;
             }
         },
         {
@@ -68,6 +80,12 @@ const Main = (props: any) => {
             key: 'vegetarian',
             render : (vegetarian: any) => {
                 return <p>{vegetarian ? 'True' : 'False'}</p>
+            },
+            filters:[
+                {text: 'Vegetarian', value: true}
+            ],
+            onFilter:(value: any, record:any) => {
+                return record.vegetarian;
             }
         },
         {
@@ -76,6 +94,12 @@ const Main = (props: any) => {
             key: 'nutFree',
             render : (nutFree: any) => {
                 return <p>{nutFree ? 'True' : 'False'}</p>
+            },
+            filters:[
+                {text: 'Nut-Free', value: true}
+            ],
+            onFilter:(value: any, record:any) => {
+                return record.nutFree;
             }
         },
     ];
