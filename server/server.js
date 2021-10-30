@@ -1,46 +1,35 @@
-// Import libraries
 const express = require('express');
-const contentful = require('contentful');
-const cors = require('cors');
+const contentful = require("contentful");
 
-// Load environment variables from .env
 require('dotenv').config();
 
-// Create app
 const app = express();
+const port = process.env.PORT || 3000
+const accessToken = process.env.ACCESS_TOKEN 
+const space_ID = process.env.SPACE_ID
 
-// Define Constants
-const port = process.env.PORT || 8000;
-const accessToken = process.env.ACCESS_TOKEN; 
-const space_ID = process.env.SPACE_ID;
-
-// Allow cross-origin resource sharing
-app.use(cors());
-
-// Define home route to confirm backend is working
 app.get('/', (req, res) => {
   res.send('HFB Recipe System Backend')
 });
 
-// Create authenticated contentful client
 const client = contentful.createClient({
+  // This is the space ID. A space is like a project folder in Contentful terms
   space: space_ID,
+  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
   accessToken: accessToken
 });
 
-// Define /recipes endpoint to return a list of all recipes in contentful
 app.get('/recipes', (req, res) => {
   client.getEntries({order: 'sys.createdAt'})
-    // Extract fields from each contentful object
+    // for each item in entries.item, send item.field
     .then(data => data.items.map(item => item.fields))
-    // Extract url from photo data
+    // send result
     .then(recipes => recipes.map(recipe => { 
       return {
         ...recipe,
         photo: recipe.photo.fields.file.url
       }
     }))
-    // Convert ingredients from key/value to ingredient/quantity
     .then(recipes => recipes.map(recipe => {
       return {
         ...recipe,
@@ -52,11 +41,9 @@ app.get('/recipes', (req, res) => {
         })
       }
     }))
-    // Send processed recipes to client
     .then(recipes => res.send(recipes));
 });
 
-// Run app at specified port
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+  console.log(`Example app listening at http://localhost:${port}`)
+})
