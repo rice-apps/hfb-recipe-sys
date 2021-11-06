@@ -4,6 +4,7 @@ import { Row, Col, Input, AutoComplete, Dropdown, Button, Menu, Table, Checkbox 
 import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
 import { useParams, useHistory} from 'react-router-dom';
+import  Search from '../components/Search';
 
 const Main = (props: any) => {
     const history = useHistory();
@@ -155,8 +156,6 @@ const Main = (props: any) => {
                     Search by: {searchCat}
                 </Button>
             </Dropdown>
-
-
             
             <AutoComplete
                 dropdownClassName="certain-category-search-dropdown"
