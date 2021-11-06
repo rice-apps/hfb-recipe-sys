@@ -4,8 +4,9 @@ import { Row, Col, Input, AutoComplete, Dropdown, Button, Menu, Table, Checkbox 
 import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
 import { useParams, useHistory} from 'react-router-dom';
+import RecipeData from '../types/RecipeData';
 
-const Main = (props: any) => {
+const Main = (props: { recipes: Array<RecipeData> }) => {
     const history = useHistory();
     const [ searchCat, setSearchCat ] = useState("title");
 
@@ -143,7 +144,10 @@ const Main = (props: any) => {
     }, [searchCat]);
 
     return (
-        <div>
+        <div
+        style={{
+            backgroundColor: "#EEEFF0",
+        }}>
             <Header title="Recipes" > </Header>
             <Dropdown overlay={searchByMenu}>
                 <Button>
@@ -174,7 +178,7 @@ const Main = (props: any) => {
                 {props.recipes.map((recipe: any, id: number) => {
                     return (
                     <Col span={6} onClick ={() => history.push(`/recipes/${id}`)} >
-                        <RecipeCard id={id} title={recipe.title} course={recipe.course} cuisine={recipe.cuisine} servings={recipe.servings} calories={recipe.calories} ingredients={recipe.ingredients} instructions={recipe.instructions} image={recipe.photo} glutenFree={recipe.glutenFree} vegan={recipe.vegan} vegetarian={recipe.vegetarian} nutFree={recipe.nutFree}></RecipeCard>
+                        <RecipeCard data={recipe}></RecipeCard>
                     </Col>
                     );
                 })}

@@ -4,25 +4,9 @@ import Recipe from './pages/Recipe';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './index.css';
 import { useState, useEffect } from 'react';
-
+import RecipeData from './types/RecipeData';
 
 function App() {
-  interface RecipeData {
-    title: string,
-    photo: any,
-    course: string[],
-    cuisine: string[],
-    servings: number,
-    calories: number,
-    ingredientList: {}[],
-    instructions: string,
-    keywords: string[]
-    glutenFree: boolean,
-    vegan: boolean,
-    vegetarian: boolean,
-    nutFree: boolean
-  }
-  
   const [recipes, setRecipes] = useState<RecipeData[]>([])
 
   useEffect(() => {
@@ -40,10 +24,10 @@ function App() {
       <div className="App">
         <Switch>
           <Route path={`/recipes/:id`}>
-            <Recipe recipes = {recipes}/>
+            <Recipe recipes={recipes}/>
           </Route>
           <Route path={`/recipes`}>
-            <Main recipes = {recipes}/>
+            <Main recipes={recipes}/>
           </Route>
         </Switch>
       </div>

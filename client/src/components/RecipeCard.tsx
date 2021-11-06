@@ -1,9 +1,10 @@
 import React from 'react';
 import { Row, Col, Typography } from 'antd';
 import { TagsOutlined } from '@ant-design/icons';
+import RecipeData from '../types/RecipeData';
 const { Text } = Typography;
 
-const CourseTag = (props: any) => {
+const CourseTag = (props: { text: string }) => {
     return (
         <p
         style={{
@@ -17,7 +18,7 @@ const CourseTag = (props: any) => {
     )
 }
 
-const RestrictionTag = (props: any) => {
+const RestrictionTag = (props: { color: string }) => {
     return (
         <div
         style={{
@@ -31,19 +32,19 @@ const RestrictionTag = (props: any) => {
     )
 }
 
-export const RecipeCard = (props: any) => {
+export const RecipeCard = (props: { data: RecipeData }) => {
     const renderDietaryRestrictions = () => {
         var rest = [];
-        if(props.glutenFree) {
+        if(props.data.glutenFree) {
             rest.push(<RestrictionTag color="#F1C94D" />);
         }
-        if(props.vegan) {
+        if(props.data.vegan) {
             rest.push(<RestrictionTag color="#3E833D" />);
         }
-        if(props.vegetarian) {
+        if(props.data.vegetarian) {
             rest.push(<RestrictionTag color="#7EAF53" />);
         }
-        if(props.nutFree) {
+        if(props.data.nutFree) {
             rest.push(<RestrictionTag color="#CD5237" />);
         }
         return (
@@ -66,60 +67,32 @@ export const RecipeCard = (props: any) => {
             height: "100%",
             width: "100%",
             borderRadius: "50px",
-            border: "1px solid black",
+            backgroundColor: "white",
         }}>
-            <img src={props.image} style={{
+            <img src={props.data.photo} style={{
                 width: "100%",
                 height: "400px",
                 borderRadius: "50px 50px 0px 0px",
             }} />
-            <div
-            style={{
-                padding: "20px",
-            }}>
-                <h2
-                style={{
-                    fontStyle: "bold",
-                }}>{props.title}</h2>
-                <Row gutter={[16, 16]}>
-                    {props.course.map((c: string) => {
-                        return (
-                            <Col span={8}>
-                                <CourseTag text={c} />
-                            </Col>
-                        );
-                    })}
-                </Row>
-                {renderDietaryRestrictions()}
-            </div>
+            <div style={{ padding: "20px" }}>
+                <h2 style={{ fontStyle: "bold" }}>{props.data.title}</h2>
 
-            {
-            /*
-            <Card title={props.title}>
-                <img src={props.image} />
-                <Text type="secondary">{props.cuisine}</Text>
-                {props.course.map((c: string) => {
-                    return (
-                        <Text type="secondary">{c}</Text>
-                    );
-                })}
-                <b>Servings</b>: {props.servings}
-                <b>Calories</b>: {props.calories}
-                <h2>Ingredients</h2>
-                {props.ingredients.map((ingr: any) => {
-                    return (
-                        <p>{ingr}</p>
-                    );
-                })}
-                <h2>Instructions</h2>
-                {props.instructions.split("\n").map((instr: string) => {
-                    return (
-                        <p>{instr}</p>
-                    );
-                })}
-            </Card>
-            */
-            }
+                <div
+                style={{
+                    bottom: 0,
+                }}>
+                    <Row gutter={[16, 16]}>
+                        {props.data.course.map((c: string) => {
+                            return (
+                                <Col xs={24} xl={8}>
+                                    <CourseTag text={c} />
+                                </Col>
+                            );
+                        })}
+                    </Row>
+                    {renderDietaryRestrictions()}
+                </div>
+            </div>
         </div>
     )
 }
