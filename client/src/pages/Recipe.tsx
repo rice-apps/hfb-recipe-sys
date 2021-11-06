@@ -38,17 +38,17 @@ export default function Recipe(props: any) {
         <div style={{ display: "none" }}>
 
             <div ref={printComponentRef}>
-                <div style={{height: "5in", width: "8.5in", border:"solid grey 1px"}}>
+                <div style={{height: "50vh", width: "95vw"}}>
             <h1>{recipe.title}</h1>
             <Row gutter={[8, 16]}>
 
-            <Col span={8} flex = {"flex"} style={{height: "5in", width: "8.5in", border:"solid grey 1px"}}> <h2>Ingredients</h2>
+            <Col span={8} flex = {"flex"} style={{height: "40vh", width: "95vw"}}> <h2>Ingredients</h2>
         {recipe.ingredientList && recipe.ingredientList.map((dict: any) => {
             return (
-                <p> - {dict["quantity"]} {dict["ingredient"]}</p>
+                <p style = {{margin: "2mm"}}> - {dict["quantity"]} {dict["ingredient"]}</p>
             );
         })}</Col>
-            <Col span={8}flex = {"flex"}> <h2>Instructions</h2>
+            <Col span={16}flex = {"flex"} style={{height: "40vh", width: "95vw"}}> <h2>Instructions</h2>
         {recipe.instructions && recipe.instructions.split("\n").map((instr: string) => {
             return (
                 <p>{instr}</p>
@@ -57,23 +57,23 @@ export default function Recipe(props: any) {
         </Row>
         </div>
         <hr></hr>
-        <div style={{height: "5in", width: "8.5in", border:"solid grey 1px"}}>
+        <div style={{height: "50vh", width: "95vw"}}>
         <h1>{recipe.title}</h1>
-            <Row gutter={[8, 16]} wrap = {true}>
+        <Row gutter={[8, 16]}>
 
-            <Col span={8} flex = {"flex"}style={{height: "5in", width: "8.5in", border:"solid grey 1px"}} > <h2>Ingredients</h2>
-        {recipe.ingredientList && recipe.ingredientList.map((dict: any) => {
-            return (
-                <p> - {dict["quantity"]} {dict["ingredient"]}</p>
-            );
-        })}</Col>
-            <Col span={8}flex = {"flex"}> <h2>Instructions</h2>
-        {recipe.instructions && recipe.instructions.split("\n").map((instr: string) => {
-            return (
-                <p>{instr}</p>
-            );
-        })}  </Col>
-        </Row>
+<Col span={8} flex = {"flex"} style={{height: "40vh", width: "95vw"}}> <h2>Ingredients</h2>
+{recipe.ingredientList && recipe.ingredientList.map((dict: any) => {
+return (
+    <p style = {{margin: "2mm"}}> - {dict["quantity"]} {dict["ingredient"]}</p>
+);
+})}</Col>
+<Col span={16}flex = {"flex"} style={{height: "40vh", width: "95vw"}}> <h2>Instructions</h2>
+{recipe.instructions && recipe.instructions.split("\n").map((instr: string) => {
+return (
+    <p>{instr}</p>
+);
+})}  </Col>
+</Row>
         </div>
             </div>
         </div>

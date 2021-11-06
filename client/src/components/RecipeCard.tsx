@@ -14,6 +14,7 @@ const CourseTag = (props: { text: string }) => {
             padding: "5px",
             textAlign: "center",
             fontStyle: "italic",
+            margin: 0,
         }}>{props.text}</p>
     )
 }
@@ -72,6 +73,7 @@ export const RecipeCard = (props: { data: RecipeData }) => {
             <img src={props.data.photo} style={{
                 width: "100%",
                 height: "400px",
+                objectFit: "cover",
                 borderRadius: "50px 50px 0px 0px",
             }} />
             <div style={{ padding: "20px" }}>
@@ -80,8 +82,13 @@ export const RecipeCard = (props: { data: RecipeData }) => {
                 <div
                 style={{
                     bottom: 0,
+                    verticalAlign: "bottom",
                 }}>
-                    <Row gutter={[16, 16]}>
+                    <Row
+                    style={{
+                        marginBottom: "10px",
+                    }}
+                    gutter={[16, 16]}>
                         {props.data.course.map((c: string) => {
                             return (
                                 <Col xs={24} xl={8}>
