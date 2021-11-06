@@ -20,7 +20,8 @@ function App() {
     glutenFree: boolean,
     vegan: boolean,
     vegetarian: boolean,
-    nutFree: boolean
+    nutFree: boolean,
+    filterFields: string[],
   }
   
   const [recipes, setRecipes] = useState<RecipeData[]>([])
