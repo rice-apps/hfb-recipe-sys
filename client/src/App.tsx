@@ -9,13 +9,18 @@ import { useState, useEffect } from 'react';
 function App() {
   interface RecipeData {
     title: string,
+    photo: any,
     course: string[],
     cuisine: string[],
     servings: number,
     calories: number,
-    ingredients: string[],
+    ingredientList: {}[],
     instructions: string,
     keywords: string[]
+    glutenFree: boolean,
+    vegan: boolean,
+    vegetarian: boolean,
+    nutFree: boolean
   }
 
   const [recipes, setRecipes] = useState<RecipeData[]>([])
@@ -25,11 +30,12 @@ function App() {
       response => response.json()
     ).then((data => setRecipes(data))
     ).catch(err => {
-      console.log("error in fetch")
+      console.log("APP TSX FETCH ERROR")
     });
   }, []);
   
-  return (   
+
+  return (
     <Router>
       <div className="App">
         <Switch>
@@ -38,7 +44,6 @@ function App() {
           </Route>
           <Route path={`/recipes`}>
             <Main recipes = {recipes}/>
-            {console.log(recipes)}
           </Route>
         </Switch>
       </div>
