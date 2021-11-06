@@ -5,6 +5,7 @@ import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
 import { useParams, useHistory} from 'react-router-dom';
 import RecipeData from '../types/RecipeData';
+import  Search from '../components/Search';
 
 const Main = (props: { recipes: Array<RecipeData> }) => {
     const history = useHistory();
@@ -55,7 +56,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                 return <p>{glutenFree ? 'True' : 'False'}</p>
             },
             filters:[
-                {text: 'True', value: true},
+                {text: 'Gluten-Free', value: true},
             ],
             onFilter:(value: any, record:any) => {
                 return record.glutenFree;
@@ -143,23 +144,22 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
         ]);
     }, [searchCat]);
 
+
     return (
         <div
         style={{
             backgroundColor: "#EEEFF0",
         }}>
             <Header title="Recipes" > </Header>
+            <Table 
+            columns={columns}
+            dataSource={dataSource}
+            />
             <Dropdown overlay={searchByMenu}>
                 <Button>
                     Search by: {searchCat}
                 </Button>
             </Dropdown>
-            <Table 
-            columns={columns}
-            dataSource={dataSource}/>
-            {/* {
-                <Checkbox.Group options={options} onChange={onchange} />
-            } */}
             
             <AutoComplete
                 dropdownClassName="certain-category-search-dropdown"
