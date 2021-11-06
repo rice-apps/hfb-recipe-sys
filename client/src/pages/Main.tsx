@@ -31,6 +31,43 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
 
   };
 
+  const renderTitle = (title: string) => (
+    <span>
+        {title}
+    </span>
+)  ;
+    
+    const renderItem = (title: string, searchTerms: any) => ({
+    value: searchTerms,
+    label: (
+        <span>
+            {title}
+        </span>
+    ),
+});
+
+  const [ filterOptions, setFilterOptions ] = useState([
+    {
+        label: renderTitle("Recipes"),
+        options: props.recipes.map((recipe: any) => { 
+            // Using the selected options only return the ones that fit
+            return renderItem(recipe.title, recipe[filterOptions]);
+        })
+    }
+]);
+
+
+useEffect(() => {
+    setFilterOptions([
+        {
+            label: renderTitle(filterOptions),
+            options: props.recipes.map((recipe: any) => {
+                return renderItem(recipe.title, recipe[filterOptions]);
+            })
+        }
+    ]);
+}, [filterOptions]);
+
     const searchByMenu = (
         <Menu onClick={(e) => setSearchCat(e.key)}>
             <Menu.Item key="title">
@@ -127,20 +164,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     ];
 
 
-    const renderTitle = (title: string) => (
-        <span>
-            {title}
-        </span>
-    );
-        
-    const renderItem = (title: string, searchTerms: any) => ({
-        value: searchTerms,
-        label: (
-            <span>
-                {title}
-            </span>
-        ),
-    });
+   
 
     const [ searchOptions, setSearchOptions ] = useState([
         {
