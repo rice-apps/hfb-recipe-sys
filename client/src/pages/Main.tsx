@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
-import { Row, Col, Input, AutoComplete, Dropdown, Button, Menu, Table, Checkbox } from 'antd';
+import { Row, Col, Input, AutoComplete, Dropdown, Button, Menu, Table, Checkbox, Divider } from 'antd';
 import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
 import { useParams, useHistory} from 'react-router-dom';
@@ -8,8 +8,28 @@ import RecipeData from '../types/RecipeData';
 import  Search from '../components/Search';
 
 const Main = (props: { recipes: Array<RecipeData> }) => {
+
+    const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free'];
+    const defaultCheckedList = [''];
+    const CheckboxGroup = Checkbox.Group;
+
+
     const history = useHistory();
     const [ searchCat, setSearchCat ] = useState("title");
+
+    const [checkedList, setCheckedList] = React.useState(defaultCheckedList);
+    const [indeterminate, setIndeterminate] = React.useState(true);
+    const [checkAll, setCheckAll] = React.useState(false);
+
+  const onChange = (list: any) => {
+    setCheckedList(list);
+    setIndeterminate(!!list.length && list.length < plainOptions.length);
+    setCheckAll(list.length === plainOptions.length);
+    console.log(list);
+
+    
+
+  };
 
     const searchByMenu = (
         <Menu onClick={(e) => setSearchCat(e.key)}>
@@ -160,6 +180,9 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                     Search by: {searchCat}
                 </Button>
             </Dropdown>
+
+            <Divider />
+            <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
             
             <AutoComplete
                 dropdownClassName="certain-category-search-dropdown"
