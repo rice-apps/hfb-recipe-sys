@@ -22,11 +22,11 @@ function App() {
     vegetarian: boolean,
     nutFree: boolean
   }
-  
+
   const [recipes, setRecipes] = useState<RecipeData[]>([])
 
   useEffect(() => {
-    fetch("https://hfb-recipe-sys-api.herokuapp.com/recipes").then(
+    fetch("http://localhost:8000/recipes").then(
       response => response.json()
     ).then((data => setRecipes(data))
     ).catch(err => {
@@ -35,7 +35,7 @@ function App() {
   }, []);
   
 
-  return (   
+  return (
     <Router>
       <div className="App">
         <Switch>
