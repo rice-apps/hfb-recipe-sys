@@ -27,7 +27,7 @@ function App() {
   const [recipes, setRecipes] = useState<RecipeData[]>([])
 
   useEffect(() => {
-    fetch("http://localhost:8000/recipes").then(
+    fetch("https://hfb-recipe-sys-api.herokuapp.com/recipes").then(
       response => response.json()
     ).then((data => setRecipes(data))
     ).catch(err => {
