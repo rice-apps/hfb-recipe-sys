@@ -145,7 +145,6 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                 <Input size="large" placeholder="Search by recipe or ingredients" />
             </AutoComplete>
             <Row gutter={[16, 16]}>
-                {/* {props.recipes.filter(..).map} */}
 
                 {getFilteredRecipes().map((recipe: any, id: number) => {
                     return (
@@ -154,14 +153,6 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                     </Col>
                     );
                 })}
-
-                {/* {props.recipes.map((recipe: any, id: number) => {
-                    return (
-                    <Col span={6} onClick ={() => history.push(`/recipes/${id}`)} >
-                        <RecipeCard data={recipe}></RecipeCard>
-                    </Col>
-                    );
-                })} */}
             </Row>
         </div>
     )
