@@ -2,34 +2,27 @@ import React from 'react';
 import { Row, Col, Typography } from 'antd';
 import { TagsOutlined } from '@ant-design/icons';
 import RecipeData from '../types/RecipeData';
+import '../style/RecipeCard.css';
+import 'semantic-ui-css/semantic.min.css';
+import { Icon, SemanticICONS } from 'semantic-ui-react';
 const { Text } = Typography;
 
 const CourseTag = (props: { text: string }) => {
     return (
-        <p
-        style={{
-            color: "#CD5327",
-            backgroundColor: "#CD52371F",
-            borderRadius: "20px",
-            padding: "5px",
-            textAlign: "center",
-            fontStyle: "italic",
-            margin: 0,
-        }}>{props.text}</p>
+        <p className="courseTagText">{props.text}</p>
     )
 }
 
-const RestrictionTag = (props: { color: string }) => {
+const RestrictionTag = (props: { color: string, icon: SemanticICONS }) => {
     return (
         <div
         style={{
-            width: "30px",
-            height: "30px",
             backgroundColor: props.color,
-            borderRadius: "20px",
-            display: "inline-block",
-            margin: "0px 10px 0px 0px",
-        }}></div>
+        }}
+        className="restrictionTag"
+        >
+            <Icon inverted name={props.icon} />
+        </div>
     )
 }
 
@@ -37,58 +30,35 @@ export const RecipeCard = (props: { data: RecipeData }) => {
     const renderDietaryRestrictions = () => {
         var rest = [];
         if(props.data.glutenFree) {
-            rest.push(<RestrictionTag color="#F1C94D" />);
+            rest.push(<RestrictionTag color="#F1C94D" icon="leaf" />);
         }
         if(props.data.vegan) {
-            rest.push(<RestrictionTag color="#3E833D" />);
+            rest.push(<RestrictionTag color="#3E833D" icon="leaf" />);
         }
         if(props.data.vegetarian) {
-            rest.push(<RestrictionTag color="#7EAF53" />);
+            rest.push(<RestrictionTag color="#7EAF53" icon="leaf" />);
         }
         if(props.data.nutFree) {
-            rest.push(<RestrictionTag color="#CD5237" />);
+            rest.push(<RestrictionTag color="#CD5237" icon="leaf" />);
         }
         return (
-            <div
-            style={{
-                display: "flex",
-                flex: 1,
-                flexDirection: 'row',
-                justifyContent: 'flex-end',
-                marginLeft: "auto",
-            }}>
+            <div className="restrictionTagContainer">
                 {rest}
             </div>
         );
     }
 
     return (
-        <div
-        style={{
-            height: "100%",
-            width: "100%",
-            borderRadius: "50px",
-            backgroundColor: "white",
-        }}>
-            <img src={props.data.photo} style={{
-                width: "100%",
-                height: "400px",
-                objectFit: "cover",
-                borderRadius: "50px 50px 0px 0px",
-            }} />
-            <div style={{ padding: "20px" }}>
-                <h2 style={{ fontStyle: "bold" }}>{props.data.title}</h2>
-
-                <div
-                style={{
-                    bottom: 0,
-                    verticalAlign: "bottom",
-                }}>
+        <div className="recipeCardData">
+            <img src={props.data.photo} className="recipePhoto" />
+            <div className="recipeCardInfo">
+                <div className="courseTags">
+                    <h3>{props.data.title}</h3>
                     <Row
                     style={{
                         marginBottom: "10px",
                     }}
-                    gutter={[16, 16]}>
+                    gutter={[8, 8]}>
                         {props.data.course.map((c: string) => {
                             return (
                                 <Col xs={24} xl={8}>
@@ -97,6 +67,9 @@ export const RecipeCard = (props: { data: RecipeData }) => {
                             );
                         })}
                     </Row>
+                </div>
+
+                <div className="restrictionTags">
                     {renderDietaryRestrictions()}
                 </div>
             </div>

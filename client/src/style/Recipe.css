@@ -1,0 +1,56 @@
+/* Style the header */
+header {
+    background-color: #7EAF53;
+    padding: 30px;
+    margin: 0px;
+  }
+
+.name_header{
+    text-align: center;
+    font-size: 6vh;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 3vh;
+}
+
+.detail_header{
+    font-size: 2vh;
+    color: white;
+    font-weight: 20;
+    text-align: center;
+    margin-bottom: 1vh;
+
+}
+.information_header{
+    font-size: 3vh;
+    color: white;
+    font-weight: 80;
+    text-align: center;
+
+}
+.vl {
+    border-left: 3px solid white ;
+    height: 7vh;
+    margin-top: -3px;
+  }
+
+.top_row{
+    margin-bottom: 25px;
+}
+.info_row{
+    text-align: center;
+
+}
+.print_button:hover{
+    cursor: pointer
+
+
+}
+.back_button:hover{
+    cursor: pointer;
+    
+    
+}
+.header_bar{
+    background-color: #7EAF53;
+}
