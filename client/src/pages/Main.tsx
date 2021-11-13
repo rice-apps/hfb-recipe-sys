@@ -24,7 +24,6 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     setCheckedList(list);
     setIndeterminate(!!list.length && list.length < plainOptions.length);
     setCheckAll(list.length === plainOptions.length);
-    console.log(list);
 
     
 
@@ -104,12 +103,10 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     ]);
 
     useEffect(() => {
-        console.log("search cat", searchCat);
         setSearchOptions([
             {
                 label: renderTitle(searchCat),
                 options: props.recipes.map((recipe: any) => {
-                    console.log("search terms", recipe[searchCat]);
                     return renderItem(recipe.title, recipe[searchCat]);
                 })
             }
