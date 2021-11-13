@@ -9,7 +9,7 @@ import RecipeData from '../types/RecipeData';
 const Main = (props: { recipes: Array<RecipeData> }) => {
 
     const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free'];
-    const defaultCheckedList = [''];
+    const defaultCheckedList: string[] = [];
     const CheckboxGroup = Checkbox.Group;
 
 
@@ -24,7 +24,6 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     setCheckedList(list);
     setIndeterminate(!!list.length && list.length < plainOptions.length);
     setCheckAll(list.length === plainOptions.length);
-    console.log(list);
 
     
 
@@ -48,6 +47,23 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     function getFilteredRecipes(): Array<RecipeData> {
 
         return props.recipes.filter(recipe => {
+            const tags: String[] = []
+            if(recipe.glutenFree) {
+                tags.push("Gluten-Free");
+            }
+            if(recipe.vegetarian) {
+                tags.push("Vegetarian");
+            }
+            if(recipe.vegan) {
+                tags.push("Vegan");
+            }
+            if(recipe.nutFree) {
+                tags.push("Nut-Free");
+            }
+
+            console.log(checkedList)
+
+            return checkedList.every(i => tags.includes(i));
 
         })
     }
@@ -71,84 +87,6 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     );
 
     const options = ['Gluten-Free', 'Vegan', 'Vegetarian', 'Nut-Free']
-    const dataSource = props.recipes.map((recipe: any, id: number)  => {
-        return { 
-            ...recipe,
-            id: id
-        };
-    });
-
-    const columns = [
-        {
-            title: 'Title',
-            dataIndex: 'title',
-            key: 'title',
-        },
-        {
-            title: 'ID',
-            dataIndex: 'id',
-            key: 'id',
-        },
-        {
-            title: 'Gluten-Free',
-            dataIndex: 'glutenFree',
-            key: 'glutenFree',
-            render : (glutenFree: any) => {
-                return <p>{glutenFree ? 'True' : 'False'}</p>
-            },
-            filters:[
-                {text: 'True', value: true},
-            ],
-            onFilter:(value: any, record:any) => {
-                return record.glutenFree;
-            }
-        },
-        {
-            title: 'Vegan',
-            dataIndex: 'vegan',
-            key: 'vegan',
-            render : (vegan: any) => {
-                return <p>{vegan ? 'True' : 'False'}</p>
-            },
-            filters:[
-                {text: 'Vegan', value: true}
-            ],
-            onFilter:(value: any, record:any) => {
-                return record.vegan;
-            }
-        },
-        {
-            title: 'Vegetarian',
-            dataIndex: 'vegetarian',
-            key: 'vegetarian',
-            render : (vegetarian: any) => {
-                return <p>{vegetarian ? 'True' : 'False'}</p>
-            },
-            filters:[
-                {text: 'Vegetarian', value: true}
-            ],
-            onFilter:(value: any, record:any) => {
-                return record.vegetarian;
-            }
-        },
-        {
-            title: 'Nut-Free',
-            dataIndex: 'nutFree',
-            key: 'nutFree',
-            render : (nutFree: any) => {
-                return <p>{nutFree ? 'True' : 'False'}</p>
-            },
-            filters:[
-                {text: 'Nut-Free', value: true}
-            ],
-            onFilter:(value: any, record:any) => {
-                return record.nutFree;
-            }
-        },
-    ];
-
-
-   
 
     const [ searchOptions, setSearchOptions ] = useState([
         {
@@ -159,18 +97,17 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
         }
     ]);
 
+    // Set search options
     useEffect(() => {
-        console.log("search cat", searchCat);
         setSearchOptions([
             {
                 label: renderTitle(searchCat),
                 options: props.recipes.map((recipe: any) => {
-                    console.log("search terms", recipe[searchCat]);
                     return renderItem(recipe.title, recipe[searchCat]);
                 })
             }
         ]);
-    }, [searchCat]);
+    }, [searchCat, props.recipes]);
 
     return (
         <div
@@ -201,7 +138,6 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                 <Input size="large" placeholder="Search by recipe or ingredients" />
             </AutoComplete>
             <Row gutter={[16, 16]}>
-                {/* {props.recipes.filter(..).map} */}
 
                 {getFilteredRecipes().map((recipe: any, id: number) => {
                     return (
@@ -210,14 +146,6 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                     </Col>
                     );
                 })}
-
-                {/* {props.recipes.map((recipe: any, id: number) => {
-                    return (
-                    <Col span={6} onClick ={() => history.push(`/recipes/${id}`)} >
-                        <RecipeCard data={recipe}></RecipeCard>
-                    </Col>
-                    );
-                })} */}
             </Row>
         </div>
     )
