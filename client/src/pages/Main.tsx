@@ -122,6 +122,9 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
             </Dropdown>
 
             <Divider />
+            <Button type = "link" onClick = {() => setCheckedList([])}>
+                Reset Filters
+            </Button>
             <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
             
             <AutoComplete
