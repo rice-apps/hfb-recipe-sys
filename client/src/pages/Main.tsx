@@ -163,7 +163,7 @@ const Main = (props: any) => {
                 dropdownMatchSelectWidth={500}
                 options={searchOptions}
                 filterOption={true}
-                onSelect={(value) => history.push(`/recipes/${value[1]}`)}
+                onSelect={(value) => history.push(`/${value[1]}`)}
                 style={{
                     width: '100%',
                     padding: '15px'
@@ -174,7 +174,7 @@ const Main = (props: any) => {
             <Row gutter={[16, 16]}>
                 {props.recipes.map((recipe: any, id: number) => {
                     return (
-                    <Col span={8} onClick ={() => history.push(`/recipes/${id}`)} >
+                    <Col span={8} onClick ={() => history.push(`/${id}`)} >
                         <RecipeCard id={id} title={recipe.title} course={recipe.course} cuisine={recipe.cuisine} servings={recipe.servings} calories={recipe.calories} ingredients={recipe.ingredientList} instructions={recipe.instructions} image={recipe.photo}></RecipeCard>
                     </Col>
                     );

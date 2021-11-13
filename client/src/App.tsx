@@ -40,11 +40,11 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path={`/recipes/:id`}>
-            <Recipe recipes = {recipes}/>
-          </Route>
-          <Route path={`/recipes`}>
+          <Route path={`/`}>
             <Main recipes = {recipes}/>
+          </Route>
+          <Route path={`/:id`}>
+            <Recipe recipes = {recipes}/>
           </Route>
         </Switch>
       </div>
