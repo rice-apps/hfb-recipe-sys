@@ -48,7 +48,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     function getFilteredRecipes(): Array<RecipeData> {
 
         return props.recipes.filter(recipe => {
-            const tags = []
+            const tags: String[] = []
             if(recipe.glutenFree) {
                 tags.push("Gluten-Free");
             }
@@ -62,7 +62,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                 tags.push("Nut-Free");
             }
 
-            return tags.includes(checkedList.toString());
+            return checkedList.every(i => tags.includes(i));
 
         })
     }
