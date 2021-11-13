@@ -6,6 +6,7 @@ import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
 import { useParams, useHistory} from 'react-router-dom';
 import RecipeData from '../types/RecipeData';
+import '../style/Main.css'
 
 const Main = (props: { recipes: Array<RecipeData> }) => {
 
@@ -111,10 +112,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     }, [searchCat, props.recipes]);
 
     return (
-        <div
-        style={{
-            backgroundColor: "#EEEFF0",
-        }}>
+        <div>
             <Header title="Recipes" > </Header>
 
             <Divider />
@@ -144,17 +142,15 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
             >
                 <Input.Search size="large" placeholder="Search by recipe or ingredients" enterButton />
             </AutoComplete>
-            
-            <Row gutter={[16, 16]}>
-
+            <div className="recipeCardContainer">
                 {getFilteredRecipes().map((recipe: any, id: number) => {
                     return (
-                    <Col span={6} onClick ={() => history.push(`/recipes/${id}`)} >
-                        <RecipeCard data={recipe}></RecipeCard>
-                    </Col>
+                        <div className="recipeCard" onClick ={() => history.push(`/recipes/${id}`)}>
+                            <RecipeCard data={recipe}></RecipeCard>
+                        </div>
                     );
                 })}
-            </Row>
+            </div>
         </div>
     )
 }
