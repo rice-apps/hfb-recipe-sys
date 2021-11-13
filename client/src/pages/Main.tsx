@@ -5,7 +5,6 @@ import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
 import { useParams, useHistory} from 'react-router-dom';
 import RecipeData from '../types/RecipeData';
-import  Search from '../components/Search';
 
 const Main = (props: { recipes: Array<RecipeData> }) => {
 
@@ -46,27 +45,12 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     ),
 });
 
-  const [ filterOptions, setFilterOptions ] = useState([
-    {
-        label: renderTitle("Recipes"),
-        options: props.recipes.map((recipe: any) => { 
-            // Using the selected options only return the ones that fit
-            return renderItem(recipe.title, recipe[filterOptions]);
+    function getFilteredRecipes(): Array<RecipeData> {
+
+        return props.recipes.filter(recipe => {
+
         })
     }
-]);
-
-
-useEffect(() => {
-    setFilterOptions([
-        {
-            label: renderTitle(filterOptions),
-            options: props.recipes.map((recipe: any) => {
-                return renderItem(recipe.title, recipe[filterOptions]);
-            })
-        }
-    ]);
-}, [filterOptions]);
 
     const searchByMenu = (
         <Menu onClick={(e) => setSearchCat(e.key)}>
@@ -113,7 +97,7 @@ useEffect(() => {
                 return <p>{glutenFree ? 'True' : 'False'}</p>
             },
             filters:[
-                {text: 'Gluten-Free', value: true},
+                {text: 'True', value: true},
             ],
             onFilter:(value: any, record:any) => {
                 return record.glutenFree;
@@ -188,17 +172,12 @@ useEffect(() => {
         ]);
     }, [searchCat]);
 
-
     return (
         <div
         style={{
             backgroundColor: "#EEEFF0",
         }}>
             <Header title="Recipes" > </Header>
-            <Table 
-            columns={columns}
-            dataSource={dataSource}
-            />
             <Dropdown overlay={searchByMenu}>
                 <Button>
                     Search by: {searchCat}
@@ -222,13 +201,23 @@ useEffect(() => {
                 <Input size="large" placeholder="Search by recipe or ingredients" />
             </AutoComplete>
             <Row gutter={[16, 16]}>
-                {props.recipes.map((recipe: any, id: number) => {
+                {/* {props.recipes.filter(..).map} */}
+
+                {getFilteredRecipes().map((recipe: any, id: number) => {
                     return (
                     <Col span={6} onClick ={() => history.push(`/recipes/${id}`)} >
                         <RecipeCard data={recipe}></RecipeCard>
                     </Col>
                     );
                 })}
+
+                {/* {props.recipes.map((recipe: any, id: number) => {
+                    return (
+                    <Col span={6} onClick ={() => history.push(`/recipes/${id}`)} >
+                        <RecipeCard data={recipe}></RecipeCard>
+                    </Col>
+                    );
+                })} */}
             </Row>
         </div>
     )
