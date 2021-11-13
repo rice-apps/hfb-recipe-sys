@@ -48,6 +48,21 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     function getFilteredRecipes(): Array<RecipeData> {
 
         return props.recipes.filter(recipe => {
+            const tags = []
+            if(recipe.glutenFree) {
+                tags.push("Gluten-Free");
+            }
+            if(recipe.vegetarian) {
+                tags.push("Vegetarian");
+            }
+            if(recipe.vegan) {
+                tags.push("Vegan");
+            }
+            if(recipe.nutFree) {
+                tags.push("Nut-Free");
+            }
+
+            return tags.includes(checkedList.toString());
 
         })
     }
