@@ -9,7 +9,7 @@ import RecipeData from '../types/RecipeData';
 const Main = (props: { recipes: Array<RecipeData> }) => {
 
     const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free'];
-    const defaultCheckedList = [''];
+    const defaultCheckedList: string[] = [];
     const CheckboxGroup = Checkbox.Group;
 
 
@@ -61,6 +61,8 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                 tags.push("Nut-Free");
             }
 
+            console.log(checkedList)
+
             return checkedList.every(i => tags.includes(i));
 
         })
@@ -85,13 +87,6 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     );
 
     const options = ['Gluten-Free', 'Vegan', 'Vegetarian', 'Nut-Free']
-    const dataSource = props.recipes.map((recipe: any, id: number)  => {
-        return { 
-            ...recipe,
-            id: id
-        };
-    });
-
 
     const [ searchOptions, setSearchOptions ] = useState([
         {
@@ -102,6 +97,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
         }
     ]);
 
+    // Set search options
     useEffect(() => {
         setSearchOptions([
             {
@@ -111,7 +107,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                 })
             }
         ]);
-    }, [searchCat]);
+    }, [searchCat, props.recipes]);
 
     return (
         <div
