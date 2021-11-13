@@ -28,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy-frontend": "cd .. && git subtree push --prefix client heroku-frontend master && cd client"
   },
   "eslintConfig": {
     "extends": [
@@ -51,5 +52,9 @@
   "devDependencies": {
     "@types/react-router-dom": "^5.3.1",
     "@types/styled-components": "^5.1.15"
+  },
+  "engines": {
+    "node": "14.2.0",
+    "npm": "6.14.5"
   }
 }

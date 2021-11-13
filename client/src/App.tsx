@@ -17,9 +17,9 @@ function App() {
       console.log("APP TSX FETCH ERROR")
     });
   }, []);
-  
 
-  return (   
+
+  return (
     <Router>
       <div className="App">
         <Switch>
