@@ -5,6 +5,7 @@ import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
 import { useParams, useHistory} from 'react-router-dom';
 import RecipeData from '../types/RecipeData';
+import '../style/Main.css'
 
 const Main = (props: { recipes: Array<RecipeData> }) => {
     const history = useHistory();
@@ -144,10 +145,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     }, [searchCat]);
 
     return (
-        <div
-        style={{
-            backgroundColor: "#EEEFF0",
-        }}>
+        <div>
             <Header title="Recipes" > </Header>
             <Dropdown overlay={searchByMenu}>
                 <Button>
@@ -174,15 +172,16 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
             >
                 <Input size="large" placeholder="Search by recipe or ingredients" />
             </AutoComplete>
-            <Row gutter={[16, 16]}>
+
+            <div className="recipeCardContainer">
                 {props.recipes.map((recipe: any, id: number) => {
                     return (
-                    <Col span={6} onClick ={() => history.push(`/recipes/${id}`)} >
-                        <RecipeCard data={recipe}></RecipeCard>
-                    </Col>
+                        <div className="recipeCard" onClick ={() => history.push(`/recipes/${id}`)}>
+                            <RecipeCard data={recipe}></RecipeCard>
+                        </div>
                     );
                 })}
-            </Row>
+            </div>
         </div>
     )
 }
