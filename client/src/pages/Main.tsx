@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
-import { Row, Col, Input, AutoComplete, Dropdown, Button, Menu, Table, Checkbox, Divider } from 'antd';
+import { Row, Col, Input, AutoComplete, Dropdown, Button, Menu, Checkbox, Divider } from 'antd';
+import { SelectProps } from 'antd/es/select';
 import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
 import { useParams, useHistory} from 'react-router-dom';
@@ -115,18 +116,21 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
             backgroundColor: "#EEEFF0",
         }}>
             <Header title="Recipes" > </Header>
-            <Dropdown overlay={searchByMenu}>
-                <Button>
-                    Search by: {searchCat}
-                </Button>
-            </Dropdown>
 
             <Divider />
             <Button type = "link" onClick = {() => setCheckedList([])}>
                 Reset Filters
             </Button>
             <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
-            
+
+            <Divider />
+
+            <Dropdown overlay={searchByMenu}>
+                <Button type="primary">
+                    Search by: {searchCat}
+                </Button>
+            </Dropdown>
+
             <AutoComplete
                 dropdownClassName="certain-category-search-dropdown"
                 dropdownMatchSelectWidth={500}
@@ -134,12 +138,13 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                 filterOption={true}
                 onSelect={(value) => history.push(`/recipes/${value[1]}`)}
                 style={{
-                    width: '100%',
+                    width: '40%',
                     padding: '15px'
                 }}
             >
-                <Input size="large" placeholder="Search by recipe or ingredients" />
+                <Input.Search size="large" placeholder="Search by recipe or ingredients" enterButton />
             </AutoComplete>
+            
             <Row gutter={[16, 16]}>
 
                 {getFilteredRecipes().map((recipe: any, id: number) => {
