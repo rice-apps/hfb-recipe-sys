@@ -52,17 +52,13 @@ app.get('/recipes', (req, res) => {
         })
       }
     }))
-    // [{recipce1...}, {recipe2...}] => {id1: recipe, id2: recipe2}
-
     // Add recipe ID for routing
-    .then(recipes => {
-      recipesObj = {}
-      recipes.forEach(recipe => {
-        var id = recipe.title.replace(/ /g, '-').toLowerCase()
-        recipesObj[id] = recipe
-      })
-      return recipesObj
-    })
+    .then(recipes => recipes.map(recipe => { 
+      return {
+        ...recipe,
+        id: recipe.title.replace(/ /g, '-').toLowerCase()
+      }
+    }))
     // Send processed recipes to client
     .then(recipes => res.send(recipes));
 });
