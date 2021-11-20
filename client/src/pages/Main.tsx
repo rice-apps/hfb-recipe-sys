@@ -27,7 +27,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     setIndeterminate(!!list.length && list.length < plainOptions.length);
     setCheckAll(list.length === plainOptions.length);
 
-    
+
 
   };
 
@@ -36,7 +36,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
         {title}
     </span>
 )  ;
-    
+
     const renderItem = (title: string, searchTerms: any) => ({
     value: searchTerms,
     label: (
@@ -62,8 +62,6 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
             if(recipe.nutFree) {
                 tags.push("Nut-Free");
             }
-
-            console.log(checkedList)
 
             return checkedList.every(i => tags.includes(i));
 
@@ -93,7 +91,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     const [ searchOptions, setSearchOptions ] = useState([
         {
             label: renderTitle("Recipes"),
-            options: props.recipes.map((recipe: any) => { 
+            options: props.recipes.map((recipe: any) => {
                 return renderItem(recipe.title, recipe[searchCat]);
             })
         }
@@ -121,20 +119,12 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
             </Button>
             <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
 
-            <Divider />
-
-            <Dropdown overlay={searchByMenu}>
-                <Button type="primary">
-                    Search by: {searchCat}
-                </Button>
-            </Dropdown>
-
             <AutoComplete
                 dropdownClassName="certain-category-search-dropdown"
                 dropdownMatchSelectWidth={500}
                 options={searchOptions}
                 filterOption={true}
-                onSelect={(value) => history.push(`/recipes/${value[1]}`)}
+                onSelect={(value) => history.push(`/${value[1]}`)}
                 style={{
                     width: '40%',
                     padding: '15px'
@@ -145,7 +135,7 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
             <div className="recipeCardContainer">
                 {getFilteredRecipes().map((recipe: any, id: number) => {
                     return (
-                        <div className="recipeCard" onClick ={() => history.push(`/recipes/${id}`)}>
+                        <div className="recipeCard" onClick ={() => history.push(`/${id}`)}>
                             <RecipeCard data={recipe}></RecipeCard>
                         </div>
                     );
