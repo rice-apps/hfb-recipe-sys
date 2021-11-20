@@ -1,4 +1,5 @@
 export default interface RecipeData {
+  id: string,
   photo: string,
   title: string,
   course: Array<string>,
@@ -6,15 +7,11 @@ export default interface RecipeData {
   servings: number,
   calories: number,
   ingredientList: {
-    [index: number]: {
-        ingredient: string,
-        quantity: string,
-    }
-  },
+    ingredient: string,
+    quantity: string,
+  }[],
   instructions: string,
-  keywords: {
-    [index: number]: string,
-  },
+  keywords: string[],
   glutenFree: boolean,
   vegan: boolean,
   vegetarian: boolean,

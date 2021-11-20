@@ -4,19 +4,17 @@ import { Row, Col, Input, AutoComplete, Dropdown, Button, Menu, Table, Checkbox,
 import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
 import { useParams, useHistory} from 'react-router-dom';
-import RecipesObject from '../types/RecipesObject';
 import RecipeData from '../types/RecipeData';
-
 import '../style/Main.css'
 
-const Main = (props: { recipes: RecipesObject }) => {
+const Main = (props: { recipes: RecipeData[] }) => {
 
     const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free'];
     const defaultCheckedList: string[] = [];
     const CheckboxGroup = Checkbox.Group;
 
-
     const history = useHistory();
+    const [ searchCat, setSearchCat ] = useState("title");
 
     const [checkedList, setCheckedList] = React.useState(defaultCheckedList);
     const [indeterminate, setIndeterminate] = React.useState(true);
@@ -26,21 +24,26 @@ const Main = (props: { recipes: RecipesObject }) => {
     setCheckedList(list);
     setIndeterminate(!!list.length && list.length < plainOptions.length);
     setCheckAll(list.length === plainOptions.length);
-
-    
-
   };
 
-function filterObject(obj: any, callback: any) {
-    return Object.fromEntries(Object.entries(obj).filter(([key, val]) => callback(val)));
-}
+  const renderTitle = (title: string) => (
+    <span>
+        {title}
+    </span>
+)  ;
+    
+    const renderItem = (title: string, searchTerms: any) => ({
+    value: searchTerms,
+    label: (
+        <span>
+            {title}
+        </span>
+    ),
+});
 
-    function getFilteredRecipes(): { [k: string]: unknown; } {
-        if(props.recipes == {}) {
-            return {};
-        }
+    function getFilteredRecipes(): Array<RecipeData> {
 
-        return filterObject(props.recipes, (recipe: any) => {
+        return props.recipes.filter(recipe => {
             const tags: String[] = []
             if(recipe.glutenFree) {
                 tags.push("Gluten-Free");
@@ -58,12 +61,59 @@ function filterObject(obj: any, callback: any) {
             console.log(checkedList)
 
             return checkedList.every(i => tags.includes(i));
-        });
+
+        })
     }
+
+    const searchByMenu = (
+        <Menu onClick={(e) => setSearchCat(e.key)}>
+            <Menu.Item key="title">
+            Title
+            </Menu.Item>
+            <Menu.Item key="ingredients">
+            Ingredient
+            </Menu.Item>
+            <Menu.Item key="cuisine">
+            Cuisine
+            </Menu.Item>
+            <Menu.Item key="course">
+            Course
+            </Menu.Item>
+        </Menu>
+        // Doesn't actually go anywhere, need to add like a table or something
+    );
+
+    const options = ['Gluten-Free', 'Vegan', 'Vegetarian', 'Nut-Free']
+
+    const [ searchOptions, setSearchOptions ] = useState([
+        {
+            label: renderTitle("Recipes"),
+            options: props.recipes.map((recipe: any) => { 
+                return renderItem(recipe.title, recipe[searchCat]);
+            })
+        }
+    ]);
+
+    // Set search options
+    useEffect(() => {
+        setSearchOptions([
+            {
+                label: renderTitle(searchCat),
+                options: props.recipes.map((recipe: any) => {
+                    return renderItem(recipe.title, recipe[searchCat]);
+                })
+            }
+        ]);
+    }, [searchCat, props.recipes]);
 
     return (
         <div>
             <Header title="Recipes" > </Header>
+            <Dropdown overlay={searchByMenu}>
+                <Button>
+                    Search by: {searchCat}
+                </Button>
+            </Dropdown>
 
             <Divider />
             <Button type = "link" onClick = {() => setCheckedList([])}>
@@ -71,16 +121,27 @@ function filterObject(obj: any, callback: any) {
             </Button>
             <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
             
+            <AutoComplete
+                dropdownClassName="certain-category-search-dropdown"
+                dropdownMatchSelectWidth={500}
+                options={searchOptions}
+                filterOption={true}
+                onSelect={(value) => history.push(`/recipes/${value[1]}`)}
+                style={{
+                    width: '100%',
+                    padding: '15px'
+                }}
+            >
+                <Input size="large" placeholder="Search by recipe or ingredients" />
+            </AutoComplete>
             <div className="recipeCardContainer">
-                {
-                Object.keys(props.recipes).map((key: string) => {
+                {getFilteredRecipes().map(recipe => {
                     return (
-                        <div className="recipeCard" onClick ={() => history.push(`/recipes/${key}`)}>
-                            <RecipeCard data={props.recipes[key]}></RecipeCard>
+                        <div className="recipeCard" onClick ={() => history.push(`/recipes/${recipe.id}`)}>
+                            <RecipeCard data={recipe}></RecipeCard>
                         </div>
                     );
-                })
-            }
+                })}
             </div>
         </div>
     )

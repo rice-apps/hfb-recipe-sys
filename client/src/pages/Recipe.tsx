@@ -15,6 +15,8 @@ import { RestrictionTag } from '../components/RecipeCard';
 import 'semantic-ui-css/semantic.min.css'
 import { useHistory } from "react-router-dom";
 import { Icon } from 'semantic-ui-react'
+import RecipeData from '../types/RecipeData';
+import { preProcessFile } from 'typescript';
 
 
 
@@ -27,15 +29,17 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function Recipe(props: any) {
+export default function Recipe(props: {recipes: RecipeData[]}) {
     const { id } = useParams<{ id: string }>();
     const printComponentRef = useRef<HTMLDivElement>(null);
 
-    const recipe = (Object.keys(props.recipes).length > 0) ? props.recipes[id] : {};
+    const recipe = props.recipes.find(recipe => recipe.id === id)
 
     let history = useHistory();
 
     const renderDietaryRestrictions = () => {
+        if (!recipe) return null;
+
         var rest = [];
         if (recipe.glutenFree) {
             rest.push(
@@ -61,7 +65,7 @@ export default function Recipe(props: any) {
     }
 
 
-    return (
+    return ( recipe === undefined ? <></> :
         <>
             <div className="header_bar">
                 <header>
