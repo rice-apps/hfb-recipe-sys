@@ -5,9 +5,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './index.css';
 import { useState, useEffect } from 'react';
 import RecipeData from './types/RecipeData';
+import RecipesObject from './types/RecipesObject';
+
 
 function App() {
-  const [recipes, setRecipes] = useState<RecipeData[]>([])
+  const [recipes, setRecipes] = useState<RecipesObject>({});
 
   useEffect(() => {
     fetch("https://hfb-recipe-sys-api.herokuapp.com/recipes").then(

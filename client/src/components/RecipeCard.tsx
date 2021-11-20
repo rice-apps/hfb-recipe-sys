@@ -13,7 +13,7 @@ const CourseTag = (props: { text: string }) => {
     )
 }
 
-const RestrictionTag = (props: { color: string, icon: SemanticICONS }) => {
+export const RestrictionTag = (props: { color: string, icon: SemanticICONS }) => {
     return (
         <div
         style={{
