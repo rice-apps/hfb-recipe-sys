@@ -6,8 +6,9 @@ import './index.css';
 import { useState, useEffect } from 'react';
 import RecipeData from './types/RecipeData';
 
+
 function App() {
-  const [recipes, setRecipes] = useState<RecipeData[]>([])
+  const [recipes, setRecipes] = useState<RecipeData[]>([]);
 
   useEffect(() => {
     fetch("https://hfb-recipe-sys-api.herokuapp.com/recipes").then(

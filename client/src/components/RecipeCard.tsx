@@ -13,7 +13,7 @@ const CourseTag = (props: { text: string }) => {
     )
 }
 
-const RestrictionTag = (props: { color: string, icon: SemanticICONS }) => {
+export const RestrictionTag = (props: { color: string, icon: SemanticICONS }) => {
     return (
         <div
         style={{
@@ -53,7 +53,7 @@ export const RecipeCard = (props: { data: RecipeData }) => {
             <img src={props.data.photo} className="recipePhoto" />
             <div className="recipeCardInfo">
                 <div className="courseTags">
-                    <h3>{props.data.title}</h3>
+                    <h4>{props.data.title}</h4>
                     <Row
                     style={{
                         marginBottom: "10px",
@@ -61,7 +61,7 @@ export const RecipeCard = (props: { data: RecipeData }) => {
                     gutter={[8, 8]}>
                         {props.data.course.map((c: string) => {
                             return (
-                                <Col xs={24} xl={8}>
+                                <Col span={8}>
                                     <CourseTag text={c} />
                                 </Col>
                             );

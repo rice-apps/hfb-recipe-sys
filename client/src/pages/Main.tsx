@@ -8,12 +8,11 @@ import { useParams, useHistory} from 'react-router-dom';
 import RecipeData from '../types/RecipeData';
 import '../style/Main.css'
 
-const Main = (props: { recipes: Array<RecipeData> }) => {
+const Main = (props: { recipes: RecipeData[] }) => {
 
     const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free'];
     const defaultCheckedList: string[] = [];
     const CheckboxGroup = Checkbox.Group;
-
 
     const history = useHistory();
     const [ searchCat, setSearchCat ] = useState("title");
@@ -26,9 +25,6 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     setCheckedList(list);
     setIndeterminate(!!list.length && list.length < plainOptions.length);
     setCheckAll(list.length === plainOptions.length);
-
-
-
   };
 
   const renderTitle = (title: string) => (
@@ -133,9 +129,9 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                 <Input.Search size="large" placeholder="Search by recipe or ingredients" enterButton />
             </AutoComplete>
             <div className="recipeCardContainer">
-                {getFilteredRecipes().map((recipe: any, id: number) => {
+                {getFilteredRecipes().map(recipe => {
                     return (
-                        <div className="recipeCard" onClick ={() => history.push(`/${id}`)}>
+                        <div className="recipeCard" onClick ={() => history.push(`/${recipe.id}`)}>
                             <RecipeCard data={recipe}></RecipeCard>
                         </div>
                     );
