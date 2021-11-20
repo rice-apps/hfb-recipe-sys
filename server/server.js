@@ -63,12 +63,6 @@ app.get('/recipes', (req, res) => {
       })
       return recipesObj
     })
-    // .then(recipes => recipes.map(recipe => { 
-    //   return {
-    //     ...recipe,
-    //     id: recipe.title.replace(/ /g, '-').toLowerCase()
-    //   }
-    // }))
     // Send processed recipes to client
     .then(recipes => res.send(recipes));
 });
