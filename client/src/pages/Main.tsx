@@ -172,7 +172,6 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
             >
                 <Input size="large" placeholder="Search by recipe or ingredients" />
             </AutoComplete>
-
             <div className="recipeCardContainer">
                 {props.recipes.map((recipe: any, id: number) => {
                     return (
