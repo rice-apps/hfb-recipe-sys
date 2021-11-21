@@ -1,11 +1,6 @@
 @font-face {
   font-family: "FuturaMedium";
-  font-style: normal;
   src: url("./fonts/FuturaMedium.ttf") format("truetype");
-}
-
-html {
-  background-color: #EEEFF0;
 }
 
 body {
@@ -15,7 +10,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 1%;
 }
 
 code {

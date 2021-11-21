@@ -1,165 +1,102 @@
-import React, { useState, useEffect } from 'react';
-import 'antd/dist/antd.css';
-import { Row, Col, Input, AutoComplete, Dropdown, Button, Menu, Checkbox, Divider } from 'antd';
-import { SelectProps } from 'antd/es/select';
+import React, { useState, ChangeEvent } from 'react';
+import { Input, Button, Checkbox, Divider } from 'antd';
 import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
-import { useParams, useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import RecipeData from '../types/RecipeData';
 import '../style/Main.css'
+import { CheckboxValueType } from 'antd/lib/checkbox/Group';
 
-const Main = (props: { recipes: Array<RecipeData> }) => {
+import '../style/Main.css'
 
-    const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free'];
-    const defaultCheckedList: string[] = [];
-    const CheckboxGroup = Checkbox.Group;
+function Main(props: { recipes: RecipeData[] }) {
+  const history = useHistory();
+  const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
+  const [searchString, setSearchString] = useState('');
 
+  const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free'];
+  const CheckboxGroup = Checkbox.Group;
 
-    const history = useHistory();
-    const [ searchCat, setSearchCat ] = useState("title");
-
-    //used in getSearchedRecipes 
-    const [searchTerm, setSearchTerm] = useState("");
-
-    const [checkedList, setCheckedList] = React.useState(defaultCheckedList);
-    const [indeterminate, setIndeterminate] = React.useState(true);
-    const [checkAll, setCheckAll] = React.useState(false);
-
-  const onChange = (list: any) => {
-    setCheckedList(list);
-    setIndeterminate(!!list.length && list.length < plainOptions.length);
-    setCheckAll(list.length === plainOptions.length);
-
-
-
+  /**
+   * Saves the new filter state
+   */
+  function onFilterChange(list: CheckboxValueType[]) {
+    setCheckedFilters(list as string[]);
   };
 
-  const renderTitle = (title: string) => (
-    <span>
-        {title}
-    </span>
-)  ;
+  /**
+   * Saves the new search state
+   */
+   function onSearchChange(event: ChangeEvent<HTMLInputElement>) {
+    setSearchString(event.target.value);
+  };
 
-    const renderItem = (title: string, searchTerms: any) => ({
-    value: searchTerms,
-    label: (
-        <span>
-            {title}
-        </span>
-    ),
-});
+  /**
+   * Returns the recipes after applying the filters (e.g. vegetarian, gluten-free, ...)
+   */
+  function getFilteredRecipes(recipes: RecipeData[]): RecipeData[] {
+    return recipes.filter(recipe => {
+      const tags: String[] = []
+      if (recipe.glutenFree) {
+        tags.push("Gluten-Free");
+      }
+      if (recipe.vegetarian) {
+        tags.push("Vegetarian");
+      }
+      if (recipe.vegan) {
+        tags.push("Vegan");
+      }
+      if (recipe.nutFree) {
+        tags.push("Nut-Free");
+      }
+      return checkedFilters.every(i => tags.includes(i));
+    })
+  }
 
-    function getFilteredRecipes(recipes: Array<RecipeData>): Array<RecipeData> {
-
-        return recipes.filter(recipe => {
-            const tags: String[] = []
-            if(recipe.glutenFree) {
-                tags.push("Gluten-Free");
-            }
-            if(recipe.vegetarian) {
-                tags.push("Vegetarian");
-            }
-            if(recipe.vegan) {
-                tags.push("Vegan");
-            }
-            if(recipe.nutFree) {
-                tags.push("Nut-Free");
-            }
-
-            return checkedList.every(i => tags.includes(i));
-
-        })
-    }
-
-    function getSearchedRecipes(recipes: Array<RecipeData>, term: string): Array<RecipeData> {
-        const searchedRecipes: Array<RecipeData> = [];
-        //filter by term
-        recipes.filter(recipe => {
-            if (recipe.title.toLowerCase().includes(term.toLowerCase())){
-                searchedRecipes.push(recipe);
-            }
-        })
-        return searchedRecipes;
-    }
-
-
-    const searchByMenu = (
-        <Menu onClick={(e) => setSearchCat(e.key)}>
-            <Menu.Item key="title">
-            Title
-            </Menu.Item>
-            <Menu.Item key="ingredients">
-            Ingredient
-            </Menu.Item>
-            <Menu.Item key="cuisine">
-            Cuisine
-            </Menu.Item>
-            <Menu.Item key="course">
-            Course
-            </Menu.Item>
-        </Menu>
-        // Doesn't actually go anywhere, need to add like a table or something
-    );
-
-    const options = ['Gluten-Free', 'Vegan', 'Vegetarian', 'Nut-Free']
-
-    const [ searchOptions, setSearchOptions ] = useState([
-        {
-            label: renderTitle("Recipes"),
-            options: props.recipes.map((recipe: any) => {
-                return renderItem(recipe.title, recipe[searchCat]);
-            })
-        }
-    ]);
-
-    // Set search options
-    useEffect(() => {
-        setSearchOptions([
-            {
-                label: renderTitle(searchCat),
-                options: props.recipes.map((recipe: any) => {
-                    return renderItem(recipe.title, recipe[searchCat]);
-                })
-            }
-        ]);
-    }, [searchCat, props.recipes]);
-
-    return (
-        <div>
-            <Header title="Recipes" > </Header>
-
-            <Divider />
-            <Button type = "link" onClick = {() => setCheckedList([])}>
-                Reset Filters
-            </Button>
-            <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
-
-            <AutoComplete
-                dropdownClassName="certain-category-search-dropdown"
-                dropdownMatchSelectWidth={500}
-                options={searchOptions}
-                filterOption={true}
-                onSelect={(value) => history.push(`/${value[1]}`)}
-                style={{
-                    width: '40%',
-                    padding: '15px'
-                }}
-            >
-                <Input.Search size="large" placeholder="Search by recipe or ingredients" enterButton 
-                                onChange={(e) => {setSearchTerm(e.target.value)}}/>
-            </AutoComplete>
-            <div className="recipeCardContainer">
-                {/* runs search and filter in series, with parameter search term */}
-                {getSearchedRecipes(getFilteredRecipes(props.recipes), searchTerm).map((recipe: any, id: number) => {
-                    return (
-                        <div className="recipeCard" onClick ={() => history.push(`/${id}`)}>
-                            <RecipeCard data={recipe}></RecipeCard>
-                        </div>
-                    );
-                })}
-            </div>
-        </div>
+ /**
+  * Returns the recipes after applying the search query
+  */
+  function getSearchedRecipes(recipes: RecipeData[]): RecipeData[] {
+    if (searchString === "") return recipes;
+    // Perform a case-insensitive search
+    let query = searchString.toLowerCase();
+    // Check both title and ingredient list for search string
+    return recipes.filter(recipe =>
+      recipe.title.toLowerCase().includes(query) || 
+        recipe.ingredientList.some(ingredient => ingredient.ingredient.toLowerCase().includes(query))
     )
+  }
+
+  /**
+   * Returns the recipes to display (after applying the filter and search query)
+   */
+  function getRecipesToDisplay() {
+    return getSearchedRecipes(getFilteredRecipes(props.recipes))
+  }
+
+  return (
+    <div>
+      <Header title="Recipes" > </Header>
+
+      <Divider />
+      <Button type="link" onClick={() => setCheckedFilters([])}>
+        Reset Filters
+      </Button>
+      <CheckboxGroup options={plainOptions} value={checkedFilters} onChange={onFilterChange} />
+
+      <Input.Search size="large" placeholder="Search by recipe or ingredients" enterButton onChange={onSearchChange}/>
+
+      <div className="recipeCardContainer">
+        {getRecipesToDisplay().map(recipe => {
+          return (
+            <div className="recipeCard" onClick={() => history.push(`/${recipe.id}`)} key={recipe.id}>
+              <RecipeCard data={recipe}/>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  )
 }
 
-export default Main
+export default Main;
