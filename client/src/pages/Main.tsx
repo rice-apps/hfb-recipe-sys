@@ -18,6 +18,9 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     const history = useHistory();
     const [ searchCat, setSearchCat ] = useState("title");
 
+    //used in getSearchedRecipes 
+    const [searchTerm, setSearchTerm] = useState("");
+
     const [checkedList, setCheckedList] = React.useState(defaultCheckedList);
     const [indeterminate, setIndeterminate] = React.useState(true);
     const [checkAll, setCheckAll] = React.useState(false);
@@ -46,9 +49,9 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
     ),
 });
 
-    function getFilteredRecipes(): Array<RecipeData> {
+    function getFilteredRecipes(recipes: Array<RecipeData>): Array<RecipeData> {
 
-        return props.recipes.filter(recipe => {
+        return recipes.filter(recipe => {
             const tags: String[] = []
             if(recipe.glutenFree) {
                 tags.push("Gluten-Free");
@@ -67,6 +70,18 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
 
         })
     }
+
+    function getSearchedRecipes(recipes: Array<RecipeData>, term: string): Array<RecipeData> {
+        const searchedRecipes: Array<RecipeData> = [];
+        //filter by term
+        recipes.filter(recipe => {
+            if (recipe.title.toLowerCase().includes(term.toLowerCase())){
+                searchedRecipes.push(recipe);
+            }
+        })
+        return searchedRecipes;
+    }
+
 
     const searchByMenu = (
         <Menu onClick={(e) => setSearchCat(e.key)}>
@@ -130,10 +145,12 @@ const Main = (props: { recipes: Array<RecipeData> }) => {
                     padding: '15px'
                 }}
             >
-                <Input.Search size="large" placeholder="Search by recipe or ingredients" enterButton />
+                <Input.Search size="large" placeholder="Search by recipe or ingredients" enterButton 
+                                onChange={(e) => {setSearchTerm(e.target.value)}}/>
             </AutoComplete>
             <div className="recipeCardContainer">
-                {getFilteredRecipes().map((recipe: any, id: number) => {
+                {/* runs search and filter in series, with parameter search term */}
+                {getSearchedRecipes(getFilteredRecipes(props.recipes), searchTerm).map((recipe: any, id: number) => {
                     return (
                         <div className="recipeCard" onClick ={() => history.push(`/${id}`)}>
                             <RecipeCard data={recipe}></RecipeCard>
