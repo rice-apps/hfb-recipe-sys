@@ -5,8 +5,8 @@ import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
 import { useHistory } from 'react-router-dom';
 import RecipeData from '../types/RecipeData';
-import '../style/Main.css'
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
+
 import '../style/Main.css'
 
 function Main(props: { recipes: RecipeData[] }) {
@@ -100,15 +100,17 @@ function Main(props: { recipes: RecipeData[] }) {
                 {filterIcon}
                 <h1 style={{"marginBottom": "20px", "marginLeft": "10px"}}>Filter Results</h1>
             </div>
-            <div className="filterMiddle">
-                <Button type="link" onClick={() => setCheckedFilters([])}>
+            <div className="checkboxTitle">
+              <p>DIETARY RESTRICTIONS</p>
+            </div>
+
+            <div className="checkboxContainer">
+              <CheckboxGroup options={plainOptions} value={checkedFilters} onChange={onFilterChange} />
+            </div>
+            <div className="filterBottom">
+                <Button type="default" onClick={() => setCheckedFilters([])}>
                     Reset Filters
                 </Button>
-
-                <p style={{"marginLeft": "15px", "color": "grey"}}>DIETARY RESTRICTIONS</p>
-            </div>
-            <div className="checkboxContainer">
-                <CheckboxGroup options={plainOptions} value={checkedFilters} onChange={onFilterChange} />
             </div>
           </div>
           <div className="searchContainer">
