@@ -1,12 +1,12 @@
 import React, { useState, ChangeEvent } from 'react';
 import { Input, Button, Checkbox, Divider } from 'antd';
+import { SearchOutlined, FilterOutlined} from "@ant-design/icons";
 import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
 import { useHistory } from 'react-router-dom';
 import RecipeData from '../types/RecipeData';
 import '../style/Main.css'
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
-
 import '../style/Main.css'
 
 function Main(props: { recipes: RecipeData[] }) {
@@ -16,6 +16,14 @@ function Main(props: { recipes: RecipeData[] }) {
 
   const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free'];
   const CheckboxGroup = Checkbox.Group;
+
+  //icons for search bar
+  const searchIcon = <SearchOutlined />;
+  const searchSuffix = <span />
+
+  //icons for filter bar
+    //change later, since figma icon is not available on antD
+  const filterIcon = <FilterOutlined style={{"fontSize": "40px"}}/>;
 
   /**
    * Saves the new filter state
@@ -76,25 +84,45 @@ function Main(props: { recipes: RecipeData[] }) {
 
   return (
     <div>
-      <Header title="Recipes" > </Header>
+        <div className="titleContainer">
+            <Header title="Recipes" > </Header>
 
-      <Divider />
-      <Button type="link" onClick={() => setCheckedFilters([])}>
-        Reset Filters
-      </Button>
-      <CheckboxGroup options={plainOptions} value={checkedFilters} onChange={onFilterChange} />
+            {/* styling only works for inline css */}
+            <Input style={{"border": "solid", "borderWidth": "0px", "borderRadius": "30px", "height": "50px", "width": "70%", "marginTop": "20px"}}
+                            prefix={searchIcon} allowClear={true}
+                            size="large" placeholder="Search by recipe or ingredients" 
+                            onChange={onSearchChange}/>
+        </div>
 
-      <Input.Search size="large" placeholder="Search by recipe or ingredients" enterButton onChange={onSearchChange}/>
-
-      <div className="recipeCardContainer">
-        {getRecipesToDisplay().map(recipe => {
-          return (
-            <div className="recipeCard" onClick={() => history.push(`/${recipe.id}`)} key={recipe.id}>
-              <RecipeCard data={recipe}/>
+        <div className="bottomContainer">
+          <div className="filterContainer">
+            <div className="filterTitle">
+                {filterIcon}
+                <h1 style={{"marginBottom": "20px", "marginLeft": "10px"}}>Filter Results</h1>
             </div>
-          );
-        })}
-      </div>
+            <div className="filterMiddle">
+                <Button type="link" onClick={() => setCheckedFilters([])}>
+                    Reset Filters
+                </Button>
+
+                <p style={{"marginLeft": "15px"}}>DIETARY RESTRICTIONS</p>
+            </div>
+            
+            <CheckboxGroup options={plainOptions} value={checkedFilters} onChange={onFilterChange} />
+          </div>
+          <div className="searchContainer">
+
+            <div className="recipeCardContainer">
+                {getRecipesToDisplay().map(recipe => {
+                return (
+                    <div className="recipeCard" onClick={() => history.push(`/${recipe.id}`)} key={recipe.id}>
+                    <RecipeCard data={recipe}/>
+                    </div>
+                );
+                })}
+            </div>
+          </div>
+        </div>
     </div>
   )
 }

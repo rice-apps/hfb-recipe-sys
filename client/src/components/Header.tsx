@@ -9,8 +9,9 @@ const Heading = styled.h1`
     font-style: system;
     font-size: 5vh;
     line-height: 5vh;
-    padding: 40px 0px 0px 0px;
+    color: white;
 `;
+//padding: 40px 0px 0px 0px;
 
 const Header = (props: {title: string, children: any}) => {
     return (

@@ -1,3 +1,16 @@
+.titleContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #7EAF53;
+
+  height: 225px;
+
+
+}
+
 .recipeCardContainer {
   display: flex;
   flex-flow: row wrap;
@@ -5,9 +18,38 @@
 }
 
 .recipeCard {
-  width: 360px;
+  /* was 360 */
+  width: 300px;
   padding: 1%;
 }
 .recipeCard:hover {
   cursor: pointer;
+}
+
+.bottomContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.filterContainer{
+  width: 550px;
+}
+.filterTitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.filterMiddle{
+  margin-left: 10%;
+  margin-right: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100px;
+  justify-content: space-between;
 }
