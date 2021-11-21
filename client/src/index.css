@@ -3,10 +3,6 @@
   src: url("./fonts/FuturaMedium.ttf") format("truetype");
 }
 
-html {
-  background-color: #EEEFF0;
-}
-
 body {
   margin: 0;
   font-family: "Futura", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

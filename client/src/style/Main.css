@@ -1,12 +1,13 @@
 .recipeCardContainer {
-    display: flex;
-    flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
+  background-color: #f0f0f0;
 }
 
 .recipeCard {
-    width: 360px;
-    padding: 1%;
+  width: 360px;
+  padding: 1%;
 }
 .recipeCard:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
