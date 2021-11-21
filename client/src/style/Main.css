@@ -32,7 +32,10 @@
 }
 
 .filterContainer{
-  width: 550px;
+  width: 25%;
+}
+.searchContainer{
+  width: 75%;
 }
 .filterTitle{
   display: flex;
@@ -53,3 +56,11 @@
   height: 100px;
   justify-content: space-between;
 }
+.checkboxContainer{
+  margin-left: 15%;
+  margin-top: 10px;
+  width: 150px;
+
+  color: grey;
+}
+

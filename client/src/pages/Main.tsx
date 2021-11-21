@@ -105,10 +105,11 @@ function Main(props: { recipes: RecipeData[] }) {
                     Reset Filters
                 </Button>
 
-                <p style={{"marginLeft": "15px"}}>DIETARY RESTRICTIONS</p>
+                <p style={{"marginLeft": "15px", "color": "grey"}}>DIETARY RESTRICTIONS</p>
             </div>
-            
-            <CheckboxGroup options={plainOptions} value={checkedFilters} onChange={onFilterChange} />
+            <div className="checkboxContainer">
+                <CheckboxGroup options={plainOptions} value={checkedFilters} onChange={onFilterChange} />
+            </div>
           </div>
           <div className="searchContainer">
 
