@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { Input, Button, Checkbox, Divider } from 'antd';
 import { RecipeCard } from '../components/RecipeCard';
 import Header from '../components/Header';
@@ -11,6 +11,7 @@ import '../style/Main.css'
 function Main(props: { recipes: RecipeData[] }) {
   const history = useHistory();
   const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
+  const [searchString, setSearchString] = useState('');
 
   const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free'];
   const CheckboxGroup = Checkbox.Group;
@@ -20,6 +21,13 @@ function Main(props: { recipes: RecipeData[] }) {
    */
   function onFilterChange(list: CheckboxValueType[]) {
     setCheckedFilters(list as string[]);
+  };
+
+  /**
+   * Saves the new search state
+   */
+   function onSearchChange(event: ChangeEvent<HTMLInputElement>) {
+    setSearchString(event.target.value);
   };
 
   /**
@@ -44,11 +52,25 @@ function Main(props: { recipes: RecipeData[] }) {
     })
   }
 
+ /**
+  * Returns the recipes after applying the search query
+  */
+  function getSearchedRecipes(recipes: RecipeData[]): RecipeData[] {
+    if (searchString === "") return recipes;
+    // Perform a case-insensitive search
+    let query = searchString.toLowerCase();
+    // Check both title and ingredient list for search string
+    return recipes.filter(recipe =>
+      recipe.title.toLowerCase().includes(query) || 
+        recipe.ingredientList.some(ingredient => ingredient.ingredient.toLowerCase().includes(query))
+    )
+  }
+
   /**
    * Returns the recipes to display (after applying the filter and search query)
    */
   function getRecipesToDisplay() {
-    return getFilteredRecipes(props.recipes)
+    return getSearchedRecipes(getFilteredRecipes(props.recipes))
   }
 
   return (
@@ -61,7 +83,7 @@ function Main(props: { recipes: RecipeData[] }) {
       </Button>
       <CheckboxGroup options={plainOptions} value={checkedFilters} onChange={onFilterChange} />
 
-      <Input.Search size="large" placeholder="Search by recipe or ingredients" enterButton />
+      <Input.Search size="large" placeholder="Search by recipe or ingredients" enterButton onChange={onSearchChange}/>
 
       <div className="recipeCardContainer">
         {getRecipesToDisplay().map(recipe => {
