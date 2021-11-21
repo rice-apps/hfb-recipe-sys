@@ -1,6 +1,8 @@
 /* Style the header */
 header {
   background-color: #7eaf53;
+  padding: 30px;
+  margin: 0px;
 }
 
 .name_header {
