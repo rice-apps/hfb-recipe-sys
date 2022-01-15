@@ -7,175 +7,209 @@ import ReactToPrint from "react-to-print";
 
 import { RestrictionTag } from '../main/RecipeCard';
 import RecipeData from '../../types/RecipeData';
+import { preProcessFile } from 'typescript';
 
-import '../../style/Recipe.css';
+const { Text } = Typography;
 
+const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+}));
 
-function RecipePage(props: { recipes: RecipeData[] }) {
-  const { id } = useParams<{ id: string }>();
-  const printComponentRef = useRef<HTMLDivElement>(null);
+/*
+    Props are the list of recipes 
+*/
+export default function Recipe(props: {recipes: RecipeData[]}) {
+    //Get the ID from the URL for this specific recipe
+    const { id } = useParams<{ id: string }>();
+    //Define the reference to the printable component 
+    const printComponentRef = useRef<HTMLDivElement>(null);
 
-  const recipe = props.recipes.find(recipe => recipe.id === id)
+    //Set the recipe to be the one in the List with the ID from the URL
+    const recipe = props.recipes.find(recipe => recipe.id === id)
 
-  let history = useHistory();
+    //All us to have a back button
+    let history = useHistory();
 
-  function renderDietaryRestrictions() {
-    if (!recipe) return null;
+    //Function to render the 4 dietary restriction tags 
+    const renderDietaryRestrictions = () => {
+        if (!recipe) return null;
 
-    var rest = [];
-    if (recipe.glutenFree) {
-      rest.push(
-        <div className="restTag" key={0}>
-          <span style={{ color: "#F1C94D" }}>Gluten-free</span>
-          <RestrictionTag color="#F1C94D" icon="leaf" />
-        </div>);
-    }
-    if (recipe.vegan) {
-      rest.push(<RestrictionTag color="#3E833D" icon="leaf" key={1}/>);
-    }
-    if (recipe.vegetarian) {
-      rest.push(<RestrictionTag color="#7EAF53" icon="leaf" key={2}/>);
-    }
-    if (recipe.nutFree) {
-      rest.push(<RestrictionTag color="#CD5237" icon="leaf" key={3}/>);
-    }
-    return (
-      <div className="recipeRestTagContainer">
-        {rest}
-      </div>
-    );
-  }
-
-
-  return (recipe === undefined ? <></> :
-    <>
-      <div className="header_bar">
-        <header>
-
-          <Row className="top_row">
-            <Col className="gutter-row" flex={1} onClick={() => history.goBack()}>
-              <Icon name='angle left' className="back_button" size="large" inverted />
-            </Col>
-            <Col className="gutter-row" flex={20}>
-              <div className="name_header">{recipe.title}</div>
-            </Col>
-            <Col className="gutter-row" flex={1}>
-
-            </Col>
-          </Row>
-
-          <Row gutter={8} className="info_row" justify="center">
-            <Col className="gutter-row" span={3} >
-              <div className="detail_header" >Cusine</div>
-              <div className="information_header">{recipe.cuisine}</div>
-            </Col>
-            <Col>
-              <div className="vl"></div>
-            </Col>
-            <Col className="gutter-row" span={3}>
-              <div className="detail_header" >Serving Size</div>
-              <div className="information_header">{recipe.servings}</div>
-
-            </Col>
-            <Col>
-              <div className="vl"></div>
-            </Col>
-            <Col className="gutter-row" span={3}>
-
-              <div className="detail_header" >Calories</div>
-              <div className="information_header">{recipe.calories}</div>
-            </Col>
-            <Col className="gutter-row" span={3}>
-              <ReactToPrint
-                trigger={() =>
-                  <div className="print_button">
-                    <Icon name='print' size='large' color='green' />
-                    <span className="print_text">Print Recipe</span>
-                  </div>
-                }
-                content={() => printComponentRef.current}
-                documentTitle="AwesomeFileName"
-              />
-            </Col>
-          </Row>
-        </header>
-      </div>
-
-      <div className="recipeDataContainer">
-        <div className="ingrPhotoContainer">
-          <div className="ingrContainer">
-            <div className="ingrRestContainer">
-              <div className="restrictions">
-                {renderDietaryRestrictions()}
-              </div>
-              <div className="ingredients">
-                <h2>Ingredients</h2>
-                <ul className="ingredientsList">
-                  {recipe.ingredientList && recipe.ingredientList.map((ingredient, idx) => {
-                    return (
-                      <li key={idx}>{ingredient.quantity} {ingredient.ingredient}</li>
-                    );
-                  })}
-                </ul>
-              </div>
+        var rest = [];
+        if (recipe.glutenFree) {
+            rest.push(
+                <div className="restTag">
+                    <span style={{ color: "#F1C94D" }}>Gluten-free</span>
+                    <RestrictionTag color="#F1C94D" icon="leaf" />
+                </div>);
+        }
+        if (recipe.vegan) {
+            rest.push(<RestrictionTag color="#3E833D" icon="leaf" />);
+        }
+        if (recipe.vegetarian) {
+            rest.push(<RestrictionTag color="#7EAF53" icon="leaf" />);
+        }
+        if (recipe.nutFree) {
+            rest.push(<RestrictionTag color="#CD5237" icon="leaf" />);
+        }
+        return (
+            <div className="recipeRestTagContainer">
+                {rest}
             </div>
-          </div>
-          <div className="photoContainer">
-            <img src={recipe.photo} className="image" alt="Recipe"/>
-          </div>
-        </div>
-      </div>
-      <div className="instructionsContainer">
-        <h2>Instructions</h2>
-        {recipe.instructions && recipe.instructions.split("\n").map((instr, idx) => {
-          return (
-            <p key={idx}>{instr}</p>
-          );
-        })}
-      </div>
+        );
+    }
 
-      <div style={{ display: "none" }}>
-        <div ref={printComponentRef}>
-          <div style={{ height: "50vh", width: "95vw" }}>
-            <h1>{recipe.title}</h1>
-            <Row gutter={[8, 16]}>
+    //Main Rendered component checks if the recipes have been found before loading anything
+    return ( recipe === undefined ? <></> :
+        <>
 
-              <Col span={8} flex={"flex"} style={{ height: "40vh", width: "95vw" }}> <h2>Ingredients</h2>
-                {recipe.ingredientList && recipe.ingredientList.map((ingredient, idx) => {
-                  return (
-                    <p style={{ margin: "2mm" }} key={idx}> - {ingredient.quantity} {ingredient.ingredient}</p>
-                  );
-                })}</Col>
-              <Col span={16} flex={"flex"} style={{ height: "40vh", width: "95vw" }}> <h2>Instructions</h2>
-                {recipe.instructions && recipe.instructions.split("\n").map((instr, idx) => {
-                  return (
-                    <p key={idx}>{instr}</p>
-                  );
-                })}  </Col>
-            </Row>
-          </div>
+            <div className="header_bar">
+                <header>
+                    {/* forms the green header bar seen*/}
+                    <Row className="top_row">
+                        {/* Go back button using the Icons from semantic UI*/}
+                        <Col className="gutter-row" flex={1} onClick={() => history.goBack()}>
+                            <Icon name='angle left' className="back_button" size="large" inverted />
+                        </Col>
+                        <Col className="gutter-row" flex={20}>
+                            {/* Main title*/}
+                            <div className="name_header">{recipe.title}</div>
+                        </Col>
+                        <Col className="gutter-row" flex={1}>
 
-          <hr></hr>
-          <div style={{ height: "50vh", width: "95vw" }}>
-            <h1>{recipe.title}</h1>
-            <Row gutter={[8, 16]}>
+                        </Col>
+                    </Row>
+                        {/* Sub information to title on the next row underneath */}
+ 
+                    <Row gutter={8} className="info_row" justify="center">
+                        <Col className="gutter-row" span={3} >
+                             {/* Cusine Type */}
+                            <div className="detail_header" >Cusine</div>
+                            <div className="information_header">{recipe.cuisine}</div>
+                        </Col>
+                        <Col>
+                             {/* Bar */}
+                            <div className="vl"></div>
+                        </Col>
+                        <Col className="gutter-row" span={3}>
+                             {/* Serving Size */}
+                            <div className="detail_header" >Serving Size</div>
+                            <div className="information_header">{recipe.servings}</div>
 
-              <Col span={8} flex={"flex"} style={{ height: "40vh", width: "95vw" }}> <h2>Ingredients</h2>
-                {recipe.ingredientList && recipe.ingredientList.map((ingredient, idx) => {
-                  return (
-                    <p style={{ margin: "2mm" }} key={idx}> - {ingredient.quantity} {ingredient.ingredient}</p>
-                  );
-                })}</Col>
-              <Col span={16} flex={"flex"} style={{ height: "40vh", width: "95vw" }}> <h2>Instructions</h2>
-                {recipe.instructions && recipe.instructions.split("\n").map((instr, idx) => {
-                  return (
-                    <p key={idx}>{instr}</p>
-                  );
-                })}  </Col>
-            </Row>
-          </div>
-        </div>
-      </div>
+                        </Col>
+                        <Col>
+                         {/* Bar */}
+                            <div className="vl"></div>
+                        </Col>
+                        <Col className="gutter-row" span={3}>
+                             {/* Calories  */}
+                            <div className="detail_header" >Calories</div>
+                            <div className="information_header">{recipe.calories}</div>
+                        </Col>
+                        <Col className="gutter-row" span={3}>
+                             {/* Print Button */}
+                            <ReactToPrint
+                                trigger={() =>
+                                    <div className="print_button">                <Icon name='print' size='large' color='green' />
+                                        <text className="print_text">Print Recipe</text></div>
+                                }
+                                content={() => printComponentRef.current}
+                                documentTitle="AwesomeFileName"
+                            />
+                             {/* Prints from the print div below*/}
+
+                        </Col>
+                    </Row>
+                </header>
+            </div>
+
+            <div className="recipeDataContainer">
+                <div className="ingrPhotoContainer">
+                    <div className="ingrContainer">
+                        <div className="ingrRestContainer">
+                            <div className="restrictions">
+                                {renderDietaryRestrictions()}
+                            </div>
+                             {/* Ingreident List*/}
+                            <div className="ingredients">
+                                <h2>Ingredients</h2>
+                                <ul className="ingredientsList">
+                                    {recipe.ingredientList && recipe.ingredientList.map((dict: any) => {
+                                        return (
+                                            <li>{dict["quantity"]} {dict["ingredient"]}</li>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                     {/* Photo of the recipe */}
+                    <div className="photoContainer">
+                        <img src={recipe.photo} className="image" />
+                    </div>
+                </div> 
+            </div>
+             {/* Intstructions*/}
+            <div className="instructionsContainer">
+                    <h2>Instructions</h2>
+                    {recipe.instructions && recipe.instructions.split("\n").map((instr: string) => {
+                        return (
+                            <p>{instr}</p>
+                        );
+                    })}
+
+                </div>
+
+
+             {/* What is being printed -> technically on the page but display is None meaning it wont show up*/}
+            <div style={{ display: "none" }}>
+                 {/*What gets printed  */}
+                <div ref={printComponentRef}>
+                     {/*Title */}
+                    <div style={{ height: "50vh", width: "95vw" }}>
+                        <h1>{recipe.title}</h1>
+                        <Row gutter={[8, 16]}>
+                             {/* Ingreidents*/}
+                            <Col span={8} flex={"flex"} style={{ height: "40vh", width: "95vw" }}> <h2>Ingredients</h2>
+                                {recipe.ingredientList && recipe.ingredientList.map((dict: any) => {
+                                    return (
+                                        <p style={{ margin: "2mm" }}> - {dict["quantity"]} {dict["ingredient"]}</p>
+                                    );
+                                })}</Col>
+                             {/* Instructions*/}
+                            <Col span={16} flex={"flex"} style={{ height: "40vh", width: "95vw" }}> <h2>Instructions</h2>
+                                {recipe.instructions && recipe.instructions.split("\n").map((instr: string) => {
+                                    return (
+                                        <p>{instr}</p>
+                                    );
+                                })}  </Col>
+                        </Row>
+                    </div>
+                     {/* Line */}
+                    <hr></hr>
+                     {/* Repeat of top half*/}
+                    <div style={{ height: "50vh", width: "95vw" }}>
+                        <h1>{recipe.title}</h1>
+                        <Row gutter={[8, 16]}>
+
+                            <Col span={8} flex={"flex"} style={{ height: "40vh", width: "95vw" }}> <h2>Ingredients</h2>
+                                {recipe.ingredientList && recipe.ingredientList.map((dict: any) => {
+                                    return (
+                                        <p style={{ margin: "2mm" }}> - {dict["quantity"]} {dict["ingredient"]}</p>
+                                    );
+                                })}</Col>
+                            <Col span={16} flex={"flex"} style={{ height: "40vh", width: "95vw" }}> <h2>Instructions</h2>
+                                {recipe.instructions && recipe.instructions.split("\n").map((instr: string) => {
+                                    return (
+                                        <p>{instr}</p>
+                                    );
+                                })}  </Col>
+                        </Row>
+                    </div>
+                </div>
+            </div>
     </>
   )
 }
