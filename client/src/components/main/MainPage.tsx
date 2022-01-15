@@ -1,13 +1,10 @@
-import React, { useState, ChangeEvent } from 'react';
-import { Input, Button, Checkbox } from 'antd';
-import { SearchOutlined, FilterOutlined} from "@ant-design/icons";
+import { Input } from 'antd';
 import { RecipeCard } from './RecipeCard';
 import Header from '../shared/Header';
 import { useHistory } from 'react-router-dom';
 import RecipeData from '../../types/RecipeData';
-import { CheckboxValueType } from 'antd/lib/checkbox/Group';
-import { Filter } from './Filter';
-import { Search } from './Search';
+import Filter from './Filter';
+import Search from './Search';
 
 import '../../style/Main.css'
 
