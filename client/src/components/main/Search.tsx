@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
 import { SearchOutlined, FilterOutlined} from "@ant-design/icons";
 import RecipeData from '../../types/RecipeData';
+import '../../style/Main.css';
 
 
 function Search(props: { recipes: RecipeData[]}) {
@@ -41,8 +42,8 @@ function Search(props: { recipes: RecipeData[]}) {
         )
       }
 
-      return(<div className="searchContainer">
-
+      return(
+      <div className="searchContainer">
       <div className="recipeCardContainer">
         {/** Maps and displays recipes by the checked dietary restrictions tags in the filter */}
           {getRecipesToDisplay().map(recipe => {

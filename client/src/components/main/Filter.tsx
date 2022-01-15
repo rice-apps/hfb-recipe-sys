@@ -1,5 +1,9 @@
 import React, { useState, ChangeEvent } from 'react';
 import { Input, Button, Checkbox } from 'antd';
+import RecipeData from '../../types/RecipeData';
+import { CheckboxValueType } from 'antd/lib/checkbox/Group';
+import '../../style/Main.css';
+
 
 function Filter( props: { recipes: RecipeData[]} ) {
     const [checkedFilters, setCheckedFilters] = useState<string[]>([]); // State where the checked dietary restrictions tags are stored
@@ -36,8 +40,8 @@ function Filter( props: { recipes: RecipeData[]} ) {
 
   return(
     <div className="filterContainer">
-            <div className="filterTitle">
-                {filterIcon}
+        <div className="filterTitle">
+            {filterIcon}
                 <h1 style={{"marginBottom": "20px", "marginLeft": "10px"}}>Filter Results</h1>
             </div>
             <div className="checkboxTitle">
@@ -55,7 +59,7 @@ function Filter( props: { recipes: RecipeData[]} ) {
                 </Button>
             </div>
           </div>
-);
+    );
 }
 
 export default Filter;
