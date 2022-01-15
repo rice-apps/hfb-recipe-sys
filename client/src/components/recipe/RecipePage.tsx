@@ -7,21 +7,11 @@ import ReactToPrint from "react-to-print";
 
 import { RestrictionTag } from '../main/RecipeCard';
 import RecipeData from '../../types/RecipeData';
-import { preProcessFile } from 'typescript';
-
-const { Text } = Typography;
-
-const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
 
 /*
     Props are the list of recipes 
 */
-export default function Recipe(props: {recipes: RecipeData[]}) {
+export default function RecipePage(props: {recipes: RecipeData[]}) {
     //Get the ID from the URL for this specific recipe
     const { id } = useParams<{ id: string }>();
     //Define the reference to the printable component 
@@ -213,5 +203,3 @@ export default function Recipe(props: {recipes: RecipeData[]}) {
     </>
   )
 }
-
-export default RecipePage;
