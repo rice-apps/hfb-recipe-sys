@@ -13,7 +13,7 @@ const Heading = styled.h1`
 `;
 //padding: 40px 0px 0px 0px;
 
-const Header = (props: {title: string, children: any}) => {
+const Header = (props: { title: string }) => {
     return (
         <header className='header'>
             <Heading>{props.title} </Heading>
@@ -27,7 +27,7 @@ Header.defaultProps = {
 }
 
 Header.propTypes = {
-    title: PropTypes.string, 
+    title: PropTypes.string,
     subtitle: PropTypes.string
 }
 
