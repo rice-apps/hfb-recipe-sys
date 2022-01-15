@@ -1,20 +1,11 @@
 import React from 'react';
-import { useState, useEffect, useRef } from 'react';
-import { RecipeCard } from '../components/RecipeCard';
-import { useParams } from 'react-router-dom';
-import { Card, Typography } from 'antd';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import { Row, Col, Input, AutoComplete, Dropdown, Button, Menu } from 'antd';
-import ReactToPrint from "react-to-print";
-import '../style/Recipe.css';
-import '../style/RecipeCard.css';
-import { RestrictionTag } from '../components/RecipeCard';
-import 'semantic-ui-css/semantic.min.css'
-import { useHistory } from "react-router-dom";
+import { useRef } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import { Row, Col } from 'antd';
 import { Icon } from 'semantic-ui-react'
+import ReactToPrint from "react-to-print";
+
+import { RestrictionTag } from '../components/RecipeCard';
 import RecipeData from '../types/RecipeData';
 import { preProcessFile } from 'typescript';
 
@@ -221,9 +212,8 @@ export default function Recipe(props: {recipes: RecipeData[]}) {
                     </div>
                 </div>
             </div>
-
-
-
-        </>
-    )
+    </>
+  )
 }
+
+export default Recipe;

@@ -2,10 +2,12 @@ import React from 'react';
 import Main from './pages/Main';
 import Recipe from './pages/Recipe';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './index.css';
 import { useState, useEffect } from 'react';
 import RecipeData from './types/RecipeData';
 
+import 'antd/dist/antd.css';
+import 'semantic-ui-css/semantic.min.css'
+import './index.css';
 
 function App() {
   const [recipes, setRecipes] = useState<RecipeData[]>([]);
@@ -24,11 +26,11 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path={`/recipes/:id`}>
-            <Recipe recipes={recipes}/>
+          <Route path={`/:id`}>
+            <Recipe recipes = {recipes}/>
           </Route>
-          <Route path={`/recipes`}>
-            <Main recipes={recipes}/>
+          <Route path={`/`}>
+            <Main recipes = {recipes}/>
           </Route>
         </Switch>
       </div>

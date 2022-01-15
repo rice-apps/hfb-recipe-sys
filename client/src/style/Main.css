@@ -1,12 +1,72 @@
+.titleContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #7EAF53;
+
+  height: 200px;
+}
+
 .recipeCardContainer {
-    display: flex;
-    flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
+  background-color: #f0f0f0;
 }
 
 .recipeCard {
-    width: 360px;
-    padding: 1%;
+  /* was 360 */
+  width: 300px;
+  padding: 1%;
 }
 .recipeCard:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
+
+.bottomContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.filterContainer{
+  width: 25%;
+}
+.searchContainer{
+  width: 75%;
+}
+.filterTitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.filterBottom{
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 90px;
+  justify-content: space-between;
+  padding-top: 20px;
+  max-width: 200px;
+}
+
+.checkboxTitle{
+  text-align: center;
+  width: 100%;
+  color: grey;
+}
+
+.checkboxContainer{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 150px;
+}
+
