@@ -1,15 +1,15 @@
 import React, { useState, ChangeEvent } from 'react';
-import { Input, Button, Checkbox, Divider } from 'antd';
+import { Input, Button, Checkbox } from 'antd';
 import { SearchOutlined, FilterOutlined} from "@ant-design/icons";
-import { RecipeCard } from '../components/RecipeCard';
-import Header from '../components/Header';
+import { RecipeCard } from './RecipeCard';
+import Header from '../shared/Header';
 import { useHistory } from 'react-router-dom';
-import RecipeData from '../types/RecipeData';
+import RecipeData from '../../types/RecipeData';
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
 
-import '../style/Main.css'
+import '../../style/Main.css'
 
-function Main(props: { recipes: RecipeData[] }) {
+function MainPage(props: { recipes: RecipeData[] }) {
   const history = useHistory();
   const [checkedFilters, setCheckedFilters] = useState<string[]>([]); // State where the checked dietary restrictions tags are stored
   const [searchString, setSearchString] = useState('');
@@ -19,10 +19,9 @@ function Main(props: { recipes: RecipeData[] }) {
 
   //icons for search bar
   const searchIcon = <SearchOutlined />;
-  const searchSuffix = <span />
 
   //icons for filter bar
-    //change later, since figma icon is not available on antD
+  //change later, since figma icon is not available on antD
   const filterIcon = <FilterOutlined style={{"fontSize": "40px"}}/>;
 
   /**
@@ -124,7 +123,7 @@ function Main(props: { recipes: RecipeData[] }) {
                 {getRecipesToDisplay().map(recipe => {
                 return (
                     <div className="recipeCard" onClick={() => history.push(`/${recipe.id}`)} key={recipe.id}>
-                    <RecipeCard data={recipe}/>
+                    <RecipeCard data={recipe} />
                     </div>
                 );
                 })}
@@ -135,4 +134,4 @@ function Main(props: { recipes: RecipeData[] }) {
   )
 }
 
-export default Main;
+export default MainPage;

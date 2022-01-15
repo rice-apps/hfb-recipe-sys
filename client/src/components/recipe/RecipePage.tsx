@@ -5,13 +5,13 @@ import { Row, Col } from 'antd';
 import { Icon } from 'semantic-ui-react'
 import ReactToPrint from "react-to-print";
 
-import { RestrictionTag } from '../components/RecipeCard';
-import RecipeData from '../types/RecipeData';
+import { RestrictionTag } from '../main/RecipeCard';
+import RecipeData from '../../types/RecipeData';
 
-import '../style/Recipe.css';
+import '../../style/Recipe.css';
 
 
-function Recipe(props: { recipes: RecipeData[] }) {
+function RecipePage(props: { recipes: RecipeData[] }) {
   const { id } = useParams<{ id: string }>();
   const printComponentRef = useRef<HTMLDivElement>(null);
 
@@ -180,4 +180,4 @@ function Recipe(props: { recipes: RecipeData[] }) {
   )
 }
 
-export default Recipe;
+export default RecipePage;

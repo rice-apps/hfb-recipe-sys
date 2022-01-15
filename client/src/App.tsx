@@ -1,6 +1,6 @@
 import React from 'react';
-import Main from './pages/Main';
-import Recipe from './pages/Recipe';
+import MainPage from './components/main/MainPage';
+import RecipePage from './components/recipe/RecipePage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import RecipeData from './types/RecipeData';
@@ -27,10 +27,10 @@ function App() {
       <div className="App">
         <Switch>
           <Route path={`/:id`}>
-            <Recipe recipes = {recipes}/>
+            <RecipePage recipes = {recipes}/>
           </Route>
           <Route path={`/`}>
-            <Main recipes = {recipes}/>
+            <MainPage recipes = {recipes}/>
           </Route>
         </Switch>
       </div>

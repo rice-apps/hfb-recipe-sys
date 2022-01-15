@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import RecipeData from '../types/RecipeData';
-import '../style/RecipeCard.css';
+import RecipeData from '../../types/RecipeData';
+import '../../style/RecipeCard.css';
 import { Icon, SemanticICONS } from 'semantic-ui-react';
 
 // Course tag, displays meal type
