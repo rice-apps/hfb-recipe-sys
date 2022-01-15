@@ -11,11 +11,11 @@ import '../style/Main.css'
 
 function Main(props: { recipes: RecipeData[] }) {
   const history = useHistory();
-  const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
+  const [checkedFilters, setCheckedFilters] = useState<string[]>([]); // State where the checked dietary restrictions tags are stored
   const [searchString, setSearchString] = useState('');
 
-  const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free'];
-  const CheckboxGroup = Checkbox.Group;
+  const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free']; // List of current dietary restrictions tags, names of the checkbox options in filter
+  const CheckboxGroup = Checkbox.Group; 
 
   //icons for search bar
   const searchIcon = <SearchOutlined />;
@@ -44,6 +44,7 @@ function Main(props: { recipes: RecipeData[] }) {
    */
   function getFilteredRecipes(recipes: RecipeData[]): RecipeData[] {
     return recipes.filter(recipe => {
+      // Makes a tag list of the dietary restrictions options that each recipe has
       const tags: String[] = []
       if (recipe.glutenFree) {
         tags.push("Gluten-Free");
@@ -57,6 +58,7 @@ function Main(props: { recipes: RecipeData[] }) {
       if (recipe.nutFree) {
         tags.push("Nut-Free");
       }
+      // Checks that the current recipe have every tag that is checked in its tags list
       return checkedFilters.every(i => tags.includes(i));
     })
   }
@@ -105,9 +107,11 @@ function Main(props: { recipes: RecipeData[] }) {
             </div>
 
             <div className="checkboxContainer">
+              {/** Creates the checkbox display on the main page */}
               <CheckboxGroup options={plainOptions} value={checkedFilters} onChange={onFilterChange} />
             </div>
             <div className="filterBottom">
+              {/** Filter reset button, clears the current values in the checkedFilters state */}
                 <Button type="default" onClick={() => setCheckedFilters([])}>
                     Reset Filters
                 </Button>
@@ -116,6 +120,7 @@ function Main(props: { recipes: RecipeData[] }) {
           <div className="searchContainer">
 
             <div className="recipeCardContainer">
+              {/** Maps and displays recipes by the checked dietary restrictions tags in the filter */}
                 {getRecipesToDisplay().map(recipe => {
                 return (
                     <div className="recipeCard" onClick={() => history.push(`/${recipe.id}`)} key={recipe.id}>
