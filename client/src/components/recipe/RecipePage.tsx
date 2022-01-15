@@ -38,7 +38,7 @@ export default function RecipePage(props: {recipes: RecipeData[]}) {
                     <TopHeader recipe = {recipe}/>
                         {/* Sub information to title on the next row underneath */}
  
-                    <BottomHeader recipe = {recipe}/>
+                    <BottomHeader recipe = {recipe} />
                 </header>
             </div>
 

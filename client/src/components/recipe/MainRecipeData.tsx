@@ -6,6 +6,9 @@ import { Icon } from 'semantic-ui-react'
 import RecipeData from '../../types/RecipeData';
 import { RestrictionTag } from '../main/RecipeCard';
 import '../../style/Recipe.css';
+import { Ingredients } from './Ingredients';
+import { RecipeImage } from './RecipeImage';
+import { Instructions } from './Instructions';
 
 
 export const MainRecipeData = (props: { recipe: RecipeData } ) => {
@@ -38,42 +41,22 @@ export const MainRecipeData = (props: { recipe: RecipeData } ) => {
     }
         return (
             <div>
-                      <div className="recipeDataContainer">
+                <div className="recipeDataContainer">
                 <div className="ingrPhotoContainer">
                     <div className="ingrContainer">
                         <div className="ingrRestContainer">
                             <div className="restrictions">
                                 {renderDietaryRestrictions()}
                             </div>
-                             {/* Ingreident List*/}
-                            <div className="ingredients">
-                                <h2>Ingredients</h2>
-                                <ul className="ingredientsList">
-                                    {props.recipe.ingredientList && props.recipe.ingredientList.map((dict: any) => {
-                                        return (
-                                            <li>{dict["quantity"]} {dict["ingredient"]}</li>
-                                        );
-                                    })}
-                                </ul>
-                            </div>
+                            <Ingredients recipe = {props.recipe}/>
                         </div>
                     </div>
                      {/* Photo of the recipe */}
-                    <div className="photoContainer">
-                        <img src={props.recipe.photo} className="image" />
-                    </div>
+                    <RecipeImage recipe = {props.recipe}/>
                 </div> 
             </div>
              {/* Intstructions*/}
-            <div className="instructionsContainer">
-                    <h2>Instructions</h2>
-                    {props.recipe.instructions && props.recipe.instructions.split("\n").map((instr: string) => {
-                        return (
-                            <p>{instr}</p>
-                        );
-                    })}
-
-                </div>
+                <Instructions recipe= {props.recipe}/>
         </div>
         )
     }
