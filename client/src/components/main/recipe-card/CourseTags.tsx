@@ -7,9 +7,9 @@ import '../../../style/RecipeCard.css';
 // Course tag, displays meal type
 const CourseTag = (props: { text: string }) => {
     return (
-      <p className="courseTagText">{props.text}</p>
+        <p className="courseTagText">{props.text}</p>
     )
-  }
+}
 
 // Render course tags within a row/column container
 const CourseTags = (props: { data: RecipeData }) => {
@@ -21,9 +21,9 @@ const CourseTags = (props: { data: RecipeData }) => {
             gutter={[8, 8]}>
             {props.data.course.map((course, idx) => {
                 return (
-                <Col span={8} key={idx}>
-                    <CourseTag text={course} />
-                </Col>
+                    <Col span={8} key={idx}>
+                        <CourseTag text={course} />
+                    </Col>
                 );
             })}
         </Row>

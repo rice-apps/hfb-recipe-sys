@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row, Col } from 'antd';
 import RecipeData from '../../types/RecipeData';
 import CourseTags from  './recipe-card/CourseTags';
 import RestrictionTags from './recipe-card/RestrictionTags';

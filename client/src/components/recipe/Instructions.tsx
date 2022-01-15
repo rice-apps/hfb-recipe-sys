@@ -1,10 +1,5 @@
 import React from 'react';
-import { useRef } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
-import { Row, Col } from 'antd';
-import { Icon } from 'semantic-ui-react'
 import RecipeData from '../../types/RecipeData';
-import { RestrictionTag } from '../main/RecipeCard';
 import '../../style/Recipe.css';
 
 
@@ -18,7 +13,6 @@ export const Instructions = (props: { recipe: RecipeData } ) => {
                             <p>{instr}</p>
                         );
                     })}
-
                 </div>
         </div>
         )

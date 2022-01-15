@@ -1,18 +1,14 @@
 import React from 'react';
-import { useRef } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
-import { Row, Col } from 'antd';
-import { Icon } from 'semantic-ui-react'
 import RecipeData from '../../types/RecipeData';
-import { RestrictionTag } from '../main/RecipeCard';
 import '../../style/Recipe.css';
 import { Ingredients } from './Ingredients';
 import { RecipeImage } from './RecipeImage';
 import { Instructions } from './Instructions';
+import RestrictionTag from '../shared/RestrictionTag';
 
 
-export const MainRecipeData = (props: { recipe: RecipeData } ) => {
-        //Function to render the 4 dietary restriction tags 
+export const Recipe = (props: { recipe: RecipeData }) => {
+    //Function to render the 4 dietary restriction tags 
     const renderDietaryRestrictions = () => {
         if (!props.recipe) return null;
 
@@ -39,26 +35,27 @@ export const MainRecipeData = (props: { recipe: RecipeData } ) => {
             </div>
         );
     }
-        return (
-            <div>
-                <div className="recipeDataContainer">
+    return (
+        <div>
+            <div className="recipeDataContainer">
                 <div className="ingrPhotoContainer">
                     <div className="ingrContainer">
                         <div className="ingrRestContainer">
                             <div className="restrictions">
+                                {/* <RestrictionTags data={props.recipe}/> */}
                                 {renderDietaryRestrictions()}
                             </div>
-                            <Ingredients recipe = {props.recipe}/>
+                            <Ingredients recipe={props.recipe} />
                         </div>
                     </div>
-                     {/* Photo of the recipe */}
-                    <RecipeImage recipe = {props.recipe}/>
-                </div> 
+                    {/* Photo of the recipe */}
+                    <RecipeImage recipe={props.recipe} />
+                </div>
             </div>
-             {/* Intstructions*/}
-                <Instructions recipe= {props.recipe}/>
+            {/* Intstructions*/}
+            <Instructions recipe={props.recipe} />
         </div>
-        )
-    }
+    )
+}
 
 

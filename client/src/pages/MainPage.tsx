@@ -1,13 +1,13 @@
 import React, { useState, ChangeEvent } from 'react';
 import { Input, Button, Checkbox } from 'antd';
 import { SearchOutlined, FilterOutlined} from "@ant-design/icons";
-import { RecipeCard } from './RecipeCard';
-import Header from '../shared/Header';
+import { RecipeCard } from '../components/main/RecipeCard';
+import Header from '../components/main/Header';
 import { useHistory } from 'react-router-dom';
-import RecipeData from '../../types/RecipeData';
+import RecipeData from '../types/RecipeData';
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
 
-import '../../style/Main.css'
+import '../style/Main.css'
 
 function MainPage(props: { recipes: RecipeData[] }) {
   const history = useHistory();

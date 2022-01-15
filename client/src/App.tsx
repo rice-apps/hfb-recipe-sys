@@ -1,6 +1,6 @@
 import React from 'react';
-import MainPage from './components/main/MainPage';
-import RecipePage from './components/recipe/RecipePage';
+import MainPage from './pages/MainPage';
+import RecipePage from './pages/RecipePage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import RecipeData from './types/RecipeData';
