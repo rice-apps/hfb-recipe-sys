@@ -1,5 +1,7 @@
-import React, { useState, ChangeEvent } from 'react';
-import { Input, Button, Checkbox } from 'antd';
+import React, { useState } from 'react';
+import { Button, Checkbox } from 'antd';
+import { FilterOutlined} from "@ant-design/icons";
+
 import RecipeData from '../../types/RecipeData';
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
 import '../../style/Main.css';
@@ -7,6 +9,12 @@ import '../../style/Main.css';
 
 function Filter( props: { recipes: RecipeData[]} ) {
     const [checkedFilters, setCheckedFilters] = useState<string[]>([]); // State where the checked dietary restrictions tags are stored
+    const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free']; // List of current dietary restrictions tags, names of the checkbox options in filter
+    const CheckboxGroup = Checkbox.Group; 
+
+      //icons for filter bar
+  //change later, since figma icon is not available on antD
+  const filterIcon = <FilterOutlined style={{"fontSize": "40px"}}/>;
 
     /**
    * Saves the new filter state

@@ -1,11 +1,14 @@
 import React, { useState, ChangeEvent } from 'react';
-import { SearchOutlined, FilterOutlined} from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import RecipeData from '../../types/RecipeData';
 import '../../style/Main.css';
 
 
 function Search(props: { recipes: RecipeData[]}) {
     const [searchString, setSearchString] = useState('');
+
+      //icons for search bar
+  const searchIcon = <SearchOutlined />;
 
     /**
    * Saves the new search state
