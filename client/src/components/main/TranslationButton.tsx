@@ -21,7 +21,7 @@ function TranslationButton() {
     const menu = (
         <Menu onClick={onClick}>
           <Menu.Item key="en">English</Menu.Item>
-          <Menu.Item key="sp">Spanish</Menu.Item>
+          <Menu.Item key="es">Spanish</Menu.Item>
           <Menu.Item key="vi">Vietnamese</Menu.Item>
         </Menu>
     );
