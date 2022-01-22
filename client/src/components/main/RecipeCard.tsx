@@ -1,7 +1,7 @@
 import React from 'react';
 import RecipeData from '../../types/RecipeData';
-import CourseTags from  './recipe-card/CourseTags';
-import RestrictionTags from './recipe-card/RestrictionTags';
+import CourseTags from  '../shared/CourseTags';
+import RestrictionTags from '../shared/RestrictionTags';
 
 import '../../style/RecipeCard.css';
 
@@ -20,7 +20,7 @@ export const RecipeCard = (props: { data: RecipeData }) => {
         </div>
         
         { /* Dietary restriction tags */ }
-        <RestrictionTags data={props.data} />
+        <RestrictionTags data={props.data} showText={false} />
       </div>
     </div>
   )

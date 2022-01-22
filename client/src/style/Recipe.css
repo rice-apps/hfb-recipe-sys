@@ -79,14 +79,17 @@ header {
   display: flex;
   flex-flow: row wrap;
   width: 100vw;
+  padding-top: 2%;
+  padding-bottom: 3%;
 }
 .ingrContainer,
 .photoContainer {
   width: 50vw;
   padding: 10px;
 }
-.restrictions {
-  color: red;
+.photoContainer img {
+  max-width: 90%;
+  max-height: 500px;
 }
 .ingrRestContainer {
   float: right;
@@ -94,6 +97,9 @@ header {
 .ingredients {
   background-color: rgba(238, 239, 240, 0.3);
   padding: 50px;
+  max-width: 90%;
+  min-width: 200px;
+  object-fit: cover;
 }
 .ingredientsList {
   padding-top: 10px;
@@ -106,7 +112,10 @@ header {
   float: left;
 }
 .restTag {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
 }
 .recipeRestTagContainer {
   display: flex;
@@ -115,7 +124,7 @@ header {
 }
 .instructionsContainer {
   display: flex;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 2% 10% 2% 10%;
   flex-direction: column;
+  background-color: #F2F2F2;
 }

@@ -4,11 +4,12 @@ import '../../style/Recipe.css';
 import { Ingredients } from './Ingredients';
 import { RecipeImage } from './RecipeImage';
 import { Instructions } from './Instructions';
-import RestrictionTag from '../shared/RestrictionTag';
+import RestrictionTags from '../shared/RestrictionTags';
+import CourseTags from '../shared/CourseTags';
 
 
 export const Recipe = (props: { recipe: RecipeData }) => {
-    //Function to render the 4 dietary restriction tags 
+    /*Function to render the 4 dietary restriction tags 
     const renderDietaryRestrictions = () => {
         if (!props.recipe) return null;
 
@@ -34,16 +35,16 @@ export const Recipe = (props: { recipe: RecipeData }) => {
                 {rest}
             </div>
         );
-    }
+    }*/
     return (
         <div>
             <div className="recipeDataContainer">
                 <div className="ingrPhotoContainer">
                     <div className="ingrContainer">
                         <div className="ingrRestContainer">
-                            <div className="restrictions">
-                                {/* <RestrictionTags data={props.recipe}/> */}
-                                {renderDietaryRestrictions()}
+                            <div className="tags">
+                                <RestrictionTags data={props.recipe} showText={true} />
+                                <CourseTags data={props.recipe} />
                             </div>
                             <Ingredients recipe={props.recipe} />
                         </div>
