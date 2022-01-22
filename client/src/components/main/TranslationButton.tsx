@@ -15,7 +15,7 @@ function TranslationButton() {
 
 
     const onClick = ({ key }) => {
-        message.info(`Click on item ${key}`);
+        setLanguage(key);
     };
 
     const menu = (
@@ -27,9 +27,10 @@ function TranslationButton() {
     );
 
     return(
+        
         <div>
             <Dropdown overlay={menu}>
-                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                <a className="ant-dropdown-link">
                     Select Language <DownOutlined />
                 </a>
             </Dropdown>
