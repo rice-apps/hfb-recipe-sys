@@ -11,6 +11,8 @@ import searchAndFilterRecipes from '../util/searchAndFilterRecipes';
 import SearchBar from '../components/main/SearchBar';
 import FilterPanel from '../components/main/FilterPanel';
 
+import GoogleTranslate from '../components/main/GoogleTranslate';
+
 function MainPage(props: { recipes: RecipeData[] }) {
   const history = useHistory();
 
@@ -30,6 +32,8 @@ function MainPage(props: { recipes: RecipeData[] }) {
         <Header title="Recipes" />
         <SearchBar setSearchString={setSearchString} />
       </div>
+
+      <GoogleTranslate />
 
       <div className="bottomContainer">
         <FilterPanel checkedFilters={checkedFilters} setCheckedFilters={setCheckedFilters} />

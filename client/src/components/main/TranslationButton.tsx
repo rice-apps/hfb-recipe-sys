@@ -8,14 +8,14 @@ import { DownOutlined } from '@ant-design/icons';
 
 
 function TranslationButton() {
+    
 
     const [language, setLanguage] = useState('en');
 
     const { t } = useTranslation();
 
 
-    const onClick = ({ key }) => {
-        setLanguage(key);
+    const onClick = () => {
     };
 
     const menu = (
