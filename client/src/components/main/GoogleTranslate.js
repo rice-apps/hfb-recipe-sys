@@ -3,7 +3,7 @@ import './googleElement.css';
 
 class GoogleTranslate extends Component {
     googleTranslateElementInit () {
-        new window.google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,vi', layout: window.google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element')
+        new window.google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,vi,zh-CN,ar', layout: window.google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element')
      }
 
     componentDidMount() {
