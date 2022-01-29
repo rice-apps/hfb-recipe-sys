@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon, SemanticICONS } from 'semantic-ui-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconDefinition, faLeaf, faBreadSlice, faSeedling, faLemon } from '@fortawesome/free-solid-svg-icons'
+import { IconDefinition, faLeaf, faBreadSlice, faSeedling, faLemon, faCheese } from '@fortawesome/free-solid-svg-icons'
 import RecipeData from '../../types/RecipeData';
 
 import '../../style/RecipeCard.css';
@@ -12,6 +12,7 @@ const RTColors = {
     Vegan: "#3E833D",
     Vegetarian: "#7EAF53",
     NutFree: "#CD5237",
+    DairyFree: "#037BFC",
 }
 
 // Tag icons
@@ -20,6 +21,7 @@ const RTIcons = {
     Vegan: faLeaf,
     Vegetarian: faSeedling,
     NutFree: faLemon,
+    DairyFree: faCheese,
 }
 
 // Check for dietary restrictions and returns container with tags for each
@@ -41,6 +43,10 @@ export const renderDietaryRestrictions = (data: RecipeData) => {
     // Nut free tag
     if (data.nutFree) {
         rest.push(<RestrictionTag color={RTColors.NutFree} icon={RTIcons.NutFree} key={3}/>);
+    }
+    // Nut free tag
+    if (data.dairyFree) {
+        rest.push(<RestrictionTag color={RTColors.DairyFree} icon={RTIcons.DairyFree} key={3}/>);
     }
 
     // Create and return container with all tags
@@ -84,6 +90,14 @@ export const renderDietaryRestrictionsWithText = (data: RecipeData) => {
             <div className="restTag">
                 <RestrictionTag color={RTColors.NutFree} icon={RTIcons.NutFree} />
                 <span style={{ color: RTColors.NutFree }}>Nut free</span>
+            </div>);
+    }
+    // Dairy free tag
+    if (data.dairyFree) {
+        rest.push(
+            <div className="restTag">
+                <RestrictionTag color={RTColors.DairyFree} icon={RTIcons.DairyFree} />
+                <span style={{ color: RTColors.DairyFree }}>Dairy free</span>
             </div>);
     }
 
