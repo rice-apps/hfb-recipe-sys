@@ -6,11 +6,14 @@ import { RecipeImage } from './RecipeImage';
 import { Instructions } from './Instructions';
 import RestrictionTags from '../shared/RestrictionTags';
 import CourseTags from '../shared/CourseTags';
+import { useMediaQuery } from 'react-responsive';
 
 
 export const Recipe = (props: { recipe: RecipeData }) => {
+    const isBigScreen = useMediaQuery({ query: '(min-width: 1200px)' });
+
     return (
-        <div>
+        <div className={isBigScreen ? "" : "mobile"}>
             <div className="recipeDataContainer">
                 <div className="ingrPhotoContainer">
                     <div className="ingrContainer">
@@ -25,9 +28,10 @@ export const Recipe = (props: { recipe: RecipeData }) => {
                     {/* Photo of the recipe */}
                     <RecipeImage recipe={props.recipe} />
                 </div>
+                            {/* Intstructions*/}
+              <Instructions recipe={props.recipe} />
             </div>
-            {/* Intstructions*/}
-            <Instructions recipe={props.recipe} />
+
         </div>
     )
 }
