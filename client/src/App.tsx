@@ -21,6 +21,20 @@ function App() {
     });
   }, []);
 
+  // useEffect(() => {
+  //   console.log("running effect")
+  //   let translationDiv: any = document.getElementById("google_translate_element")
+  //   console.log(translationDiv);
+
+  //   if(translationDiv) {
+  //     let selector: HTMLSelectElement = translationDiv.getElementsByClassName("goog-te-combo")[0]
+  //     if(selector) {
+  //       console.log("Adding listener")
+  //       selector.addEventListener("change", (e) => console.log(e), false)
+  //     }
+      
+  //   }
+  // });
 
   return (
     <Router>
