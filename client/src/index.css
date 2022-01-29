@@ -1,19 +1,11 @@
 @font-face {
-  font-family: "FuturaMedium";
-  src: url("./fonts/FuturaMedium.ttf") format("truetype");
+  font-family: "FuturaM";
+  src: local("FuturaM"), url("./fonts/FuturaBold.ttf") format("truetype");
 }
 
 body {
   margin: 0;
-  font-family: "Futura", "FuturaMedium", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Futura", "FuturaM";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-

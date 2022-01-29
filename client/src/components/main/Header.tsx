@@ -6,8 +6,7 @@ const Heading = styled.h1`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-style: system;
-    font-size: 5vh;
+    font-size: 9vh;
     line-height: 5vh;
     color: white;
 `;
