@@ -3,6 +3,10 @@ const express = require('express');
 const contentful = require('contentful');
 const cors = require('cors');
 
+// const {Translate} = require('@google-cloud/translate').v2;
+
+// const projectId = 'YOUR_PROJECT_ID';
+
 // Load environment variables from .env
 require('dotenv').config();
 
@@ -13,6 +17,24 @@ const app = express();
 const port = process.env.PORT || 8000;
 const accessToken = process.env.ACCESS_TOKEN; 
 const space_ID = process.env.SPACE_ID;
+
+// Instantiates a client
+// const translate = new Translate({projectId});
+
+// async function quickStart() {
+//   // The text to translate
+//   const text = 'Fried rice with eggs';
+
+//   // The target language
+//   const target = 'es';
+
+//   // Translates some text into Russian
+//   const [translation] = await translate.translate(text, target);
+//   console.log(`Text: ${text}`);
+//   console.log(`Translation: ${translation}`);
+// }
+
+// quickStart();
 
 // Allow cross-origin resource sharing
 app.use(cors());
