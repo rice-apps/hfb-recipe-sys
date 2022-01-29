@@ -27,6 +27,9 @@ function getFilteredRecipes(recipes: RecipeData[], appliedFilters: string[]): Re
         if (recipe.nutFree) {
             tags.push("Nut-Free");
         }
+        if (recipe.dairyFree) {
+            tags.push("Dairy-Free");
+        }
         // Checks that the current recipe have every tag that is checked in its tags list
         return appliedFilters.every(i => tags.includes(i));
     })

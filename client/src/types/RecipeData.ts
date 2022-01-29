@@ -16,4 +16,5 @@ export default interface RecipeData {
   vegan: boolean,
   vegetarian: boolean,
   nutFree: boolean,
+  dairyFree: boolean,
 }

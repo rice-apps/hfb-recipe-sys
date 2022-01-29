@@ -8,7 +8,7 @@ import '../../style/Main.css';
 
 function FilterPanel(props: { checkedFilters: string[], setCheckedFilters: (filters: string[]) => void}) {
     // List of current dietary restrictions tags, names of the checkbox options in filter
-    const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free'];
+    const plainOptions = ['Gluten-Free', 'Vegetarian', 'Vegan', 'Nut-Free', 'Dairy-Free'];
 
     // Icons for filter bar (change later, since figma icon is not available on antD)
     const filterIcon = <FilterOutlined style={{ "fontSize": "40px" }} />;
