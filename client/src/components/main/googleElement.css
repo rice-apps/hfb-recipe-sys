@@ -1,4 +1,11 @@
 #google_translate_element{width:300px;float:right;text-align:right;display:block}
+#google_translate_element select{
+    background-color:#f6edfd;
+    color:#383ffa;
+    border: none;
+    border-radius:3px;
+    padding:6px 8px
+  }
 .goog-te-banner-frame.skiptranslate { display: none !important;} 
 body { top: 0px !important; }
 #goog-gt-tt{display: none !important; top: 0px !important; } 
