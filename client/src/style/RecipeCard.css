@@ -42,19 +42,22 @@
   position: relative;
 }
 /* Restriction tag container */
-.restrictionTagContainer {
+.restrictionTagContainer, .courseTagContainer {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-left: auto;
 }
 
 /* Text inside course tag */
+.courseTag {
+  padding: 2px;
+}
 .courseTagText {
   color: #cd5327;
   background-color: #cd52371f;
   border-radius: 20px;
-  padding: 5px;
+  padding: 5px 10px 5px 10px;
   text-align: center;
   font-style: italic;
   margin: 0;
