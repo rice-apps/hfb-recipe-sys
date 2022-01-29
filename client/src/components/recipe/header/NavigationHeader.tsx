@@ -17,7 +17,7 @@ export const BottomHeader = (props: { recipe: RecipeData }) => {
             <Row gutter={8} className="info_row" justify="center">
                 <Col className="gutter-row" span={3} >
                     {/* Cusine Type */}
-                    <div className="detail_header" >Cusine</div>
+                    <div className="detail_header" >Cuisine</div>
                     <div className="information_header">{props.recipe.cuisine}</div>
                 </Col>
                 <Col>
