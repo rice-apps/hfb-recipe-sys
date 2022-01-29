@@ -14,7 +14,7 @@ import GoogleTranslate from '../components/main/GoogleTranslate';
 /**
  * Props are the list of recipes 
  */
-export default function RecipePage(props: { recipes: RecipeData[] }) {
+export default function RecipePage(props: { recipes: RecipeData[], setLanguage: (lang: string) => void }) {
     //Get the ID from the URL for this specific recipe
     const { id } = useParams<{ id: string }>();
     //Define the reference to the printable component 
@@ -28,7 +28,7 @@ export default function RecipePage(props: { recipes: RecipeData[] }) {
         <>
             <Header recipe={recipe}/>
 
-            <GoogleTranslate />
+            <GoogleTranslate setLanguage={props.setLanguage}/>
 
             <Recipe recipe={recipe} />
 

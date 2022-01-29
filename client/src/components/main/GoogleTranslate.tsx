@@ -5,7 +5,7 @@ import './googleElement.css';
 /**
  * A component with a Google Translate dropdown that allows selecting a language for the page's HTML to be translated to
  */
-function GoogleTranslate() {
+function GoogleTranslate(props: {setLanguage: (lang: string) => void}) {
 
     /**
      * A reference to the div containing the google translate language-selection dropdown
@@ -22,10 +22,9 @@ function GoogleTranslate() {
         // Set up listener to capture language selection
         if(googleTranslateDiv.current) {
             let selector = googleTranslateDiv.current.getElementsByClassName("goog-te-combo")[0] as HTMLSelectElement
-            if(selector) {
-                // TODO: update state on language selection
+            if (selector) {
                 console.log("Adding listener");
-                selector.addEventListener("change", (e) => console.log("Selected Language:", selector.value), false)
+                selector.addEventListener("change", (e) => props.setLanguage(selector.value), false)
             } else {
                 console.log("Selector not defined");
             }

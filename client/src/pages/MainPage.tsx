@@ -13,7 +13,7 @@ import FilterPanel from '../components/main/FilterPanel';
 
 import GoogleTranslate from '../components/main/GoogleTranslate';
 
-function MainPage(props: { recipes: RecipeData[] }) {
+function MainPage(props: { recipes: RecipeData[], setLanguage: (lang: string) => void }) {
   const history = useHistory();
 
   const [searchString, setSearchString] = useState('');
@@ -33,7 +33,7 @@ function MainPage(props: { recipes: RecipeData[] }) {
         <SearchBar setSearchString={setSearchString} />
       </div>
 
-      <GoogleTranslate />
+      <GoogleTranslate setLanguage={props.setLanguage}/>
 
       <div className="bottomContainer">
         <FilterPanel checkedFilters={checkedFilters} setCheckedFilters={setCheckedFilters} />
