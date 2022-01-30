@@ -7,7 +7,7 @@ import Header from '../components/main/Header';
 
 
 import '../style/Main.css'
-import searchAndFilterRecipes from '../util/searchAndFilterRecipes';
+import filterRecipes from '../util/filterRecipes';
 import SearchBar from '../components/main/SearchBar';
 import FilterPanel from '../components/main/FilterPanel';
 
@@ -18,13 +18,6 @@ function MainPage(props: { recipes: RecipeData[] }) {
 
   const [searchString, setSearchString] = useState('');
   const [checkedFilters, setCheckedFilters] = useState<string[]>([]); // State where the checked dietary restrictions tags are stored
-
-  /**
-   * Returns the recipes to display (after applying the filter and search query)
-   */
-  function getRecipesToDisplay() {
-    return searchAndFilterRecipes(props.recipes, searchString, checkedFilters)
-  }
 
   return (
     <div>
@@ -38,16 +31,13 @@ function MainPage(props: { recipes: RecipeData[] }) {
       <div className="bottomContainer">
         <FilterPanel checkedFilters={checkedFilters} setCheckedFilters={setCheckedFilters} />
         <div className="searchContainer">
-
           <div className="recipeCardContainer">
-            {/** Maps and displays recipes by the checked dietary restrictions tags in the filter */}
-            {getRecipesToDisplay().map(recipe => {
-              return (
-                <div className="recipeCard" onClick={() => history.push(`/${recipe.id}`)} key={recipe.id}>
-                  <RecipeCard data={recipe} />
-                </div>
-              );
-            })}
+            {
+            // Display recipes that pass the checked-off dietary restrictions in the filter.
+            // Note that each recipe card is responsible for applying the search string to itself and hiding/showing accordingly.
+            filterRecipes(props.recipes, checkedFilters).map(recipe =>
+              <RecipeCard data={recipe} searchString={searchString} onClick={() => history.push(`/${recipe.id}`)} key={recipe.id} />)
+            }
           </div>
         </div>
       </div>
