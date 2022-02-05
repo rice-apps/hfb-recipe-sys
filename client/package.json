@@ -20,6 +20,7 @@
     "@types/react-dom": "^17.0.9",
     "@types/semantic-ui": "^2.2.7",
     "antd": "^4.16.13",
+    "fraction.js": "^4.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-responsive": "^9.0.0-beta.6",
