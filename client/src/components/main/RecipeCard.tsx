@@ -12,7 +12,11 @@ import '../../style/RecipeCard.css';
  */
 export const RecipeCard = (props: { data: RecipeData, searchString: string, onClick: () => void }) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const ingredientsRef = useRef<HTMLParagraphElement>(null);
 
+  function getIngredientString() {
+    return props.data.ingredientList.map(entry => entry.ingredient).join(" ");
+  }
   /**
    * Determines whether this recipe should be displayed, given the search string from the user
    * @returns true if the recipe should be displayed, false otherwise
@@ -20,12 +24,17 @@ export const RecipeCard = (props: { data: RecipeData, searchString: string, onCl
   function shouldShowThisRecipe(): boolean {
     // Get the translated version of the title
     let translatedTitle = titleRef.current?.innerText
+    // Get the translated version of the ingredients
+    let translatedIngredients = ingredientsRef.current?.innerText;
+
     // Show the recipe if there is no search string
     if (!props.searchString) return true;
     // Show the recipe if the title is null
     if (!translatedTitle) return true;
-    //Show the recupe if the ingredient is included in the ingredient prop
-    
+
+
+    //Show the recipe if the ingredient is included in the ingredient prop
+    if(translatedIngredients?.toLowerCase().includes(props.searchString.toLowerCase())) return true;
     // Show the recipe if the search string appears in the translated title
     return translatedTitle.toLowerCase().includes(props.searchString.toLowerCase())
   }
@@ -46,6 +55,7 @@ export const RecipeCard = (props: { data: RecipeData, searchString: string, onCl
             <h4 ref={titleRef}>{props.data.title}</h4>
             { /* Course tags, displayed in 3 columns */ }
             <CourseTags data={props.data} />
+            <p ref={ingredientsRef} style={{display: "none"}}>{getIngredientString()}</p>
           </div>
           
           { /* Dietary restriction tags */ }
