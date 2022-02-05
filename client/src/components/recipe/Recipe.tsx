@@ -4,6 +4,7 @@ import '../../style/Recipe.css';
 import { Ingredients } from './Ingredients';
 import { RecipeImage } from './RecipeImage';
 import { Instructions } from './Instructions';
+import { Videos } from './Videos';
 import RestrictionTags from '../shared/RestrictionTags';
 import CourseTags from '../shared/CourseTags';
 import { useMediaQuery } from 'react-responsive';
@@ -28,11 +29,11 @@ export const Recipe = (props: { recipe: RecipeData }) => {
                     {/* Photo of the recipe */}
                     <RecipeImage recipe={props.recipe} />
                 </div>
-                            {/* Intstructions*/}
+                {/* Instructions*/}
               <Instructions recipe={props.recipe} />
-            </div>
-
+              <Videos recipe = {props.recipe} />
         </div>
+    </div>
     )
 }
 

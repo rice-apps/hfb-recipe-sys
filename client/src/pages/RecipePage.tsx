@@ -8,6 +8,8 @@ import { PrintableRecipe } from '../components/recipe/PrintableRecipe';
 import '../style/Recipe.css';
 import { Recipe } from '../components/recipe/Recipe';
 import Header from '../components/recipe/header/Header';
+import {useMediaQuery} from 'react-responsive'
+import ReactPlayer from 'react-player';
 
 /**
  * Props are the list of recipes 
@@ -18,12 +20,14 @@ export default function RecipePage(props: { recipes: RecipeData[] }) {
     //Define the reference to the printable component 
     const printComponentRef = useRef<HTMLDivElement>(null);
 
+
     //Set the recipe to be the one in the List with the ID from the URL
     const recipe = props.recipes.find(recipe => recipe.id === id)
 
     //Main Rendered component checks if the recipes have been found before loading anything
     return (recipe === undefined ? <></> :
         <>
+
             <Header recipe={recipe}/>
 
             <Recipe recipe={recipe} />
@@ -37,4 +41,5 @@ export default function RecipePage(props: { recipes: RecipeData[] }) {
             </div>
         </>
     )
+    
 }

@@ -3,6 +3,7 @@ import RecipeData from '../../types/RecipeData';
 import CourseTags from  '../shared/CourseTags';
 import RestrictionTags from '../shared/RestrictionTags';
 
+
 import '../../style/RecipeCard.css';
 
 // Recipe card, displays recipe photo, meal types, and dietary restrictions
@@ -21,6 +22,7 @@ export const RecipeCard = (props: { data: RecipeData }) => {
         
         { /* Dietary restriction tags */ }
         <RestrictionTags data={props.data} showText={false} />
+
       </div>
     </div>
   )
