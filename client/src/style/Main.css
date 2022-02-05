@@ -1,3 +1,7 @@
+.hfbHeader{
+  height: 100px;
+  background-color: red;
+}
 .titleContainer{
   display: flex;
   flex-direction: column;

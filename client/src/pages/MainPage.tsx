@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import Layout from '../layouts/Layout';
 import RecipeData from '../types/RecipeData';
 import { RecipeCard } from '../components/main/RecipeCard';
 import Header from '../components/main/Header';
+import HFBHeader from '../components/shared/HFBHeader';
 
 
 import '../style/Main.css'
@@ -25,7 +27,8 @@ function MainPage(props: { recipes: RecipeData[] }) {
   }
 
   return (
-    <div>
+    <Layout>
+      
       <div className="titleContainer">
         <Header title="Recipes" />
         <SearchBar setSearchString={setSearchString} />
@@ -47,7 +50,7 @@ function MainPage(props: { recipes: RecipeData[] }) {
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   )
 }
 

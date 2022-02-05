@@ -2,6 +2,7 @@ import React from 'react';
 import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
+import Layout from '../layouts/Layout';
 import RecipeData from '../types/RecipeData';
 import { PrintableRecipe } from '../components/recipe/PrintableRecipe';
 
@@ -23,7 +24,7 @@ export default function RecipePage(props: { recipes: RecipeData[] }) {
 
     //Main Rendered component checks if the recipes have been found before loading anything
     return (recipe === undefined ? <></> :
-        <>
+        <Layout>
             <Header recipe={recipe}/>
 
             <Recipe recipe={recipe} />
@@ -35,6 +36,6 @@ export default function RecipePage(props: { recipes: RecipeData[] }) {
                     <PrintableRecipe recipe={recipe} />
                 </div>
             </div>
-        </>
+        </Layout>
     )
 }
