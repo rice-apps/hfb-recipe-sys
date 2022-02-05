@@ -59,7 +59,8 @@ app.get('/recipes', (req, res) => {
     .then(recipes => recipes.map(recipe => { 
       return {
         ...recipe,
-        photo: recipe.photo.fields.file.url
+        photo: recipe.photo.fields.file.url,
+        videoLink: recipe.videoLink || ""
       }
     }))
     // Convert ingredients from key/value to ingredient/quantity
