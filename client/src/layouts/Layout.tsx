@@ -1,10 +1,10 @@
 import React from 'react';
 import HFBHeader from "../components/shared/HFBHeader"
 
-const Layout = ({children}) => {
+const Layout = (props: {children: React.ReactNode}) => {
   return <div>
       <HFBHeader/>
-      {children}
+      {props.children}
       {/* footer */}
   </div>;
 };
