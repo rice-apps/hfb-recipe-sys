@@ -19,7 +19,6 @@ export const Ingredients = (props: { recipe: RecipeData, scale: number } ) => {
                 <ul className="ingredientsList">
                     {props.recipe.ingredientList && props.recipe.ingredientList.map((dict: any) => {
                         return (
-                            
                             <li>{formatFraction(dict["quantity"], props.scale)} {dict["ingredient"]}</li>
                         );
                     })}
