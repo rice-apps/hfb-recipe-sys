@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 import './googleElement.css';
 
@@ -8,28 +8,11 @@ import './googleElement.css';
 function GoogleTranslate() {
 
     /**
-     * A reference to the div containing the google translate language-selection dropdown
-     */
-    const googleTranslateDiv = useRef<HTMLDivElement>(null);
-
-    /**
      * Initializes the google translate element
      */
     function googleTranslateElementInit () {
         // Create google translate element
         new (window as any).google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,vi,zh-CN,ar', layout: (window as any).google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element')
-
-        // Set up listener to capture language selection
-        if(googleTranslateDiv.current) {
-            let selector = googleTranslateDiv.current.getElementsByClassName("goog-te-combo")[0] as HTMLSelectElement
-            if(selector) {
-                // TODO: update state on language selection
-                console.log("Adding listener");
-                selector.addEventListener("change", (e) => console.log("Selected Language:", selector.value), false)
-            } else {
-                console.log("Selector not defined");
-            }
-        }
     }
 
     /**
@@ -46,7 +29,7 @@ function GoogleTranslate() {
      * Return a div to contain the language selection dropdown
      */
     return (
-        <div id="google_translate_element" ref={googleTranslateDiv}></div>
+        <div id="google_translate_element"></div>
     );
 
 }
