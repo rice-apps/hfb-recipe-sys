@@ -24,6 +24,8 @@ export const RecipeCard = (props: { data: RecipeData, searchString: string, onCl
     if (!props.searchString) return true;
     // Show the recipe if the title is null
     if (!translatedTitle) return true;
+    //Show the recupe if the ingredient is included in the ingredient prop
+    
     // Show the recipe if the search string appears in the translated title
     return translatedTitle.toLowerCase().includes(props.searchString.toLowerCase())
   }
