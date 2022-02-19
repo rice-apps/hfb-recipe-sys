@@ -1,8 +1,237 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from 'antd';
+import { Menu, Dropdown, Button } from 'antd';
+import GoogleTranslate from "./GoogleTranslate";
 
 function HFBHeader() {
+    const { SubMenu } = Menu;
+    const aboutMenu = (
+        <Menu>
+          <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/">
+                About HFB
+            </a>}>
+
+            <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-services/">
+            Celebrating 40 Years of Community Support
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-services/">
+            Our Commitment to Diversity, Equity & Inclusion
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-services/">
+            Our Service Area
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-services/">
+            Our Facility
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-services/">
+            Our Milestones: A Timeline of Providing Food For Better Lives
+            </a>
+          </Menu.Item>
+          </SubMenu>
+
+          <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-services/">
+            Our Services
+            </a>}>
+
+            <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-services/">
+            535 Catering
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-services/">
+            Conference Center
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-services/">
+            Texans Cafe Menu
+            </a>
+          </Menu.Item>
+          </SubMenu>
+          
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-leaders/">
+            Our Leaders
+            </a>
+          </Menu.Item>
+
+          <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/ouragencies/">
+            Our Partners
+            </a>}>
+
+            <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/ouragencies/">
+            Partner Locator
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/ouragencies/">
+            Partner Collaborations With Houston Food Bank
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/ouragencies/">
+            Delivery Schedule
+            </a>
+          </Menu.Item>
+          </SubMenu>
+          
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-financials/">
+            Our Financials
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/employment/">
+            Employment
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/procurement/">
+            Procurement
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/serviceenterpriseinitiative/">
+            Service Enterprise Intiative
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://stores.inksoft.com/houston_food_bank/shop/home">
+            Shop
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://houstonfoodbank.zendesk.com/hc/en-us">
+            FAQ
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/contact/">
+            Contact Us
+            </a>
+          </Menu.Item>
+
+        </Menu>
+      );
+
+      const waysToGive = (
+        <Menu>
+          
+          <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-funds/">
+                Give Funds
+            </a>}>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-funds/">
+            Donate Now
+            </a>
+          </Menu.Item>
+          
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/givefood/">
+            Give Monthly
+            </a>
+          </Menu.Item>
+
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/">
+            Planned Giving
+            </a>
+          </Menu.Item>
+
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/advocate-2/">
+            Corporate Sponsors
+            </a>
+          </Menu.Item>
+          
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Donor Advised Funds
+            </a>
+          </Menu.Item>
+
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Fund Raise
+            </a>
+          </Menu.Item>
+
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Donor Log-in
+            </a>
+          </Menu.Item>
+        </SubMenu>
+          
+          <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/givefood/">
+                Give Food
+            </a>}>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/">
+            Host a Food Drive
+            </a>
+          </Menu.Item>
+
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/">
+            Red Barrels
+            </a>
+          </Menu.Item>
+
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/">
+            Bulk & Retail Donations
+            </a>
+          </Menu.Item>
+          </SubMenu>
+          
+          <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/">
+                Give Time By Volunteering
+            </a>}>
+            <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                Volunteer With Houston Food Bank
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                Dedicated Volunteer Opportunities 
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                Service Enterprise Initiative
+            </a>
+          </Menu.Item>
+          </SubMenu>
+          <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/advocate-2/">
+                Give Your Voice
+            </a>
+          </Menu.Item>
+          
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                More Ways to Give
+            </a>
+          </Menu.Item>
+
+        </Menu>
+      );
+
+      
+      
   return (
     <Frame23Root>
       <Frame22>
@@ -16,12 +245,17 @@ function HFBHeader() {
                 />
             </a>
             <Frame9>
+            <Dropdown overlay={aboutMenu} placement="bottomLeft" arrow>
             <a href="https://www.houstonfoodbank.org/about-us/">
               <AboutUs>About Us</AboutUs>
             </a>
+            </Dropdown>
+
+            <Dropdown overlay={waysToGive} placement="bottomLeft" arrow>
             <a href="https://www.houstonfoodbank.org/ways-to-give/">
               <WaysToGive>Ways To Give</WaysToGive>
             </a>
+            </Dropdown>
             <a href="https://www.houstonfoodbank.org/our-programs/">
               <OurPrograms>Our Programs</OurPrograms>
             </a>
@@ -55,20 +289,20 @@ function HFBHeader() {
                 <DeliverySchedule>Delivery Schedule</DeliverySchedule>
               </a>
               <Rectangle13 />
-              <HFBStaff>HFB Staff</HFBStaff>
+              <a href="https://sharepoint.houstonfoodbank.org/">
+                <HFBStaff>HFB Staff</HFBStaff>
+              </a>
               <Rectangle14 />
               <Group>
                 <Rectangle15>
                   <Rectangle16>
-                    <IMAGE2
-                      src={
-                        "https://firebasestorage.googleapis.com/v0/b/rendition-prod.appspot.com/o/970850b8-e081-4966-8f79-6954b52cd8e4.png?alt=media&token=0cfb29a2-8c62-4b4e-9739-b73fc0beab22"
-                      }
-                    />
-                    <English>English</English>
+                
+                    <GoogleTranslate />
                   </Rectangle16>
                 </Rectangle15>
+                <a href="https://www.houstonfoodbank.org/take-action/learn-about-hunger/newsroom/">
                 <Newsroom>Newsroom</Newsroom>
+                </a>
               </Group>
             </Frame18>
             <Frame19>
@@ -304,7 +538,7 @@ const Group = styled.div`
   position: relative;
 `;
 const Rectangle15 = styled.div`
-  background-color: #ffffff;
+  background-color: #66cc00;
   position: absolute;
   top: -0.38px;
   left: 76px;
@@ -326,19 +560,6 @@ const Rectangle16 = styled.div`
   padding-top: 4px;
   padding-bottom: 4px;
   align-items: center;
-`;
-const IMAGE2 = styled.img`
-  width: 24px;
-  height: 24px;
-  align-self: stretch;
-`;
-const English = styled.div`
-  color: #666666;
-  width: 57px;
-  font-size: 16px;
-  font-family: Roboto;
-  font-weight: 400;
-  line-height: 17px;
 `;
 const Newsroom = styled.div`
   color: #ffffff;

@@ -9,7 +9,6 @@ import '../style/Recipe.css';
 import { Recipe } from '../components/recipe/Recipe';
 import Header from '../components/recipe/header/Header';
 
-import GoogleTranslate from '../components/main/GoogleTranslate';
 import HFBHeader from '../components/main/HFBHeader';
 
 /**
@@ -29,8 +28,6 @@ export default function RecipePage(props: { recipes: RecipeData[] }) {
         <>
             <HFBHeader />
             <Header recipe={recipe}/>
-
-            <GoogleTranslate />
 
             <Recipe recipe={recipe} />
 

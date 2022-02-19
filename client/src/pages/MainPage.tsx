@@ -11,7 +11,6 @@ import filterRecipes from '../util/filterRecipes';
 import SearchBar from '../components/main/SearchBar';
 import FilterPanel from '../components/main/FilterPanel';
 
-import GoogleTranslate from '../components/main/GoogleTranslate';
 import HFBHeader from '../components/main/HFBHeader';
 
 function MainPage(props: { recipes: RecipeData[] }) {
@@ -28,7 +27,6 @@ function MainPage(props: { recipes: RecipeData[] }) {
         <SearchBar setSearchString={setSearchString} />
       </div>
 
-      <GoogleTranslate />
 
       <div className="bottomContainer">
         <FilterPanel checkedFilters={checkedFilters} setCheckedFilters={setCheckedFilters} />
