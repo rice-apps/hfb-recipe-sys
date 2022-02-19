@@ -10,6 +10,7 @@ import '../style/Main.css'
 import searchAndFilterRecipes from '../util/searchAndFilterRecipes';
 import SearchBar from '../components/main/SearchBar';
 import FilterPanel from '../components/main/FilterPanel';
+import { HFBHeader } from '../components/main/HFBHeader';
 
 
 function MainPage(props: { recipes: RecipeData[] }) {
@@ -28,6 +29,7 @@ function MainPage(props: { recipes: RecipeData[] }) {
   return (
     
     <div>
+      <HFBHeader />
       <div className="titleContainer">
         <Header title="Recipes" />
         <SearchBar setSearchString={setSearchString} />
