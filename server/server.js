@@ -54,12 +54,14 @@ const client = contentful.createClient({
 app.get('/recipes', (req, res) => {
   client.getEntries({order: 'sys.createdAt'})
     // Extract fields from each contentful object
-    .then(data => data.items.map(item => item.fields))
+    .then(data => {
+      return data.items.map(item => item.fields)
+    })
     // Extract url from photo data
     .then(recipes => recipes.map(recipe => { 
       return {
         ...recipe,
-        photo: recipe.photo.fields.file.url,
+        photo: recipe.photo ? recipe.photo.fields.file.url : "",
         videoLink: recipe.videoLink || ""
       }
     }))
