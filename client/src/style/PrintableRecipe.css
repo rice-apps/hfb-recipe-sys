@@ -1,0 +1,40 @@
+.printablePage {
+    width: 100vw;
+    height: 100vh;
+}
+.printableContainer {
+    height: 45vh;
+    width: 95vw;
+    margin: 2.5vw;
+    padding: 3vw;
+    border: 5px solid var(--hfb-green);
+}
+.instructionContainer {
+    height: 40vh; 
+    width: 95vw
+}
+.ingredientsContainer, .directionsContainer {
+    font-size: 12px;
+    max-height: 16vh;
+    width: 90vw;
+    display: flex;
+    flex-flow: column wrap;
+    overflow: hidden;
+}
+.ingredient {
+    padding-right: 2px;
+}
+
+.recipeTitle, .ingredientsHeader, .directionsHeader {
+    color: var(--hfb-green);
+    margin: 5px 0px 5px 0px;
+}
+.ingredientsContainer, .directionsContainer {
+    padding-top: 0px;
+}
+.direction {
+    flex-shrink: 20;
+}
+.recipeTitle {
+    text-align: center;
+}

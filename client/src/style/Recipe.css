@@ -1,6 +1,6 @@
 /* / * Style the header */ */
 header {
-  background-color: #7EAF53;
+  background-color: var(--hfb-green);
   padding: 30px;
   margin: 0px;
 }
@@ -81,7 +81,7 @@ header {
 }
 .print_text {
   font-size: 2vh;
-  color: #7EAF53;
+  color: var(--hfb-green);
   font-weight: 20;
   text-align: center;
   top: 50%;
@@ -95,7 +95,7 @@ header {
   cursor: pointer;
 }
 .header_bar {
-  background-color: #7EAF53;
+  background-color: var(--hfb-green);
 }
 
 
@@ -203,4 +203,7 @@ header {
 .mobile .instructionsContainer {
   padding-left: 30px;
   padding-right: 30px;
+}
+.mobile .servingsSlider {
+  width: 80%;
 }
