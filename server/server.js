@@ -77,6 +77,13 @@ app.get('/recipes', (req, res) => {
         })
       }
     }))
+    // Add default value for courses
+    .then(recipes => recipes.map(recipe => { 
+      return {
+        ...recipe,
+        course: recipe.course || []
+      }
+    }))
     // Add recipe ID for routing
     .then(recipes => recipes.map(recipe => { 
       return {
