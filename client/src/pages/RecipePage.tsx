@@ -10,6 +10,7 @@ import { Recipe } from '../components/recipe/Recipe';
 import Header from '../components/recipe/header/Header';
 
 import GoogleTranslate from '../components/main/GoogleTranslate';
+import HFBHeader from '../components/main/HFBHeader';
 
 /**
  * Props are the list of recipes 
@@ -26,6 +27,7 @@ export default function RecipePage(props: { recipes: RecipeData[] }) {
     //Main Rendered component checks if the recipes have been found before loading anything
     return (recipe === undefined ? <></> :
         <>
+            <HFBHeader />
             <Header recipe={recipe}/>
 
             <GoogleTranslate />
