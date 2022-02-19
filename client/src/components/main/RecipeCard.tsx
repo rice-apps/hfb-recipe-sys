@@ -57,12 +57,9 @@ export const RecipeCard = (props: { data: RecipeData, searchString: string, onCl
             <CourseTags data={props.data} />
             <p ref={ingredientsRef} style={{display: "none"}}>{getIngredientString()}</p>
           </div>
-
           { /* Dietary restriction tags */ }
-          <RestrictionTags data={props.data} />
+          <RestrictionTags data={props.data} showText={false} />
         </div>
-        { /* Dietary restriction tags */ }
-        <RestrictionTags data={props.data} showText={false} />
       </div>
     </div>
   )
