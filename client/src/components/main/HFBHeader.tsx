@@ -230,6 +230,83 @@ function HFBHeader() {
         </Menu>
       );
 
+      const ourPrograms = (
+          <Menu>
+            <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Backpack Buddy
+            </a>
+            </Menu.Item>
+            <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Community Assistance Program (CAP)
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Community Resource Center
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Food for Change
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Kids Cafe
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Nutrition Education & Health Promotion
+            </a>
+          </Menu.Item>
+          <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            On-the-Job Training Programs
+            </a>}>
+            <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Community Kitchen
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Community Warehouse and Logistics
+            </a>
+          </Menu.Item>
+
+          </SubMenu>
+          
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Red Barrels
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            School Market
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                More Ways to Give
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Senior Box Program
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            Teachers Aid
+            </a>
+          </Menu.Item>
+
+          </Menu>
+      );
+
       
       
   return (
@@ -256,9 +333,11 @@ function HFBHeader() {
               <WaysToGive>Ways To Give</WaysToGive>
             </a>
             </Dropdown>
+            <Dropdown overlay={ourPrograms} placement="bottomLeft" arrow>
             <a href="https://www.houstonfoodbank.org/our-programs/">
               <OurPrograms>Our Programs</OurPrograms>
             </a>
+            </Dropdown>
             <a href="https://www.houstonfoodbank.org/take-action/">
               <TakeAction>Take Action</TakeAction>
             </a>
