@@ -10,7 +10,7 @@ import {useMediaQuery} from 'react-responsive'
 import '../../../style/Recipe.css';
 
 
-export const BottomHeader = (props: { recipe: RecipeData }) => {
+export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
     const printComponentRef = useRef<HTMLDivElement>(null);
 
     const isDesktopOrLaptop = useMediaQuery({
@@ -45,7 +45,7 @@ export const BottomHeader = (props: { recipe: RecipeData }) => {
                         {/* Serving Size */}
     
                         <div className="detail_header" >Serving Size</div>
-                        <div className="information_header">{props.recipe.servings}</div>
+                        <div className="information_header">{props.recipe.servings * props.scale}</div>
     
                     </Col>
                     
@@ -76,7 +76,7 @@ export const BottomHeader = (props: { recipe: RecipeData }) => {
                 <div style={{ display: "none" }}>
                     {/*What gets printed  */}
                     <div ref={printComponentRef}>
-                        <PrintableRecipe recipe={props.recipe} />
+                        <PrintableRecipe recipe={props.recipe} scale={props.scale} />
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@ export const BottomHeader = (props: { recipe: RecipeData }) => {
                 <div style={{ display: "none" }}>
                     {/*What gets printed  */}
                     <div ref={printComponentRef}>
-                        <PrintableRecipe recipe={props.recipe} />
+                        <PrintableRecipe recipe={props.recipe} scale={props.scale} />
                     </div>
 
                 </div>

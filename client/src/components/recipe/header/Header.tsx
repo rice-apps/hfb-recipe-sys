@@ -3,13 +3,13 @@ import RecipeData from '../../../types/RecipeData'
 import { BottomHeader } from './NavigationHeader'
 import { TopHeader } from './RecipeInfoHeader'
 
-function Header(props: { recipe: RecipeData }) {
+function Header(props: { recipe: RecipeData; scale: number }) {
   return (
     <div className="header_bar">
       <header>
         <TopHeader recipe={props.recipe} />
         {/* Sub information to title on the next row underneath */}
-        <BottomHeader recipe={props.recipe} />
+        <BottomHeader recipe={props.recipe} scale={props.scale}  />
       </header>
     </div>
   )

@@ -14,11 +14,14 @@ function valuetext(scale: number) {
     return scale + " serving(s)";
 }
   
-export const Recipe = (props: { recipe: RecipeData }) => {
+export const Recipe = (props: { recipe: RecipeData, updateScale: Function}) => {
     const isBigScreen = useMediaQuery({ query: '(min-width: 1200px)' });
     const [scale, setScale] = useState(1);
 
-    const handleChange = ((event: any, value: any, activeThumb: any) => {setScale(value)})
+    const handleChange = ((event: any, value: any, activeThumb: any) => {
+        setScale(value);
+        props.updateScale(value);
+    })
 
     return (
         <div className={isBigScreen ? "" : "mobile"}>
@@ -30,7 +33,7 @@ export const Recipe = (props: { recipe: RecipeData }) => {
                                 <RestrictionTags data={props.recipe} showText={true} />
                                 <CourseTags data={props.recipe} />
                             </div>
-                            <h3>Want more servings?</h3>
+                            <h3>Want more servings? &nbsp; x{scale}</h3>
                             <Slider
                                 aria-label="Serving"
                                 defaultValue={1}
