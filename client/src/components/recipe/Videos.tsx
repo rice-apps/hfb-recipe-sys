@@ -8,9 +8,10 @@ export const Videos = (props: { recipe: RecipeData } ) => {
     return(
         <div className="videosContainer">
                 <h2></h2>
-                <ReactPlayer
-                    url = {props.recipe.videoLink}
-                />
+                {props.recipe.videoLink}
+                hello
+               <ReactPlayer url = {props.recipe.videoLink} />
+               {/* <ReactPlayer url = "https://www.youtube.com/watch?v=9OGAJ5Y5GCg"/> */}
         </div>
 
     //    <div>
