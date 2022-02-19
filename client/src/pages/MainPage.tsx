@@ -12,6 +12,7 @@ import SearchBar from '../components/main/SearchBar';
 import FilterPanel from '../components/main/FilterPanel';
 
 import GoogleTranslate from '../components/main/GoogleTranslate';
+import HFBHeader from '../components/main/HFBHeader';
 
 function MainPage(props: { recipes: RecipeData[] }) {
   const history = useHistory();
@@ -21,6 +22,7 @@ function MainPage(props: { recipes: RecipeData[] }) {
 
   return (
     <div>
+      <HFBHeader />
       <div className="titleContainer">
         <Header title="Recipes" />
         <SearchBar setSearchString={setSearchString} />
