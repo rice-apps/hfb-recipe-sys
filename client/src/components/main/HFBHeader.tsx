@@ -128,7 +128,7 @@ function HFBHeader() {
       const waysToGive = (
         <Menu>
           
-          <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-funds/">
+          <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://secure.houstonfoodbank.org/site/Donation2;jsessionid=00000000.app367b?df_id=8530&mfc_pref=T&8530.donation=form1&s_src=navbar&NONCE_TOKEN=9461B5618A758DA8553396246B803E2B">
                 Give Funds
             </a>}>
           <Menu.Item>
@@ -138,7 +138,7 @@ function HFBHeader() {
           </Menu.Item>
           
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/givefood/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-funds/faithfulfriends/">
             Give Monthly
             </a>
           </Menu.Item>
@@ -150,25 +150,25 @@ function HFBHeader() {
           </Menu.Item>
 
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/advocate-2/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-funds/corporate-sponsors/">
             Corporate Sponsors
             </a>
           </Menu.Item>
           
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://houstonfoodbank.planmygift.org/donor-advised-funds">
             Donor Advised Funds
             </a>
           </Menu.Item>
 
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/fundraise/">
             Fund Raise
             </a>
           </Menu.Item>
 
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://secure.houstonfoodbank.org/site/UserLogin?NEXTURL=https%3A%2F%2Fsecure.houstonfoodbank.org%2Fsite%2FUserCenter">
             Donor Log-in
             </a>
           </Menu.Item>
@@ -178,19 +178,19 @@ function HFBHeader() {
                 Give Food
             </a>}>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/hostfooddrive/">
             Host a Food Drive
             </a>
           </Menu.Item>
 
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/red-barrels/">
             Red Barrels
             </a>
           </Menu.Item>
 
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/givefood/bulkretaildonations/">
             Bulk & Retail Donations
             </a>
           </Menu.Item>
@@ -200,17 +200,17 @@ function HFBHeader() {
                 Give Time By Volunteering
             </a>}>
             <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/volunteerwithhfb/">
                 Volunteer With Houston Food Bank
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/other-volunteer-opportunities/">
                 Dedicated Volunteer Opportunities 
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/serviceenterpriseinitiative/">
                 Service Enterprise Initiative
             </a>
           </Menu.Item>
@@ -233,45 +233,45 @@ function HFBHeader() {
       const ourPrograms = (
           <Menu>
             <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/backpack-buddy/">
             Backpack Buddy
             </a>
             </Menu.Item>
             <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/communityassistanceprogram/">
             Community Assistance Program (CAP)
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/communityresourcecenter/">
             Community Resource Center
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/food-for-change/">
             Food for Change
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
-            Kids Cafe
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/kids-cafe/">
+            Kids' Cafe
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/nutrition-education/">
             Nutrition Education & Health Promotion
             </a>
           </Menu.Item>
-          <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+          <SubMenu title={<>
             On-the-Job Training Programs
-            </a>}>
+          </>}>
             <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/communitykitchen/">
             Community Kitchen
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="​​https://www.houstonfoodbank.org/our-programs/communitywarehouselogistics/">
             Community Warehouse and Logistics
             </a>
           </Menu.Item>
@@ -279,27 +279,22 @@ function HFBHeader() {
           </SubMenu>
           
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/red-barrels/">
             Red Barrels
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/schoolmarket/">
             School Market
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
-                More Ways to Give
-            </a>
-          </Menu.Item>
-          <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/senior-box-program/">
             Senior Box Program
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/teachers-aid/">
             Teachers Aid
             </a>
           </Menu.Item>
@@ -309,59 +304,74 @@ function HFBHeader() {
 
       const takeAction = (
           <Menu>
-              <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+              <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/advocate-2/">
                 Advocate 
                 </a>}>
               <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/advocate-2/publiccharge/">
                 Public Charge
                 </a>
                 </Menu.Item>
 
               </SubMenu>
 
-              <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+              <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/specialgroups/">
               Special Involvement Groups
                 </a>}>
               <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/fitnessforhunger/">
                 Fitness For Hunger
                 </a>
                 </Menu.Item>
                 <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
-                Indian American Council at Houston Food Bank
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/specialgroups/hungermitao/">
+                Hunger Mitao
                 </a>
                 </Menu.Item>
 
               </SubMenu>
 
               <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/ouragencies/become-an-agency/">
                 Partner Collaborations With Houston Food Bank
                 </a>
                 </Menu.Item>
 
-                <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/learn-about-hunger/">
                 Learn About Hunger
                 </a>}>
               <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/learn-about-hunger/researchresources/">
                 Research and Resources
                 </a>
                 </Menu.Item>
                 <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/learn-about-hunger/storiesofhunger/">
                 Stories of Hunger
                 </a>
                 </Menu.Item>
-                <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+
+
+                <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/learn-about-hunger/storiesofhunger/#">
                 Food Banking Programs for Students
+                </a>}>
+                  
+                <Menu.Item>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/learn-about-hunger/huddle-against-hunger/ ">
+                Huddle Against Hunger
                 </a>
                 </Menu.Item>
+                
                 <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/give-time/volunteerwithhfb/specialvolevents/hungerfighterpatch/">
+                Hunger Fighter Patch Program for Scouts
+                </a>
+                </Menu.Item>
+
+                </SubMenu>
+                
+                <Menu.Item>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/learn-about-hunger/newsroom/">
                 Newsroom
                 </a>
                 </Menu.Item>
@@ -374,12 +384,12 @@ function HFBHeader() {
       const events = (
           <Menu>
               <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/hfb-events/specialevents/">
                 Special Events
                 </a>
                 </Menu.Item>
                 <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/upcomingevents/ ">
                 Events Calendar
                 </a>
                 </Menu.Item>
@@ -389,27 +399,27 @@ function HFBHeader() {
       const findHelp = (
         <Menu>
             <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/find-help/agency-locator/">
                 Find A Food Pantry Near You
                 </a>
                 </Menu.Item>
                 <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/covid19/">
                 COVID-19 Resources
                 </a>
                 </Menu.Item>
                 <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/find-help/snap/">
                 SNAP
                 </a>
                 </Menu.Item>
                 <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/our-programs/communityresourcecenter/">
                 Community Resource Center
                 </a>
                 </Menu.Item>
                 <Menu.Item>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/ways-to-give/otherways/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/find-help/hfbapp/">
                 Houston Food Bank App
                 </a>
                 </Menu.Item>
@@ -666,11 +676,12 @@ const NeedFood = styled.div`
   color: #ffffff;
   width: 72px;
   font-size: 13px;
-  font-family: Roboto;
+  font-family: Arial;
   font-weight: 400;
   line-height: 16.25px;
   margin-right: 11.63px;
   align-self: center;
+  padding-top: 13.62px;
 `;
 const Rectangle11 = styled.div`
   background-color: #ffffff;
@@ -681,12 +692,13 @@ const Rectangle11 = styled.div`
 const VolunteerLogin = styled.div`
   color: #ffffff;
   width: 90px;
-  font-size: 12px;
-  font-family: Roboto;
+  font-size: 13px;
+  font-family: Arial;
   font-weight: 400;
   line-height: 16.25px;
   margin-right: 11.98px;
   align-self: center;
+  padding-top: 13.62px;
 `;
 const Rectangle12 = styled.div`
   background-color: #ffffff;
@@ -698,11 +710,12 @@ const DeliverySchedule = styled.div`
   color: #ffffff;
   width: 105px;
   font-size: 13px;
-  font-family: Roboto;
+  font-family: Arial;
   font-weight: 400;
   line-height: 16.25px;
   margin-right: 11.77px;
   align-self: center;
+  padding-top: 13.62px;
 `;
 const Rectangle13 = styled.div`
   background-color: #ffffff;
@@ -714,11 +727,12 @@ const HFBStaff = styled.div`
   color: #ffffff;
   width: 56px;
   font-size: 13px;
-  font-family: Roboto;
+  font-family: Arial;
   font-weight: 400;
   line-height: 16.25px;
   margin-right: 11.89px;
   align-self: center;
+  padding-top: 13.62px;
 `;
 const Rectangle14 = styled.div`
   background-color: #ffffff;
@@ -758,8 +772,8 @@ const Rectangle16 = styled.div`
 const Newsroom = styled.div`
   color: #ffffff;
   width: 62px;
-  font-size: 12px;
-  font-family: Roboto;
+  font-size: 13px;
+  font-family: Arial;
   font-weight: 400;
   line-height: 16.25px;
   position: absolute;
