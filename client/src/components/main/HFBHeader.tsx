@@ -565,7 +565,7 @@ function HFBHeader() {
 export default HFBHeader;
 
 const Socials = styled.div`
-  width: 1800px;
+  width: 1820px;
   display: flex;
   flex-direction: row;
   padding-left: 0px;
@@ -769,6 +769,7 @@ const Rectangle13 = styled.div`
   width: 1px;
   height: 44px;
   margin-right: 14.23px;
+
 `;
 const HFBStaff = styled.div`
   color: #ffffff;
