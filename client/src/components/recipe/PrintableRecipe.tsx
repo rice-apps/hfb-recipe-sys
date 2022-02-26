@@ -2,30 +2,35 @@ import { Row, Col } from 'antd';
 import RecipeData from '../../types/RecipeData';
 import '../../style/PrintableRecipe.css';
 import { formatFraction } from './Recipe';
+import appleLogo from './apple.png';
 
 const PrintableContainer = (props: { recipe: RecipeData, scale: number }) => {
     return (
-        <div className="printableContainer" >
-            <h1 className="recipeTitle">{props.recipe.title}</h1>
-            {/* Ingredients*/}
-            <h2 className="ingredientsHeader">Ingredients</h2>
-            <div className="ingredientsContainer">
-                {props.recipe.ingredientList && props.recipe.ingredientList.map((dict: any) => {
-                    return (
-                        <div className="ingredient"> - {formatFraction(dict["quantity"], props.scale)} {dict["ingredient"]}</div>
-                    );
-                })}
-            </div>
-            {/* Instructions*/}
-            <h2 className="directionsHeader">Directions</h2>
-            <div className="directionsContainer">
-                {props.recipe.instructions && props.recipe.instructions.split("\n").map((instr: string) => {
-                    return (
-                        <div className="direction">
-                            {instr}
-                        </div>
-                    );
-                })}
+        <div>
+            <div className="printableContainer" >
+                <img className="appleLogo" src={appleLogo}></img>
+                <h1 className="recipeTitle">{props.recipe.title}</h1>
+                {/* Ingredients */}
+                <h2 className="ingredientsHeader">Ingredients</h2>
+                <div className="ingredientsContainer">
+                    {props.recipe.ingredientList && props.recipe.ingredientList.map((dict: any) => {
+                        return (
+                            <div className="ingredient"> - {formatFraction(dict["quantity"], props.scale)} {dict["ingredient"]}</div>
+                        );
+                    })}
+                </div>
+                {/* Instructions */}
+                <h2 className="directionsHeader">Directions</h2>
+                <div className="directionsContainer">
+                    {props.recipe.instructions && props.recipe.instructions.split("\n").map((instr: string) => {
+                        return (
+                            <div className="direction">
+                                {instr}
+                            </div>
+                        );
+                    })}
+                </div>
+                <img className="hfbLogo" src="https://www.houstonfoodbank.org/wp-content/uploads/2018/08/Logo_HFB_Horz_color_6in_300dpi.jpg"></img>
             </div>
         </div>
     )

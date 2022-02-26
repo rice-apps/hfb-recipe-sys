@@ -8,6 +8,7 @@ import { PrintableRecipe } from '../PrintableRecipe';
 import {useMediaQuery} from 'react-responsive'
 
 import '../../../style/Recipe.css';
+import { usePrint, isSafari } from "../hooks";
 
 
 export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
@@ -21,7 +22,8 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
       const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
       const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
       const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
-    
+      const handlePrint = usePrint(printComponentRef, "Recipe");
+ 
     return (
         <div>
             {
@@ -45,7 +47,7 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
                         {/* Serving Size */}
     
                         <div className="detail_header" >Serving Size</div>
-                        <div className="information_header">{props.recipe.servings * props.scale}</div>
+                        <div className="information_header">{Math.floor(props.recipe.servings * props.scale)}</div>
     
                     </Col>
                     
@@ -60,14 +62,21 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
                     </Col>
                     <Col className="gutter-row" span={3}>
                         {/* Print Button */}
-                        <ReactToPrint
+                        { !isSafari() &&
+                            <ReactToPrint
                             trigger={() =>
-                                <div className="print_button">                <Icon name='print' size='large' color='green' />
-                                    <text className="print_text">Print Recipe</text></div>
+                                <div className="print_button">  <Icon name='print' size='large' color='green' />
+                                    <p className="print_text">Print Recipe</p></div>
                             }
                             content={() => printComponentRef.current}
                             documentTitle="AwesomeFileName"
                         />
+                        }
+                        {isSafari() &&
+                            <div className="print_button" onClick={handlePrint}> <Icon name='print' size='large' color='green' />
+                            <p className="print_text">Print Recipe</p></div>
+                        }
+                        
                         {/* Prints from the print div below*/}
     
                     </Col>
@@ -146,25 +155,25 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
 
                     <Col className="gutter-row" span={10}>
                         {/* Print Button */}
-                        <ReactToPrint
+                        { !isSafari() &&
+                        
+                            <ReactToPrint
                             trigger={() =>
-                                <div className="print_button">                <Icon name='print' size='large' color='green' />
-                                    <text className="print_text">Print Recipe</text></div>
+                                <div className="print_button">  <Icon name='print' size='large' color='green' />
+                                    <p className="print_text">Print Recipe</p></div>
                             }
                             content={() => printComponentRef.current}
                             documentTitle="AwesomeFileName"
                         />
+                        }
+                        {isSafari() &&
+                            <div className="print_button" onClick={handlePrint}> <Icon name='print' size='large' color='green' />
+                            <p className="print_text">Print Recipe</p></div>
+                        }
                         {/* Prints from the print div below*/}
     
                     </Col>
                 {/* </Row> */}
-                </div>
-                <div style={{ display: "none" }}>
-                    {/*What gets printed  */}
-                    <div ref={printComponentRef}>
-                        <PrintableRecipe recipe={props.recipe} scale={props.scale} />
-                    </div>
-
                 </div>
 
                 <Row gutter={50} className="info_row" justify="center">

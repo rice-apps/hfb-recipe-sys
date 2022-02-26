@@ -1,8 +1,19 @@
+@page {
+    size: portrait;
+  }
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact !important;
+    }
+  }
+  
 .printablePage {
     width: 100vw;
     height: 100vh;
 }
 .printableContainer {
+    position: relative;
     height: 45vh;
     width: 95vw;
     margin: 2.5vw;
@@ -15,14 +26,35 @@
 }
 .ingredientsContainer, .directionsContainer {
     font-size: 12px;
-    max-height: 16vh;
     width: 90vw;
     display: flex;
     flex-flow: column wrap;
     overflow: hidden;
 }
+.ingredientsContainer {
+    max-height: 8vh;
+}
+.directionsContainer {
+    max-height: 24vh;
+}
 .ingredient {
     padding-right: 2px;
+}
+.appleLogo {
+    position: absolute;
+    width: 45px;
+    left: -20px;
+    top: -20px;
+    padding: 5px;
+    background: white;
+}
+.hfbLogo {
+    position: absolute;
+    left: 75vw;
+    width: 100px;
+    bottom: -10px;
+    padding: 0px 10px 0px 10px;
+    background: white;
 }
 
 .recipeTitle, .ingredientsHeader, .directionsHeader {
