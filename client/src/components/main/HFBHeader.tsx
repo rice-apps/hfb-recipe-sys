@@ -2,10 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { Menu, Dropdown, Button } from 'antd';
 import GoogleTranslate from "./GoogleTranslate";
+import { SocialIcon } from 'react-social-icons';
 
 function HFBHeader() {
+    // Changes the size of the social media icons in pixels.
+    var size = 40;
+
+    // For implementing nested menus
     const { SubMenu } = Menu;
 
+    // Design for the donate button
     const ButtonContainer = styled.div`
     .ant-btn-primary {
       background: red;
@@ -438,6 +444,7 @@ function HFBHeader() {
         </Menu>
     );
 
+
       
       
   return (
@@ -486,7 +493,7 @@ function HFBHeader() {
               </Dropdown>
               <ButtonContainer>
                 <a href="https://www.houstonfoodbank.org/ways-to-give/">
-              <Button type="primary">Donate</Button>
+              <Button type="primary">DONATE</Button>
                 </a>
               </ButtonContainer>
               
@@ -495,7 +502,24 @@ function HFBHeader() {
         </Rectangle1>
         <Rectangle10>
           <Frame20>
+            
             <Frame18>
+              <div>
+              <SocialIcon url="https://www.facebook.com/thehoustonfoodbank" network="facebook" bgColor="#66cc00" fgColor="white" style={{ height: size, width: size }}/>
+              </div>
+              <div>
+              <SocialIcon url="https://twitter.com/HoustonFoodBank" network="twitter" bgColor="#66cc00" fgColor="white" style={{ height: size, width: size }}/>
+
+              </div>
+              <div>
+              <SocialIcon url="https://www.instagram.com/houstonfoodbank/" network="instagram" bgColor="#66cc00" fgColor="white" style={{ height: size, width: size }}/>
+              </div>
+              <div>
+              <SocialIcon url="https://www.linkedin.com/company/houstonfoodbank" network="linkedin" bgColor="#66cc00" fgColor="white" style={{ height: size, width: size }}/>
+              </div>
+              <div>
+              <SocialIcon url="https://www.youtube.com/HoustonFoodBank" network="youtube" bgColor="#66cc00" fgColor="white" style={{ height: size, width: size }}/>
+              </div>
                 <a href="https://www.houstonfoodbank.org/find-help/">
                     <NeedFood>Need Food?</NeedFood>
                 </a>
@@ -525,11 +549,7 @@ function HFBHeader() {
               </Group>
             </Frame18>
             <Frame19>
-              <Facebook>Facebook</Facebook>
-              <Instagram>Instagram</Instagram>
-              <YouTube>YouTube</YouTube>
-              <Twitter>Twitter</Twitter>
-              <LinkedIn>LinkedIn</LinkedIn>
+
             </Frame19>
           </Frame20>
         </Rectangle10>
@@ -601,7 +621,7 @@ const AboutUs = styled.div`
   width: 76px;
   font-size: 17px;
   font-family: Arial;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 17px;
   margin-top: 9px;
   margin-right: 24px;
@@ -611,7 +631,7 @@ const WaysToGive = styled.div`
   width: 110px;
   font-size: 17px;
   font-family: Arial;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 17px;
   margin-top: 9px;
   margin-right: 25px;
@@ -621,7 +641,7 @@ const OurPrograms = styled.div`
   width: 114px;
   font-size: 17px;
   font-family: Arial;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 17px;
   margin-top: 9px;
   margin-right: 25px;
@@ -631,7 +651,7 @@ const TakeAction = styled.div`
   width: 94px;
   font-size: 17px;
   font-family: Arial;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 17px;
   margin-top: 9px;
   margin-right: 26px;
@@ -641,7 +661,7 @@ const Events = styled.div`
   width: 56px;
   font-size: 17px;
   font-family: Arial;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 17px;
   margin-top: 9px;
   margin-right: 25px;
@@ -651,7 +671,7 @@ const FindHelp = styled.div`
   width: 77px;
   font-size: 17px;
   font-family: Arial;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 17px;
   margin-top: 9px;
   margin-right: 25px;
@@ -684,7 +704,7 @@ const Frame18 = styled.div`
   width: 493.01px;
   display: flex;
   flex-direction: row;
-  padding-left: 12.94px;
+  padding-left: 0px;
   padding-right: 14px;
 `;
 const NeedFood = styled.div`
@@ -799,61 +819,6 @@ const Frame19 = styled.div`
   width: 390.03px;
   height: 26px;
   position: relative;
-`;
-const Facebook = styled.div`
-  color: #ffffff;
-  width: 62px;
-  font-size: 14px;
-  font-family: Roboto;
-  font-weight: 400;
-  line-height: 16px;
-  position: absolute;
-  top: -1.38px;
-  left: 25px;
-`;
-const Instagram = styled.div`
-  color: #ffffff;
-  width: 64px;
-  font-size: 14px;
-  font-family: Roboto;
-  font-weight: 400;
-  line-height: 16px;
-  position: absolute;
-  top: -1.38px;
-  left: 97px;
-`;
-const YouTube = styled.div`
-  color: #ffffff;
-  width: 58px;
-  font-size: 14px;
-  font-family: Roboto;
-  font-weight: 400;
-  line-height: 16px;
-  position: absolute;
-  top: -1.38px;
-  left: 169px;
-`;
-const Twitter = styled.div`
-  color: #ffffff;
-  width: 46px;
-  font-size: 14px;
-  font-family: Roboto;
-  font-weight: 400;
-  line-height: 16px;
-  position: absolute;
-  top: -1.38px;
-  left: 61px;
-`;
-const LinkedIn = styled.div`
-  color: #ffffff;
-  width: 59px;
-  font-size: 15px;
-  font-family: Roboto;
-  font-weight: 400;
-  line-height: 16px;
-  position: absolute;
-  top: -1.38px;
-  left: 133px;
 `;
 const Rectangle21 = styled.div`
   background-color: #e5e5e5;
