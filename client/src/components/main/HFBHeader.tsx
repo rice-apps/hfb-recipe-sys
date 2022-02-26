@@ -5,6 +5,18 @@ import GoogleTranslate from "./GoogleTranslate";
 
 function HFBHeader() {
     const { SubMenu } = Menu;
+
+    const ButtonContainer = styled.div`
+    .ant-btn-primary {
+      background: red;
+      border-color: red;
+  }
+  
+  .ant-btn-primary:hover {
+      background: greenyellow;
+      border-color: greenyellow;
+  }
+`;
     const aboutMenu = (
         <Menu>
           <SubMenu title={<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/">
@@ -472,9 +484,12 @@ function HFBHeader() {
               <FindHelp>Find Help</FindHelp>
               </a>
               </Dropdown>
-              <a href="https://www.houstonfoodbank.org/ways-to-give/">
+              <ButtonContainer>
+                <a href="https://www.houstonfoodbank.org/ways-to-give/">
               <Button type="primary">Donate</Button>
                 </a>
+              </ButtonContainer>
+              
             </Frame9>
           </Frame10>
         </Rectangle1>
@@ -585,7 +600,7 @@ const AboutUs = styled.div`
   color: #333333;
   width: 76px;
   font-size: 17px;
-  font-family: Roboto;
+  font-family: Arial;
   font-weight: 400;
   line-height: 17px;
   margin-top: 9px;
@@ -595,7 +610,7 @@ const WaysToGive = styled.div`
   color: #333333;
   width: 110px;
   font-size: 17px;
-  font-family: Roboto;
+  font-family: Arial;
   font-weight: 400;
   line-height: 17px;
   margin-top: 9px;
@@ -605,7 +620,7 @@ const OurPrograms = styled.div`
   color: #333333;
   width: 114px;
   font-size: 17px;
-  font-family: Roboto;
+  font-family: Arial;
   font-weight: 400;
   line-height: 17px;
   margin-top: 9px;
@@ -615,7 +630,7 @@ const TakeAction = styled.div`
   color: #333333;
   width: 94px;
   font-size: 17px;
-  font-family: Roboto;
+  font-family: Arial;
   font-weight: 400;
   line-height: 17px;
   margin-top: 9px;
@@ -625,7 +640,7 @@ const Events = styled.div`
   color: #333333;
   width: 56px;
   font-size: 17px;
-  font-family: Roboto;
+  font-family: Arial;
   font-weight: 400;
   line-height: 17px;
   margin-top: 9px;
@@ -635,7 +650,7 @@ const FindHelp = styled.div`
   color: #333333;
   width: 77px;
   font-size: 17px;
-  font-family: Roboto;
+  font-family: Arial;
   font-weight: 400;
   line-height: 17px;
   margin-top: 9px;
