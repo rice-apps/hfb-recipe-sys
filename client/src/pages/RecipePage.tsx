@@ -9,6 +9,8 @@ import '../style/Recipe.css';
 import { Recipe } from '../components/recipe/Recipe';
 import Header from '../components/recipe/header/Header';
 
+import GoogleTranslate from '../components/main/GoogleTranslate';
+
 /**
  * Props are the list of recipes 
  */
@@ -25,6 +27,8 @@ export default function RecipePage(props: { recipes: RecipeData[] }) {
     return (recipe === undefined ? <></> :
         <>
             <Header recipe={recipe}/>
+
+            <GoogleTranslate />
 
             <Recipe recipe={recipe} />
 

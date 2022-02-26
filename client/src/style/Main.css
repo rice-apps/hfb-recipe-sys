@@ -14,6 +14,9 @@
   flex-flow: row wrap;
   background-color: #f0f0f0;
 }
+.mobile .recipeCardContainer {
+  justify-content: center;
+}
 
 .recipeCard {
   /* was 360 */
@@ -28,12 +31,21 @@
   display: flex;
   flex-direction: row;
 }
+.mobile .bottomContainer {
+  flex-direction: column;
+}
 
 .filterContainer{
   width: 25%;
 }
+.mobile .filterContainer {
+  width: 100%;
+}
 .searchContainer{
   width: 75%;
+}
+.mobile .searchContainer {
+  width: 100%;
 }
 .filterTitle{
   display: flex;

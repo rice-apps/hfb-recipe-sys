@@ -5,7 +5,7 @@ import RecipeData from '../../types/RecipeData';
 export const PrintableRecipe = (props: { recipe: RecipeData }) => {
     return (
         <div>
-            <div style={{ height: "50vh", width: "95vw" }}>
+            <div style={{ height: "50vh", width: "95vw", padding: "3vw"}}>
                 <h1>{props.recipe.title}</h1>
                 <Row gutter={[8, 16]}>
                     {/* Ingreidents*/}
@@ -27,7 +27,7 @@ export const PrintableRecipe = (props: { recipe: RecipeData }) => {
             {/* Line */}
             <hr></hr>
             {/* Repeat of top half*/}
-            <div style={{ height: "50vh", width: "95vw" }}>
+            <div style={{ height: "50vh", width: "95vw", padding:"3vw" }}>
                 <h1>{props.recipe.title}</h1>
                 <Row gutter={[8, 16]}>
 

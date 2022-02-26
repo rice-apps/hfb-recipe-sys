@@ -1,24 +1,27 @@
-/* Style the header */
+/* / * Style the header */ */
 header {
-  background-color: #7eaf53;
+  background-color: #7EAF53;
   padding: 30px;
   margin: 0px;
 }
-
 .name_header {
   text-align: center;
   font-size: 6vh;
+  line-height: normal;
   color: white;
   font-weight: bold;
   margin-bottom: 3vh;
 }
-
+/* .parent{
+  white-space:nowrap;
+} */
 .detail_header {
-  font-size: 2vh;
+  font-size: 2.5vh;
   color: white;
   font-weight: 20;
   text-align: center;
-  margin-bottom: 1vh;
+  margin-bottom: 0.5vh;
+  /* display: inline-block; */
 }
 .print_text {
   font-size: 2vh;
@@ -30,11 +33,20 @@ header {
   color: white;
   font-weight: 80;
   text-align: center;
+  margin-bottom: 3vh;
+  /* display: inline-block; */
 }
 .vl {
   border-left: 3px solid white;
   height: 7vh;
   margin-top: -3px;
+}
+.hl {
+  border: 0.5px solid white;
+  width: 150px;
+  height: 0.5px;
+  margin-top: 5px;
+  margin-bottom: 7px;
 }
 .image {
   border-radius: 20px 0px 20px 103px;
@@ -44,10 +56,21 @@ header {
 }
 .info_row {
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  /* width: 75%; */
+  display: flex;
+  flex-direction: row;
+  margin-bottom:2vh;
+}
+@media (max-width: 800px){
+  .info_row{
+    flex-direction: column;
+  }
 }
 .print_button {
   display: flex;
-  background: #ffffff;
+  background: #FFFFFF;
   box-shadow: 0px 2px 10px rgba(62, 131, 61, 0.5);
   border-radius: 15px;
   height: 5vh;
@@ -58,7 +81,7 @@ header {
 }
 .print_text {
   font-size: 2vh;
-  color: #7eaf53;
+  color: #7EAF53;
   font-weight: 20;
   text-align: center;
   top: 50%;
@@ -71,35 +94,28 @@ header {
 .back_button:hover {
   cursor: pointer;
 }
-
 .header_bar {
-  background-color: #7eaf53;
+  background-color: #7EAF53;
 }
 .ingrPhotoContainer {
   display: flex;
   flex-flow: row wrap;
   width: 100vw;
-  padding-top: 1%;
-  padding-bottom: 1%;
 }
 .ingrContainer,
 .photoContainer {
   width: 50vw;
   padding: 10px;
 }
-.photoContainer img {
-  max-width: 90%;
-  max-height: 500px;
+.restrictions {
+  color: red;
 }
 .ingrRestContainer {
   float: right;
-  width: 500px;
-  max-width: 25vw;
 }
 .ingredients {
   background-color: rgba(238, 239, 240, 0.3);
-  padding: 40px;
-  object-fit: cover;
+  padding: 50px;
 }
 .ingredientsList {
   padding-top: 10px;
@@ -112,23 +128,16 @@ header {
   float: left;
 }
 .restTag {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 5px;
+  display: inline-block;
 }
 .recipeRestTagContainer {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  flex-wrap: wrap;
 }
 .instructionsContainer {
   display: flex;
-  padding: 2% 10% 2% 10%;
-  padding-left: calc(25vw + 30px);
-  padding-right: calc(25vw + 30px);
+  padding-left: 10%;
+  padding-right: 10%;
   flex-direction: column;
-  background-color: #F2F2F2;
 }
