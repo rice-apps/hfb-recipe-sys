@@ -504,7 +504,7 @@ function HFBHeader() {
           <Frame20>
             
             <Frame18>
-              <>
+              <Socials>
               <div>
               <SocialIcon url="https://www.facebook.com/thehoustonfoodbank" network="facebook" bgColor="#66cc00" fgColor="white" style={{ height: size, width: size }}/>
               </div>
@@ -521,7 +521,7 @@ function HFBHeader() {
               <div>
               <SocialIcon url="https://www.youtube.com/HoustonFoodBank" network="youtube" bgColor="#66cc00" fgColor="white" style={{ height: size, width: size }}/>
               </div>
-              </>
+              </Socials>
               
                 <a href="https://www.houstonfoodbank.org/find-help/">
                     <NeedFood>Need Food?</NeedFood>
@@ -563,6 +563,14 @@ function HFBHeader() {
 };
 
 export default HFBHeader;
+
+const Socials = styled.div`
+  width: 1800px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 0px;
+  padding-right: 0px;
+`;
 
 const Frame23Root = styled.div`
   background-color: #ffffff;
@@ -704,12 +712,13 @@ const Frame20 = styled.div`
   align-items: center;
 `;
 const Frame18 = styled.div`
-  width: 1200px;
+  width: 800px;
   display: flex;
   flex-direction: row;
   padding-left: 12.94px;
   padding-right: 14px;
 `;
+
 const NeedFood = styled.div`
   color: #ffffff;
   width: 72px;
