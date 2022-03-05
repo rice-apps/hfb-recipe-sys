@@ -57,8 +57,14 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
                     </Col>
                     <Col className="gutter-row" span={5}>
                         {/* Calories  */}
-                        <div className="detail_header" >Calories</div>
-                        <div className="information_header">{props.recipe.calories}</div>
+                        {/* <div className="detail_header" >Calories</div> */}
+                        {/* <div className="information_header">{props.recipe.calories}</div> */}
+                        {props.recipe.dairyFoodGroup && <div className="information_header2"> Dairy</div> }
+                        {props.recipe.vegatableFoodGroup && <div className="information_header2"> Vegatable</div> }
+                        {props.recipe.grainFoodGroup && <div className="information_header2"> Grain</div> }
+                        {props.recipe.fruitFoodGroup && <div className="information_header2"> Fruit</div> }
+                        {props.recipe.proteinFoodGroup && <div className="information_header2"> Protien</div> }
+
                     </Col>
                     <Col className="gutter-row" span={3}>
                         {/* Print Button */}
@@ -141,16 +147,15 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
                     <Col className="gutter-row" span={25} >
                         {/* Cuisine Type */}
                         <div id = "parent" >
-                            <div className="detail_header">Calories: </div>
+                        {props.recipe.dairyFoodGroup && <div className="information_header2"> Dairy</div> }
+                        {props.recipe.vegatableFoodGroup && <div className="information_header2"> Vegatable</div> }
+                        {props.recipe.grainFoodGroup && <div className="information_header2"> Grain</div> }
+                        {props.recipe.fruitFoodGroup && <div className="information_header2"> Fruit</div> }
+                        {props.recipe.proteinFoodGroup && <div className="information_header2"> Protien</div> }
+
                         </div>
                     </Col>
 
-                    <Col className="gutter-row" span={25} >
-                        {/* Cuisine Type */}
-                        <div id = "parent" >
-                            <div className="detail_header">{props.recipe.calories}</div>
-                        </div>
-                    </Col>
                  </Row>
 
                     <Col className="gutter-row" span={10}>

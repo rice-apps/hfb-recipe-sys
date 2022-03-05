@@ -17,4 +17,11 @@ export default interface RecipeData {
   vegetarian: boolean,
   nutFree: boolean,
   dairyFree: boolean,
+  vegatableFoodGroup: boolean,
+  dairyFoodGroup: boolean,
+  grainFoodGroup: boolean,
+  fruitFoodGroup: boolean,
+  proteinFoodGroup: boolean,
+  videoLink: string,
+  
 }

@@ -57,6 +57,14 @@
     background: white;
 }
 
+.USDA{
+    font-size: 12px;
+    position: absolute;
+    width: 740px;
+    left: 20px;
+    top: 410px;
+   
+}
 .recipeTitle, .ingredientsHeader, .directionsHeader {
     color: var(--hfb-green);
     margin: 5px 0px 5px 0px;
