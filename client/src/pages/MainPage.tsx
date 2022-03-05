@@ -12,6 +12,7 @@ import SearchBar from '../components/main/SearchBar';
 import FilterPanel from '../components/main/FilterPanel';
 
 import HFBHeader from '../components/header/HFBHeader';
+import HFBFooter from '../components/footer/HFBFooterFinal';
 
 function MainPage(props: { recipes: RecipeData[] }) {
   const history = useHistory();
@@ -41,6 +42,7 @@ function MainPage(props: { recipes: RecipeData[] }) {
           </div>
         </div>
       </div>
+      <HFBFooter/>
     </div>
   )
 }

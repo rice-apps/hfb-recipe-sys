@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400|Heebo:400");
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.hfbfooter {
+  align-items: flex-start;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  height: 518px;
+  overflow: hidden;
+  padding: 0px 0;
+  width: 1200px;
+}

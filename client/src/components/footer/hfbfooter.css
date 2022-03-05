@@ -1,0 +1,83 @@
+
+
+:root {
+    --black: 
+  rgba(0, 0, 0, 1);
+    --outer-space: 
+  rgba(70, 73, 74, 1);
+    --abbey: 
+  rgba(80, 81, 82, 1);
+    --alto: 
+  rgba(221, 221, 221, 1);
+    --white: 
+  rgba(255, 255, 255, 1);
+  
+    --font-size-xs: 11px;
+    --font-size-s: 12px;
+    --font-size-m: 13px;
+    --font-size-l: 14px;
+    --font-size-xl: 15px;
+    --font-size-xxl: 16px;
+  
+    --font-family-heebo: "Heebo";
+    --font-family-roboto: "Roboto";
+  }
+  
+  
+  
+  .roboto-normal-white-16px {
+    color: var(--white);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xxl);
+    font-weight: 400;
+    font-style: normal;
+  }
+  .roboto-normal-alto-15px {
+    color: var(--alto);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xl);
+    font-weight: 400;
+    font-style: normal;
+  }
+  .roboto-normal-white-13px {
+    color: var(--white);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-m);
+    font-weight: 400;
+    font-style: normal;
+  }
+  .heebo-normal-alto-11px {
+    color: var(--alto);
+    font-family: var(--font-family-heebo);
+    font-size: var(--font-size-xs);
+    font-weight: 400;
+    font-style: normal;
+  }
+  .roboto-normal-white-15px {
+    color: var(--white);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xl);
+    font-weight: 400;
+    font-style: normal;
+  }
+  .heebo-normal-alto-12px {
+    color: var(--alto);
+    font-family: var(--font-family-heebo);
+    font-size: var(--font-size-s);
+    font-weight: 400;
+    font-style: normal;
+  }
+  .roboto-normal-outer-space-14px {
+    color: var(--outer-space);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-l);
+    font-weight: 400;
+    font-style: normal;
+  }
+  .roboto-normal-alto-16px {
+    color: var(--alto);
+    font-family: var(--font-family-roboto);
+    font-size: var(--font-size-xxl);
+    font-weight: 400;
+    font-style: normal;
+  }

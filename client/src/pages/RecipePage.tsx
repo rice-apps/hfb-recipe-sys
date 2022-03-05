@@ -10,6 +10,7 @@ import { Recipe } from '../components/recipe/Recipe';
 import Header from '../components/recipe/header/Header';
 
 import HFBHeader from '../components/header/HFBHeader';
+import HFBFooter from '../components/footer/HFBFooterFinal';
 
 /**
  * Props are the list of recipes 
@@ -38,6 +39,7 @@ export default function RecipePage(props: { recipes: RecipeData[] }) {
                     <PrintableRecipe recipe={recipe} />
                 </div>
             </div>
+            <HFBFooter />
         </>
     )
 }

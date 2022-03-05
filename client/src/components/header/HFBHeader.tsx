@@ -565,6 +565,7 @@ function HFBHeader() {
 export default HFBHeader;
 
 const Socials = styled.div`
+  // margin-left: -30%
   width: 1820px;
   display: flex;
   flex-direction: row;
@@ -610,8 +611,9 @@ const Frame10 = styled.div`
   width: 1100px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   padding-bottom: 2px;
+  margin-left:30%;
   align-items: flex-end;
 `;
 const Frame9 = styled.div`
@@ -649,7 +651,7 @@ const WaysToGive = styled.div`
 `;
 const OurPrograms = styled.div`
   color: #333333;
-  width: 114px;
+  width: 120px;
   font-size: 17px;
   font-family: Arial;
   font-weight: 600;
@@ -659,7 +661,7 @@ const OurPrograms = styled.div`
 `;
 const TakeAction = styled.div`
   color: #333333;
-  width: 94px;
+  width: 100px;
   font-size: 17px;
   font-family: Arial;
   font-weight: 600;
@@ -679,7 +681,7 @@ const Events = styled.div`
 `;
 const FindHelp = styled.div`
   color: #333333;
-  width: 77px;
+  width: 85px;
   font-size: 17px;
   font-family: Arial;
   font-weight: 600;
@@ -712,6 +714,7 @@ const Frame20 = styled.div`
   align-items: center;
 `;
 const Frame18 = styled.div`
+  margin-left:-155%;
   width: 800px;
   display: flex;
   flex-direction: row;
@@ -813,7 +816,7 @@ const Rectangle16 = styled.div`
   gap: 0;
   padding-left: 6px;
   padding-right: 6px;
-  padding-top: 4px;
+  padding-top: 0px;
   padding-bottom: 4px;
   align-items: center;
 `;
