@@ -738,7 +738,7 @@ const Rectangle11 = styled.div`
 `;
 const VolunteerLogin = styled.div`
   color: #ffffff;
-  width: 90px;
+  width: 93px;
   font-size: 13px;
   font-family: Arial;
   font-weight: 400;
@@ -773,7 +773,7 @@ const Rectangle13 = styled.div`
 `;
 const HFBStaff = styled.div`
   color: #ffffff;
-  width: 56px;
+  width: 59px;
   font-size: 13px;
   font-family: Arial;
   font-weight: 400;
