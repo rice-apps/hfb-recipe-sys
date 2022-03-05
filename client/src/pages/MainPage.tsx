@@ -11,7 +11,7 @@ import filterRecipes from '../util/filterRecipes';
 import SearchBar from '../components/main/SearchBar';
 import FilterPanel from '../components/main/FilterPanel';
 
-import HFBHeader from '../components/main/HFBHeader';
+import HFBHeader from '../components/header/HFBHeader';
 
 function MainPage(props: { recipes: RecipeData[] }) {
   const history = useHistory();

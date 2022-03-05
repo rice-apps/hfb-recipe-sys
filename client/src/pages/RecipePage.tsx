@@ -9,7 +9,7 @@ import '../style/Recipe.css';
 import { Recipe } from '../components/recipe/Recipe';
 import Header from '../components/recipe/header/Header';
 
-import HFBHeader from '../components/main/HFBHeader';
+import HFBHeader from '../components/header/HFBHeader';
 
 /**
  * Props are the list of recipes 

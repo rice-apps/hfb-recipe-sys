@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Menu, Dropdown, Button } from 'antd';
-import GoogleTranslate from "./GoogleTranslate";
+import GoogleTranslate from "../main/GoogleTranslate";
 import { SocialIcon } from 'react-social-icons';
 
 function HFBHeader() {
