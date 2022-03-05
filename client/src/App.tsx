@@ -13,7 +13,7 @@ function App() {
   const [recipes, setRecipes] = useState<RecipeData[]>([]);
 
   useEffect(() => {
-    fetch("https://hfb-recipe-sys-api.herokuapp.com/recipes").then(
+    fetch("https://houstonfoodbank-recipe-api-z6ruh.ondigitalocean.app/recipes").then(
       response => response.json()
     ).then((data => setRecipes(data))
     ).catch(err => {
