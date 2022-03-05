@@ -1,0 +1,80 @@
+@page {
+    size: portrait;
+  }
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact !important;
+    }
+  }
+  
+.printablePage {
+    width: 100vw;
+    height: 100vh;
+}
+.printableContainer {
+    position: relative;
+    height: 45vh;
+    width: 95vw;
+    margin: 2.5vw;
+    padding: 3vw;
+    border: 5px solid var(--hfb-green);
+}
+.instructionContainer {
+    height: 40vh; 
+    width: 95vw
+}
+.ingredientsContainer, .directionsContainer {
+    font-size: 12px;
+    width: 90vw;
+    display: flex;
+    flex-flow: column wrap;
+    overflow: hidden;
+}
+.ingredientsContainer {
+    max-height: 8vh;
+}
+.directionsContainer {
+    max-height: 24vh;
+}
+.ingredient {
+    padding-right: 2px;
+}
+.appleLogo {
+    position: absolute;
+    width: 45px;
+    left: -20px;
+    top: -20px;
+    padding: 5px;
+    background: white;
+}
+.hfbLogo {
+    position: absolute;
+    left: 75vw;
+    width: 100px;
+    bottom: -10px;
+    padding: 0px 10px 0px 10px;
+    background: white;
+}
+
+.USDA{
+    font-size: 12px;
+    position: absolute;
+    width: 740px;
+    left: 20px;
+    top: 410px;
+   
+}
+.recipeTitle, .ingredientsHeader, .directionsHeader {
+    color: var(--hfb-green);
+    margin: 5px 0px 5px 0px;
+}
+.ingredientsContainer, .directionsContainer {
+    padding-top: 0px;
+}
+.direction {
+    flex-shrink: 20;
+}
+.recipeTitle {
+    text-align: center;
+}

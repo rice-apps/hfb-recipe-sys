@@ -22,4 +22,5 @@ export default interface RecipeData {
   grainFoodGroup: boolean,
   fruitFoodGroup: boolean,
   proteinFoodGroup: boolean,
+  videoLink: string,
 }

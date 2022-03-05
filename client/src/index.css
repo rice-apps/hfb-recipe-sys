@@ -1,3 +1,7 @@
+:root {
+  --hfb-green: #66cc00;
+}
+
 @font-face {
   font-family: "FuturaM";
   src: local("FuturaM"), url("./fonts/FuturaBold.ttf") format("truetype");

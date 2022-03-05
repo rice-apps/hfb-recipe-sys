@@ -1,6 +1,6 @@
 /* / * Style the header */ */
 header {
-  background-color: #7EAF53;
+  background-color: var(--hfb-green);
   padding: 30px;
   margin: 0px;
 }
@@ -36,6 +36,15 @@ header {
   margin-bottom: 3vh;
   /* display: inline-block; */
 }
+.information_header2{
+  font-size: 2.5vh;
+  color: white;
+  font-weight: 80;
+  text-align: center;
+  margin-bottom: 1vh;
+  /* display: inline-block; */
+}
+
 .vl {
   border-left: 3px solid white;
   height: 7vh;
@@ -81,7 +90,7 @@ header {
 }
 .print_text {
   font-size: 2vh;
-  color: #7EAF53;
+  color: var(--hfb-green);
   font-weight: 20;
   text-align: center;
   top: 50%;
@@ -95,31 +104,83 @@ header {
   cursor: pointer;
 }
 .header_bar {
-  background-color: #7EAF53;
+  background-color: var(--hfb-green);
 }
+
+
 .ingrPhotoContainer {
   display: flex;
   flex-flow: row wrap;
   width: 100vw;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.mobile .ingrPhotoContainer {
+  flex-direction: column;
+  justify-content: center;
 }
 .ingrContainer,
 .photoContainer {
   width: 50vw;
   padding: 10px;
 }
-.restrictions {
-  color: red;
+
+.photoContainer img {
+  max-width: 90%;
+  max-height: 500px;
+}
+.mobile .photoContainer img {
+  max-width: 100%;
+  justify-content: center; 
 }
 .ingrRestContainer {
   float: right;
+  width: 500px;
+  max-width: 25vw;
+}
+.mobile .photoContainer, .mobile .ingrRestContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;   
+  flex-direction: column;
+  width: 100vw;
+  max-width: 100vw;
+  float: none;
+}
+.mobile .ingrContainer {
+  order: 1;
+  width: 100vw;
+  max-width: 100vw;
+}
+.mobile .photoContainer {
+  order: 0;
+}
+
+.mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+.mobile .recipeDataContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
 }
 .ingredients {
   background-color: rgba(238, 239, 240, 0.3);
-  padding: 50px;
+  padding: 40px;
+  object-fit: cover;
 }
 .ingredientsList {
   padding-top: 10px;
   padding-left: 13px;
+}
+.mobile .ingredients {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
 }
 .ingredientsList li {
   padding-bottom: 15px;
@@ -128,16 +189,30 @@ header {
   float: left;
 }
 .restTag {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5px;
 }
 .recipeRestTagContainer {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 .instructionsContainer {
   display: flex;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 2% 10% 2% 10%;
+  padding-left: calc(25vw + 30px);
+  padding-right: calc(25vw + 30px);
   flex-direction: column;
+  background-color: #F2F2F2;
+}
+.mobile .instructionsContainer {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.mobile .servingsSlider {
+  width: 80%;
 }

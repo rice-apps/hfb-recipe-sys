@@ -15,7 +15,7 @@ export const TopHeader = (props: { recipe: RecipeData }) => {
             <Row className="top_row">
                 {/* Go back button using the Icons from semantic UI*/}
                 <Col className="gutter-row" flex={1} onClick={() => history.goBack()}>
-                    <Icon name='angle left' className="back_button" size="large" inverted />
+                    <Icon name='angle left' className="back_button" size="huge" inverted />
                 </Col>
                 <Col className="gutter-row" flex={20}>
                     {/* Main title*/}
