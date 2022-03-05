@@ -2,7 +2,7 @@ import '../../style/PrintableRecipe.css';
 
 export const isSafari = () =>
   /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-const pagePrintStyleDefault = '../../style/PrintableRecipe.css';
+const pagePrintStyleDefault = '';
 
 const DEFAULT_PRINT_WINDOW_DIMENSIONS = {
   width: 850,
