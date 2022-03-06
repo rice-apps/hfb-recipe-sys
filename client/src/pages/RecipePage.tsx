@@ -9,7 +9,8 @@ import '../style/Recipe.css';
 import { Recipe } from '../components/recipe/Recipe';
 import Header from '../components/recipe/header/Header';
 
-import GoogleTranslate from '../components/main/GoogleTranslate';
+import HFBHeader from '../components/header/HFBHeader';
+import HFBFooter from '../components/footer/HFBFooterFinal';
 
 /**
  * Props are the list of recipes 
@@ -31,9 +32,9 @@ export default function RecipePage(props: { recipes: RecipeData[] }) {
     //Main Rendered component checks if the recipes have been found before loading anything
     return (recipe === undefined ? <></> :
         <>
+            <HFBHeader />
             <Header recipe={recipe} scale={scale}/>
 
-            <GoogleTranslate />
             <Recipe recipe={recipe} updateScale={updateScale} />
 
             {/* What is being printed -> technically on the page but display is None meaning it wont show up*/}
@@ -43,6 +44,7 @@ export default function RecipePage(props: { recipes: RecipeData[] }) {
                     <PrintableRecipe recipe={recipe} scale={scale} />
                 </div>
             </div>
+            <HFBFooter />
         </>
     )
 }

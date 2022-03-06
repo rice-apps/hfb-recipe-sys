@@ -11,7 +11,8 @@ import filterRecipes from '../util/filterRecipes';
 import SearchBar from '../components/main/SearchBar';
 import FilterPanel from '../components/main/FilterPanel';
 
-import GoogleTranslate from '../components/main/GoogleTranslate';
+import HFBHeader from '../components/header/HFBHeader';
+import HFBFooter from '../components/footer/HFBFooterFinal';
 
 function MainPage(props: { recipes: RecipeData[] }) {
   const history = useHistory();
@@ -23,14 +24,13 @@ function MainPage(props: { recipes: RecipeData[] }) {
   return (
 
     <div>
+      <HFBHeader />
       <div className="titleContainer">
         <Header title="Recipes" />
         <SearchBar setSearchString={setSearchString} />
       </div>
 
       <div className={isBigScreen ? "" : "mobile"}>
-        <GoogleTranslate />
-
         <div className="bottomContainer">
           <FilterPanel checkedFilters={checkedFilters} setCheckedFilters={setCheckedFilters} />
           <div className="searchContainer">
@@ -46,6 +46,7 @@ function MainPage(props: { recipes: RecipeData[] }) {
         </div>
       </div>
 
+      <HFBFooter/>
     </div>
 
   )

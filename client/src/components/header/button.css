@@ -1,0 +1,9 @@
+.ant-btn-primary {
+    background: greenyellow;
+    border-color: greenyellow;  
+}
+
+.ant-btn-primary:hover {
+    background: red;
+    border-color: red;
+}
