@@ -43,11 +43,15 @@ export const Recipe = (props: { recipe: RecipeData, updateScale: Function}) => {
         props.updateScale(value);
     })
 
+    // Deal with image vs. no image
+    const containsImage = Boolean(props.recipe.photo);
+    const ingrContainerStyle = containsImage ? {} : { width: "62%" };
+
     return (
         <div className={isBigScreen ? "" : "mobile"}>
             <div className="recipeDataContainer">
                 <div className="ingrPhotoContainer">
-                    <div className="ingrContainer">
+                    <div className="ingrContainer" style={ingrContainerStyle}>
                         <div className="ingrRestContainer">
                             <div className="tags">
                                 <RestrictionTags data={props.recipe} showText={true} />
@@ -69,7 +73,9 @@ export const Recipe = (props: { recipe: RecipeData, updateScale: Function}) => {
                         </div>
                     </div>
                     {/* Photo of the recipe */}
-                    <RecipeImage recipe={props.recipe} />
+                    {containsImage? 
+                        <RecipeImage recipe={props.recipe} />:
+                        null}
                 </div>
                             {/* Intstructions*/}
               <Instructions recipe={props.recipe} />
