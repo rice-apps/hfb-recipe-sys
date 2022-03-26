@@ -42,7 +42,6 @@ function HFBFooter(props:any) {
     requestASpeaker,
     nondiscriminationStatement,
     languageTranslator,
-    searchOurSite,
     privacyStatement,
     theHoustonFoodBan,
     nonProfitOrganizat,
@@ -71,11 +70,11 @@ function HFBFooter(props:any) {
           <QuickLinks>
             <QuickLinks1>{quickLinks}</QuickLinks1>
             <Links>
-              <ContactUs1>{<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/contact/">{"> " + contactUs2}</a>}</ContactUs1>
+              <ContactUs1>{<a target="_blank" rel="noopener noreferrer"  href="https://www.houstonfoodbank.org/contact/">{"> " + contactUs2}</a>}</ContactUs1>
               <Rectangle></Rectangle>
               <MediaInquiries>{<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/learn-about-hunger/newsroom/">{"> " + mediaInquiries}</a>}</MediaInquiries>
               <Rectangle></Rectangle>
-              <MediaInquiries>{<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/employment/">{"> " + employment}</a>}</MediaInquiries>
+              <MediaInquiries>{<a target="_blank" rel="noopener noreferrer"  href="https://www.houstonfoodbank.org/about-us/employment/">{"> " + employment}</a>}</MediaInquiries>
               <Rectangle></Rectangle>
               <ConferenceCenter>{<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-services/conference-center/">{"> " + conferenceCenter}</a>}</ConferenceCenter>
               <Rectangle></Rectangle>
@@ -88,12 +87,11 @@ function HFBFooter(props:any) {
             </Links>
           </QuickLinks>
           <LanguageAndSearch>
+           
             <Language>
               <LanguageTranslator>{languageTranslator}</LanguageTranslator>
-              <Translate>{GoogleTranslate}</Translate>
             </Language>
             <Search>
-              <LanguageTranslator>{searchOurSite}</LanguageTranslator>
               <SearchBar>
                 <Rectangle1></Rectangle1>
                 <Rectangle2></Rectangle2>
@@ -321,6 +319,7 @@ const Links = styled.div`
   width: 252px;
   margin-top: 28px;
   display: flex;
+  color: white;
   flex-direction: column;
   align-items: flex-start;
   min-height: 277px;
@@ -333,7 +332,15 @@ const ContactUs1 = styled.div`
   margin-left: 12.5px;
   letter-spacing: 0;
   line-height: 20px;
+  color: white;
   white-space: nowrap;
+  a {
+    color: white;
+    &:hover {
+      color: red;
+    }
+  }
+  
 `;
 
 const Rectangle = styled.div`
@@ -351,6 +358,12 @@ const MediaInquiries = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
+  a {
+    color: white;
+    &:hover {
+      color: red;
+    }
+  }
 `;
 
 const ConferenceCenter = styled.div`
@@ -361,6 +374,12 @@ const ConferenceCenter = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
+  a {
+    color: white;
+    &:hover {
+      color: red;
+    }
+  }
 `;
 
 const NondiscriminationStatement = styled.div`
@@ -373,6 +392,13 @@ const NondiscriminationStatement = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
+  a {
+    color: white;
+    &:hover {
+      color: red;
+    }
+  }
+  
 `;
 
 const LanguageAndSearch = styled.div`
@@ -608,12 +634,19 @@ const hFBFooterData = {
   requestASpeaker: "Request a Speaker",
   nondiscriminationStatement: "Nondiscrimination Statement",
   languageTranslator: "LANGUAGE TRANSLATOR",
-  searchOurSite: "SEARCH OUR SITE",
   privacyStatement: "PRIVACY STATEMENT",
-  theHoustonFoodBan: "The Houston Food Bank is registered as a",
+  theHoustonFoodBan: "The Houston Food Bank is registered as a ",
+  nonProfit501c3: "501(c)(3)",
   nonProfitOrganizat:
-    "non-profit organization. Contributions are tax-deductible to the extent permitted by law, tax identification number 74-2181456. The Houston Food Bank believes in conducting business with the utmost honesty and integrity.",
+    "non-profit organization. Contributions are tax-deductible to the extent permitted by law, tax identification number 74-2181456.",
   assistsTheHouston:
-    "assists the Houston Food Bank to identify any potential improper activity. Lighthouse is committed to protecting the identity of community members, including Food Bank staff, to submit confidential reports, suggestions, or complaints to a third party who helps the Houston Food Bank administration resolve issues while maintaining professional standards. View the Houston Food Bank’s",
+    "assists the Houston Food Bank to identify any potential improper activity. Lighthouse is committed to protecting the identity of community members, including Food Bank staff, to submit confidential reports, suggestions, or complaints to a third party who helps the Houston Food Bank administration resolve issues while maintaining professional standards. on Food Bank",
+  hfbWebPrivacy: "View the Houston Food Bank's",
+  webPrivacyPolicy: "Web Privacy Policy",
+  donorPrivacyCode: "Donor Privacy Code",
   copyright2021Houst: "Copyright 2021 Houston Food Bank | All Rights Reserved",
+  ethicsAndCompliance: "The Houston Food Bank believes in conducting business with the utmost honesty and integrity.",
+  lighthouseServices: "LightHouse Services",
+  ethicsAndCompliance2: "assists the Houston Food Bank to identify any potential improper activity. Lighthouse is committed to protecting the identity of community members, including Food Bank staff, to submit confidential reports, suggestions, or complaints to a third party who helps the Houston Food Bank administration resolve issues while maintaining professional standards.",
+
 };
