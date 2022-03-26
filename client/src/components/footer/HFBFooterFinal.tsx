@@ -22,7 +22,6 @@ export default HFBFooterFinal;
 function HFBFooter(props:any) {
   const {
     contactUs1,
-    image,
     name1,
     address1,
     address2,
@@ -203,6 +202,7 @@ const Contact = styled.div`
   flex-direction: column;
   align-items: flex-start;
   min-height: 344px;
+  color: white;
 `;
 
 const ContactUs = styled.div`
@@ -243,7 +243,6 @@ const Name = styled.p`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
-  color: white;
 `;
 
 const Address = styled.div`
@@ -252,7 +251,6 @@ const Address = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
-  color: white;
 `;
 
 const Address1 = styled.div`
@@ -261,7 +259,6 @@ const Address1 = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
-  color: white;
 `;
 
 const Name1 = styled.p`
@@ -271,7 +268,6 @@ const Name1 = styled.p`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
-  color: white;
 `;
 
 const Phone = styled.div`
@@ -281,7 +277,6 @@ const Phone = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
-  color: white;
 `;
 
 const AdditionalContacts = styled.div`
@@ -300,6 +295,7 @@ const QuickLinks = styled.div`
   flex-direction: column;
   align-items: flex-start;
   min-height: 323px;
+  color: white;
 `;
 
 const QuickLinks1 = styled.div`
@@ -376,6 +372,7 @@ const LanguageAndSearch = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 203px;
+  color: white;
 `;
 
 const Language = styled.div`
@@ -575,7 +572,6 @@ const LinkedIn = styled.div`
 
 const hFBFooterData = {
   contactUs1: "CONTACT US",
-  image: './image@2x.png',
   name1: "Houston Food Bank East Branch",
   address1: "535 Portwall St.",
   address2: "Houston, TX 77029",
