@@ -81,7 +81,7 @@ const getSafariPrintHandler = (componentRef, documentTitle) => () => {
 
   // clean up
   printDoc.close();
-  popupWindow.print();
+  //popupWindow.print();
 };
 
 export const usePrint = (componentRef, documentTitle) => {

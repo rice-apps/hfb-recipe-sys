@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 const Heading = styled.h1`
     display: flex;
+    font-family: "Futura", "FuturaM";
     justify-content: center;
     align-items: center;
-    font-size: 9vh;
-    line-height: 5vh;
+    font-size: 7vh;
     color: white;
 `;
 //padding: 40px 0px 0px 0px;

@@ -21,7 +21,7 @@ export const TopHeader = (props: { recipe: RecipeData }) => {
                     {/* Main title*/}
                     <div className="name_header">{props.recipe.title}</div>
                 </Col>
-                <Col className="gutter-row" flex={1}>
+                <Col className="gutter-row" flex={4}>
                 </Col>
             </Row>
         </div>

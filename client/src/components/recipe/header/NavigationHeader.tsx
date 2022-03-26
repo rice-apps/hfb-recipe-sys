@@ -34,45 +34,39 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
                 isBigScreen && 
                 <div>
                 <div className="info_row">
-                {/* <Row gutter={8} className="info_row" justify="center"> */}
-                    <Col className="gutter-row" span={5} >
-                        {/* Cuisine Type */}
+                <Row gutter={[16, 8]} wrap = {false}  align="middle">
+                      {/* <Col className="gutter-row" span={5} >
+                       
                         <div id = "parent" >
                             <div className="detail_header">Cuisine</div>
                             <div className="information_header">{props.recipe.cuisine}</div>
                         </div>
-                    </Col>
+                    </Col> */}
 
-                    <Col className='gutter-row'>
+                    {/* <Col className='gutter-row'>
                         <div className="vl"></div>
-                    </Col>
-
-                    <Col className="gutter-row" span={5}>
-                        {/* Serving Size */}
-    
-                        <div className="detail_header" >Serving Size</div>
+                    </Col> */}
+                    <Col span = {9}>
+                    <div className="detail_header" >Serving Size</div>
                         <div className="information_header">{Math.floor(props.recipe.servings * props.scale)}</div>
     
                     </Col>
-                    
-                    <Col>
+                    <Col span = {1}>
                         {/* Bar */}
                         <div className={`${isBigScreen ? "vl" : "hl"}`}></div>
                     </Col>
-                    <Col className="gutter-row" span={5}>
-                        {/* Calories  */}
-                        {/* <div className="detail_header" >Calories</div> */}
-                        {/* <div className="information_header">{props.recipe.calories}</div> */}
-                        {props.recipe.dairyFoodGroup && <div className="information_header2"> Dairy</div> }
-                        {props.recipe.vegatableFoodGroup && <div className="information_header2"> Vegatable</div> }
+                    <Col span = {9}>
+                    {props.recipe.dairyFoodGroup && <div className="information_header2"> Dairy</div> }
+                        {props.recipe.vegatableFoodGroup && <div className="information_header2"> Vegetable</div> }
                         {props.recipe.grainFoodGroup && <div className="information_header2"> Grain</div> }
                         {props.recipe.fruitFoodGroup && <div className="information_header2"> Fruit</div> }
-                        {props.recipe.proteinFoodGroup && <div className="information_header2"> Protien</div> }
-
+                        {props.recipe.proteinFoodGroup && <div className="information_header2"> Protein</div> }
                     </Col>
-                    <Col className="gutter-row" span={3}>
-                        {/* Print Button */}
-                        {!isSafari() &&
+                    <Col span = {1} >
+                        <div className={`${isBigScreen ? "vl" : "hl"}`}></div>
+                    </Col>
+                    <Col span = {10}>
+                    {!isSafari() &&
                             <ReactToPrint
                             trigger={() =>
                                 <div className="print_button">  <Icon name='print' size='large' color='green' />
@@ -84,13 +78,18 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
                         }
                         {isSafari() &&
                             <div className="print_button" onClick={handlePrint}> <Icon name='print' size='large' color='green' />
-                            <p className="print_text">Print Recipe</p></div>
+                            <p className="print_text">Open Printable Recipe</p></div>
                         }
                         
-                        {/* Prints from the print div below*/}
-    
                     </Col>
-                {/* </Row> */}
+                </Row>
+                
+                  
+                    
+                   
+                 
+                  
+                  
                 </div>
                 <div style={{ display: "none" }}>
                     {/*What gets printed  */}
@@ -104,27 +103,21 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
             {isSmallScreen && 
                 <div>
                 <div className="info_row">
-                <Row gutter={3} className="info_row" justify="center">
+                {/* <Row gutter={3} className="info_row" justify="center">
                     <Col className="gutter-row" span={30} >
-                        {/* Cuisine Type */}
                         <div id = "parent" >
                             <div className="detail_header">Cuisine: </div>
                         </div>
                     </Col>
 
                     <Col className="gutter-row" span={50} >
-                        {/* Cuisine Type */}
-                        <div id = "parent" >
+\                        <div id = "parent" >
                             <div className="detail_header">{props.recipe.cuisine}</div>
                         </div>
                     </Col>
-                 </Row>
+                 </Row> */}
                     
-                <Col>
-                    {/* Bar */}
-                    {/* <div className={`${isBigScreen ? "vl" : "hl"}`}></div> */}
-                    <div className="hl"></div>
-                </Col>
+               
 
                 <Row gutter={3} className="info_row" justify="center">
                     <Col className="gutter-row" span={25} >
@@ -161,6 +154,11 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
                     </Col>
 
                  </Row>
+                 <Col>
+                    {/* Bar */}
+                    {/* <div className={`${isBigScreen ? "vl" : "hl"}`}></div> */}
+                    <div className="hl"></div>
+                </Col>
 
                     <Col className="gutter-row" span={10}>
                         {/* Print Button */}

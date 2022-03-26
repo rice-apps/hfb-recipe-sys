@@ -30,7 +30,7 @@ const PrintableContainer = (props: { recipe: RecipeData, scale: number }) => {
                         );
                     })}
                 </div>
-                <div className = "USDA">USDA label: USDA is an equal opportunity provider and employer. This material was funded by USDA’s Supplemental Nutrition Assistance Program — SNAP. For more information about SNAP and how to apply, visit YourTexasBenefits.com</div>
+                <div  className="USDA">USDA label: USDA is an equal opportunity provider and employer. This material was funded by USDA’s Supplemental Nutrition Assistance Program — SNAP. For more information about SNAP and how to apply, visit YourTexasBenefits.com</div>
                 <img className="hfbLogo" src="https://www.houstonfoodbank.org/wp-content/uploads/2018/08/Logo_HFB_Horz_color_6in_300dpi.jpg"></img>
             </div>
         </div>
@@ -50,4 +50,5 @@ export const PrintableRecipe = (props: { recipe: RecipeData, scale: number }) =>
     )
 }
 
+export default PrintableContainer;
 
