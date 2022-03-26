@@ -1,6 +1,7 @@
 
 import React from "react";
 import styled from "styled-components";
+import HFBLogo from './image@2x.png';
 
 function HFBFooterFinal() {
   return <HFBFooter {...hFBFooterData} />;
@@ -59,7 +60,7 @@ function HFBFooter(props:any) {
           <Contact>
             <ContactUs>{contactUs1}</ContactUs>
             <Frame>
-              <IMAGE src={image} />
+              <IMAGE src={HFBLogo} />
               <Name>{name1}</Name>
               <Address>{address1}</Address>
               <Address1>{address2}</Address1>
@@ -242,6 +243,7 @@ const Name = styled.p`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
+  color: white;
 `;
 
 const Address = styled.div`
@@ -250,6 +252,7 @@ const Address = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
+  color: white;
 `;
 
 const Address1 = styled.div`
@@ -258,6 +261,7 @@ const Address1 = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
+  color: white;
 `;
 
 const Name1 = styled.p`
@@ -267,6 +271,7 @@ const Name1 = styled.p`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
+  color: white;
 `;
 
 const Phone = styled.div`
@@ -276,6 +281,7 @@ const Phone = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
+  color: white;
 `;
 
 const AdditionalContacts = styled.div`
@@ -426,6 +432,7 @@ const PrivacyStatement = styled.div`
   flex-direction: column;
   align-items: flex-start;
   min-height: 350px;
+  color: white;
 `;
 
 const StatementText = styled.div`
@@ -568,7 +575,7 @@ const LinkedIn = styled.div`
 
 const hFBFooterData = {
   contactUs1: "CONTACT US",
-  image: "./image@2x.png",
+  image: './image@2x.png',
   name1: "Houston Food Bank East Branch",
   address1: "535 Portwall St.",
   address2: "Houston, TX 77029",
