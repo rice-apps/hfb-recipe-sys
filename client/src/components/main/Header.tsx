@@ -9,6 +9,7 @@ const Heading = styled.h1`
     font-size: 9vh;
     line-height: 5vh;
     color: white;
+    padding-bottom: 7.5%;
 `;
 //padding: 40px 0px 0px 0px;
 
