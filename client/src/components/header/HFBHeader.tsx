@@ -638,6 +638,9 @@ const AboutUs = styled.div`
   line-height: 17px;
   margin-top: 9px;
   margin-right: 24px;
+  &:hover {
+    color: red;
+  }
 `;
 const WaysToGive = styled.div`
   color: #333333;
@@ -648,6 +651,9 @@ const WaysToGive = styled.div`
   line-height: 17px;
   margin-top: 9px;
   margin-right: 25px;
+  &:hover {
+    color: red;
+  }
 `;
 const OurPrograms = styled.div`
   color: #333333;
@@ -658,6 +664,9 @@ const OurPrograms = styled.div`
   line-height: 17px;
   margin-top: 9px;
   margin-right: 25px;
+  &:hover {
+    color: red;
+  }
 `;
 const TakeAction = styled.div`
   color: #333333;
@@ -668,6 +677,9 @@ const TakeAction = styled.div`
   line-height: 17px;
   margin-top: 9px;
   margin-right: 26px;
+  &:hover {
+    color: red;
+  }
 `;
 const Events = styled.div`
   color: #333333;
@@ -678,6 +690,9 @@ const Events = styled.div`
   line-height: 17px;
   margin-top: 9px;
   margin-right: 25px;
+  &:hover {
+    color: red;
+  }
 `;
 const FindHelp = styled.div`
   color: #333333;
@@ -688,6 +703,9 @@ const FindHelp = styled.div`
   line-height: 17px;
   margin-top: 9px;
   margin-right: 25px;
+  &:hover {
+    color: red;
+  }
 `;
 
 const Rectangle10 = styled.div`

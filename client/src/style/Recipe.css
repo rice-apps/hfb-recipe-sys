@@ -99,9 +99,11 @@ header {
 }
 .print_button:hover {
   cursor: pointer;
+  transform: scale(1.05)
 }
 .back_button:hover {
   cursor: pointer;
+  transform: scale(1.05)
 }
 .header_bar {
   background-color: var(--hfb-green);

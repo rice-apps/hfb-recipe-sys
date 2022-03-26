@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RecipeData from '../../types/RecipeData';
 import '../../style/Recipe.css';
 import { Ingredients } from './Ingredients';
@@ -33,6 +33,10 @@ export const formatFraction = (frac: string, sc: number) => {
 export const Recipe = (props: { recipe: RecipeData, updateScale: Function}) => {
     const isBigScreen = useMediaQuery({ query: '(min-width: 1200px)' });
     const [scale, setScale] = useState(1);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     const handleChange = ((event: any, value: any, activeThumb: any) => {
         setScale(value);

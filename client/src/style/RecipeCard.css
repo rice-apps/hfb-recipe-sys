@@ -8,6 +8,11 @@
   background-color: white;
 }
 
+/* make recipe cards "interative" */
+.recipeCardData:hover{
+  transform: scale(1.02);
+}
+
 /* Recipe card photo */
 .recipePhoto {
   width: 100%;
