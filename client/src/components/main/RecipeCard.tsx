@@ -47,8 +47,11 @@ export const RecipeCard = (props: { data: RecipeData, searchString: string, onCl
   return (
     <div className="recipeCard" onClick={props.onClick} style={displayStyle}>
       <div className="recipeCardData">
-        { /* Recipe image */ }
-        <img src={props.data.photo} className="recipePhoto" alt={props.data.title} />
+        { /* Recipe image (or a spacer if no image provided) */ }
+        {props.data.photo ?
+          <img src={props.data.photo} className="recipePhoto" alt={props.data.title} />
+          : <br></br>
+        }
         <div className="recipeCardInfo">
           <div>
             { /* Recipe title */ }
