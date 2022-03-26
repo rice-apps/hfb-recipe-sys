@@ -91,6 +91,19 @@ app.get('/recipes', (req, res) => {
         id: recipe.title.replace(/ /g, '-').toLowerCase()
       }
     }))
+    // Sort by title and missing photos
+    .then(recipes => recipes.sort((recipe1, recipe2) => {
+      // Sort non-photo recipes by title
+      if (!recipe1.photo && !recipe2.photo)
+        return recipe1.title.localeCompare(recipe2.title);
+
+      // Put non-photo recipes at end
+      if (!recipe1.photo) return 1;
+      if (!recipe2.photo) return -1;
+
+      // Sort photo recipes by title
+      return recipe1.title.localeCompare(recipe2.title);
+    }))
     // Send processed recipes to client
     .then(recipes => res.send(recipes));
 });
