@@ -709,7 +709,7 @@ const Frame20 = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   gap: 13px;
-  padding-left: 200.03px;
+  padding-left: 200px;
   padding-right: 200.03px;
   align-items: center;
 `;
