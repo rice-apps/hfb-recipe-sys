@@ -1,0 +1,359 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400|Heebo:400");
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.hfbfooter {
+  align-items: flex-start;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  height: 518px;
+  overflow: hidden;
+  padding: 0px 0;
+  width: 1200px;
+}
+
+.upper-footer {
+  align-items: flex-start;
+  background-color: 
+#363839;
+  display: flex;
+  height: 446px;
+  justify-content: flex-end;
+  min-width: 1200px;
+  padding: 43px 49px;
+}
+
+.contact {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.05px;
+  min-height: 344px;
+  width: 253px;
+}
+
+.contact-us,
+.language-translator,
+.search-our-site,
+.privacy-statement-1 {
+  letter-spacing: 0;
+  line-height: 18px;
+  min-height: 18px;
+  white-space: nowrap;
+}
+
+.frame {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 28px;
+  min-height: 298px;
+  width: 252px;
+}
+
+.image {
+  height: 74px;
+  object-fit: cover;
+  width: 200px;
+}
+
+.name {
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-top: 15px;
+  min-height: 20px;
+  white-space: nowrap;
+}
+
+.address {
+  letter-spacing: 0;
+  line-height: 20px;
+  min-height: 20px;
+  white-space: nowrap;
+}
+
+.frame-item {
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-top: 16px;
+  min-height: 20px;
+  white-space: nowrap;
+}
+
+.quick-links {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  min-height: 323px;
+  width: 252px;
+}
+
+.quick-links-1 {
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-left: 0.5px;
+  min-height: 18px;
+  white-space: nowrap;
+}
+
+.links {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 28px;
+  min-height: 277px;
+  width: 252px;
+}
+
+.contact-us-1 {
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: 12.5px;
+  margin-top: -1px;
+  min-height: 20px;
+  white-space: nowrap;
+}
+
+.rectangle {
+  background-color: var(--abbey);
+  height: 1px;
+  margin-top: 12px;
+  width: 252px;
+}
+
+.links-item {
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: 12.5px;
+  margin-top: 8px;
+  min-height: 20px;
+  white-space: nowrap;
+}
+
+.nondiscrimination-statement {
+  align-self: center;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-right: 22.5px;
+  margin-top: 8px;
+  min-height: 20px;
+  white-space: nowrap;
+  width: 205px;
+}
+
+.language-and-search {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  min-height: 203px;
+  width: 282px;
+}
+
+.language {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  min-height: 78px;
+  width: 252px;
+}
+
+.translate {
+  background-color: var(--white);
+  height: 32px;
+  margin-top: 28px;
+  width: 173px;
+}
+
+.search {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  min-height: 75px;
+  width: 252px;
+}
+
+.search-bar {
+  align-items: flex-end;
+  display: flex;
+  margin-top: 28px;
+  overflow: hidden;
+  width: 252px;
+}
+
+.rectangle-1 {
+  background-color: var(--white);
+  height: 29px;
+  margin-bottom: -0.05px;
+  width: 224px;
+}
+
+.rectangle-2 {
+  background-color: var(--black);
+  height: 29px;
+  margin-bottom: -0.05px;
+  width: 29px;
+}
+
+.privacy-statement {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+  margin-top: 0.05px;
+  min-height: 350px;
+  width: 253px;
+}
+
+.statement-text {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-left: -0.5px;
+  margin-top: 28px;
+  min-height: 304px;
+  padding: 0 0.5px;
+  width: 252px;
+}
+
+.the-houston-food-ban {
+  letter-spacing: 0;
+  line-height: 16.2px;
+  margin-top: -1px;
+  min-height: 17px;
+  white-space: nowrap;
+}
+
+.overlap-group {
+  height: 259px;
+  position: relative;
+  width: 247px;
+}
+
+.non-profit-organizat {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 16.2px;
+  position: absolute;
+  top: 0;
+  width: 243px;
+}
+
+.assists-the-houston {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 16.2px;
+  position: absolute;
+  top: 96px;
+  width: 247px;
+}
+
+.copyright {
+  align-items: center;
+  background-color: 
+#282a2b;
+  display: flex;
+  height: 72px;
+  justify-content: flex-end;
+  min-width: 1200px;
+  padding: 27px 0;
+}
+
+.copyright-2021-houst {
+  color: var(--white);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 15px;
+  margin-top: 1px;
+  min-height: 15px;
+  white-space: nowrap;
+  width: 305px;
+}
+
+.overlap-group-1 {
+  align-self: flex-end;
+  height: 16px;
+  margin-left: 650px;
+  position: relative;
+  width: 202px;
+}
+
+.facebook {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  text-align: right;
+  top: 0;
+  white-space: nowrap;
+  width: 62px;
+}
+
+.instagram {
+  left: 72px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  text-align: right;
+  top: 0;
+  white-space: nowrap;
+  width: 64px;
+}
+
+.you-tube {
+  left: 144px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  text-align: right;
+  top: 0;
+  white-space: nowrap;
+  width: 58px;
+}
+
+.twitter {
+  left: 36px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  text-align: right;
+  top: 0;
+  white-space: nowrap;
+  width: 46px;
+}
+
+.linked-in {
+  color: var(--outer-space);
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  left: 108px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  text-align: right;
+  top: 0;
+  white-space: nowrap;
+  width: 59px;
+}

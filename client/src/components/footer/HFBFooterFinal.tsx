@@ -1,6 +1,10 @@
 
 import React from "react";
 import styled from "styled-components";
+import HFBLogo from './image@2x.png';
+import GoogleTranslate from "../main/GoogleTranslate";
+import { SocialIcon } from 'react-social-icons';
+
 
 function HFBFooterFinal() {
   return <HFBFooter {...hFBFooterData} />;
@@ -21,7 +25,6 @@ export default HFBFooterFinal;
 function HFBFooter(props:any) {
   const {
     contactUs1,
-    image,
     name1,
     address1,
     address2,
@@ -39,17 +42,11 @@ function HFBFooter(props:any) {
     requestASpeaker,
     nondiscriminationStatement,
     languageTranslator,
-    searchOurSite,
     privacyStatement,
     theHoustonFoodBan,
     nonProfitOrganizat,
     assistsTheHouston,
     copyright2021Houst,
-    facebook,
-    instagram,
-    youtube,
-    twitter,
-    linkedin,
   } = props;
 
   return (
@@ -59,7 +56,7 @@ function HFBFooter(props:any) {
           <Contact>
             <ContactUs>{contactUs1}</ContactUs>
             <Frame>
-              <IMAGE src={image} />
+              <IMAGE src={HFBLogo} />
               <Name>{name1}</Name>
               <Address>{address1}</Address>
               <Address1>{address2}</Address1>
@@ -73,29 +70,28 @@ function HFBFooter(props:any) {
           <QuickLinks>
             <QuickLinks1>{quickLinks}</QuickLinks1>
             <Links>
-              <ContactUs1>{contactUs2}</ContactUs1>
+              <ContactUs1>{<a target="_blank" rel="noopener noreferrer"  href="https://www.houstonfoodbank.org/contact/">{"> " + contactUs2}</a>}</ContactUs1>
               <Rectangle></Rectangle>
-              <MediaInquiries>{mediaInquiries}</MediaInquiries>
+              <MediaInquiries>{<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/take-action/learn-about-hunger/newsroom/">{"> " + mediaInquiries}</a>}</MediaInquiries>
               <Rectangle></Rectangle>
-              <MediaInquiries>{employment}</MediaInquiries>
+              <MediaInquiries>{<a target="_blank" rel="noopener noreferrer"  href="https://www.houstonfoodbank.org/about-us/employment/">{"> " + employment}</a>}</MediaInquiries>
               <Rectangle></Rectangle>
-              <ConferenceCenter>{conferenceCenter}</ConferenceCenter>
+              <ConferenceCenter>{<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/about-us/our-services/conference-center/">{"> " + conferenceCenter}</a>}</ConferenceCenter>
               <Rectangle></Rectangle>
-              <ConferenceCenter>{frequentlyAskedQuestions}</ConferenceCenter>
+              <ConferenceCenter>{<a target="_blank" rel="noopener noreferrer" href="https://houstonfoodbank.zendesk.com/hc">{"> " + frequentlyAskedQuestions}</a>}</ConferenceCenter>
               <Rectangle></Rectangle>
-              <ConferenceCenter>{requestASpeaker}</ConferenceCenter>
+              <ConferenceCenter>{<a target="_blank" rel="noopener noreferrer" href="https://houstonfoodbank.tfaforms.net/4727933">{"> " + requestASpeaker}</a>}</ConferenceCenter>
               <Rectangle></Rectangle>
-              <NondiscriminationStatement>{nondiscriminationStatement}</NondiscriminationStatement>
+              <NondiscriminationStatement>{<a target="_blank" rel="noopener noreferrer" href="https://www.houstonfoodbank.org/wp-content/uploads/2020/12/partners_usdastatement_nondis2020.pdf">{"> " + nondiscriminationStatement}</a>}</NondiscriminationStatement>
               <Rectangle></Rectangle>
             </Links>
           </QuickLinks>
           <LanguageAndSearch>
+           
             <Language>
               <LanguageTranslator>{languageTranslator}</LanguageTranslator>
-              <Translate></Translate>
             </Language>
             <Search>
-              <LanguageTranslator>{searchOurSite}</LanguageTranslator>
               <SearchBar>
                 <Rectangle1></Rectangle1>
                 <Rectangle2></Rectangle2>
@@ -114,13 +110,25 @@ function HFBFooter(props:any) {
           </PrivacyStatement>
         </UpperFooter>
         <Copyright>
+
           <Copyright2021Houst>{copyright2021Houst}</Copyright2021Houst>
+
           <OverlapGroup1>
-            <Facebook>{facebook}</Facebook>
-            <Instagram>{instagram}</Instagram>
-            <YouTube>{youtube}</YouTube>
-            <Twitter>{twitter}</Twitter>
-            <LinkedIn>{linkedin}</LinkedIn>
+            <div>
+                <Facebook><SocialIcon url="https://www.facebook.com/thehoustonfoodbank" network="facebook" bgColor="#66cc00" fgColor="#282a2b" style={{ height: 40, width: 40 }}/></Facebook>
+                </div>
+                <div>
+                <Twitter><SocialIcon url="https://twitter.com/HoustonFoodBank" network="twitter" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></Twitter>
+                </div>
+                <div>
+                <Instagram><SocialIcon url="https://www.instagram.com/houstonfoodbank/" network="instagram" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></Instagram>
+                </div>
+                <div>
+                <LinkedIn><SocialIcon url="https://www.linkedin.com/company/houstonfoodbank" network="linkedin" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></LinkedIn>
+                </div>
+                <div>
+                <YouTube><SocialIcon url="https://www.youtube.com/HoustonFoodBank" network="youtube" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></YouTube>
+            </div>
           </OverlapGroup1>
         </Copyright>
       </div>
@@ -202,6 +210,7 @@ const Contact = styled.div`
   flex-direction: column;
   align-items: flex-start;
   min-height: 344px;
+  color: white;
 `;
 
 const ContactUs = styled.div`
@@ -294,6 +303,7 @@ const QuickLinks = styled.div`
   flex-direction: column;
   align-items: flex-start;
   min-height: 323px;
+  color: white;
 `;
 
 const QuickLinks1 = styled.div`
@@ -309,6 +319,7 @@ const Links = styled.div`
   width: 252px;
   margin-top: 28px;
   display: flex;
+  color: white;
   flex-direction: column;
   align-items: flex-start;
   min-height: 277px;
@@ -321,7 +332,15 @@ const ContactUs1 = styled.div`
   margin-left: 12.5px;
   letter-spacing: 0;
   line-height: 20px;
+  color: white;
   white-space: nowrap;
+  a {
+    color: white;
+    &:hover {
+      color: red;
+    }
+  }
+  
 `;
 
 const Rectangle = styled.div`
@@ -339,6 +358,12 @@ const MediaInquiries = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
+  a {
+    color: white;
+    &:hover {
+      color: red;
+    }
+  }
 `;
 
 const ConferenceCenter = styled.div`
@@ -349,6 +374,12 @@ const ConferenceCenter = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
+  a {
+    color: white;
+    &:hover {
+      color: red;
+    }
+  }
 `;
 
 const NondiscriminationStatement = styled.div`
@@ -361,6 +392,13 @@ const NondiscriminationStatement = styled.div`
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
+  a {
+    color: white;
+    &:hover {
+      color: red;
+    }
+  }
+  
 `;
 
 const LanguageAndSearch = styled.div`
@@ -370,6 +408,7 @@ const LanguageAndSearch = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 203px;
+  color: white;
 `;
 
 const Language = styled.div`
@@ -426,6 +465,7 @@ const PrivacyStatement = styled.div`
   flex-direction: column;
   align-items: flex-start;
   min-height: 350px;
+  color: white;
 `;
 
 const StatementText = styled.div`
@@ -496,12 +536,21 @@ const Copyright2021Houst = styled.p`
 `;
 
 const OverlapGroup1 = styled.div`
-  width: 202px;
-  height: 16px;
-  position: relative;
-  align-self: flex-end;
-  margin-left: 650px;
+  height: 72px;
+  display: flex;
+  padding: 27px 0;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 1200px;
+  background-color: #282a2b;
 `;
+
+  // width: 202px;
+  // height: 16px;
+  // position: relative;
+  // align-self: flex-end;
+  // margin-left: 650px;
+
 
 const Facebook = styled.div`
   ${RobotoNormalOuterSpace14px}
@@ -568,7 +617,6 @@ const LinkedIn = styled.div`
 
 const hFBFooterData = {
   contactUs1: "CONTACT US",
-  image: "./image@2x.png",
   name1: "Houston Food Bank East Branch",
   address1: "535 Portwall St.",
   address2: "Houston, TX 77029",
@@ -586,17 +634,19 @@ const hFBFooterData = {
   requestASpeaker: "Request a Speaker",
   nondiscriminationStatement: "Nondiscrimination Statement",
   languageTranslator: "LANGUAGE TRANSLATOR",
-  searchOurSite: "SEARCH OUR SITE",
   privacyStatement: "PRIVACY STATEMENT",
-  theHoustonFoodBan: "The Houston Food Bank is registered as a",
+  theHoustonFoodBan: "The Houston Food Bank is registered as a ",
+  nonProfit501c3: "501(c)(3)",
   nonProfitOrganizat:
-    "non-profit organization. Contributions are tax-deductible to the extent permitted by law, tax identification number 74-2181456. The Houston Food Bank believes in conducting business with the utmost honesty and integrity.",
+    "non-profit organization. Contributions are tax-deductible to the extent permitted by law, tax identification number 74-2181456.",
   assistsTheHouston:
-    "assists the Houston Food Bank to identify any potential improper activity. Lighthouse is committed to protecting the identity of community members, including Food Bank staff, to submit confidential reports, suggestions, or complaints to a third party who helps the Houston Food Bank administration resolve issues while maintaining professional standards. View the Houston Food Bank’s",
+    "assists the Houston Food Bank to identify any potential improper activity. Lighthouse is committed to protecting the identity of community members, including Food Bank staff, to submit confidential reports, suggestions, or complaints to a third party who helps the Houston Food Bank administration resolve issues while maintaining professional standards. on Food Bank",
+  hfbWebPrivacy: "View the Houston Food Bank's",
+  webPrivacyPolicy: "Web Privacy Policy",
+  donorPrivacyCode: "Donor Privacy Code",
   copyright2021Houst: "Copyright 2021 Houston Food Bank | All Rights Reserved",
-  facebook: "Facebook",
-  instagram: "Instagram",
-  youtube: "YouTube",
-  twitter: "Twitter",
-  linkedin: "LinkedIn",
+  ethicsAndCompliance: "The Houston Food Bank believes in conducting business with the utmost honesty and integrity.",
+  lighthouseServices: "LightHouse Services",
+  ethicsAndCompliance2: "assists the Houston Food Bank to identify any potential improper activity. Lighthouse is committed to protecting the identity of community members, including Food Bank staff, to submit confidential reports, suggestions, or complaints to a third party who helps the Houston Food Bank administration resolve issues while maintaining professional standards.",
+
 };
