@@ -58,12 +58,12 @@
 }
 
 .USDA{
-    font-size: 12px;
+    font-size: 7px;
     position: absolute;
-    width: 740px;
+    bottom: 5px;
+    /*width: 740px;
     left: 20px;
-    top: 410px;
-   
+    top: 410px;*/
 }
 .recipeTitle, .ingredientsHeader, .directionsHeader {
     color: var(--hfb-green);
