@@ -33,12 +33,14 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
                 isBigScreen && 
                 <div>
                 <div className="info_row">
-                {/* <Row gutter={8} className="info_row" justify="center"> */}
+                    {/* Course */}
                     <Col className="gutter-row" span={5} >
-                        {/* Cuisine Type */}
                         <div id = "parent" >
-                            <div className="detail_header">Cuisine</div>
-                            <div className="information_header">{props.recipe.cuisine}</div>
+                            {props.recipe.course.map(course => 
+                                <div className="information_header2"> {course}</div>
+                            )}
+                            {/* <div className="detail_header">Cuisine</div>
+                            <div className="information_header">{props.recipe.cuisine}</div> */}
                         </div>
                     </Col>
 
@@ -46,31 +48,28 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
                         <div className="vl"></div>
                     </Col>
 
+                    {/* Food Groups */}
                     <Col className="gutter-row" span={5}>
-                        {/* Serving Size */}
-    
-                        <div className="detail_header" >Serving Size</div>
-                        <div className="information_header">{Math.floor(props.recipe.servings * props.scale)}</div>
-    
-                    </Col>
-                    
-                    <Col>
-                        {/* Bar */}
-                        <div className={`${isBigScreen ? "vl" : "hl"}`}></div>
-                    </Col>
-                    <Col className="gutter-row" span={5}>
-                        {/* Calories  */}
-                        {/* <div className="detail_header" >Calories</div> */}
-                        {/* <div className="information_header">{props.recipe.calories}</div> */}
                         {props.recipe.dairyFoodGroup && <div className="information_header2"> Dairy</div> }
                         {props.recipe.vegatableFoodGroup && <div className="information_header2"> Vegatable</div> }
                         {props.recipe.grainFoodGroup && <div className="information_header2"> Grain</div> }
                         {props.recipe.fruitFoodGroup && <div className="information_header2"> Fruit</div> }
                         {props.recipe.proteinFoodGroup && <div className="information_header2"> Protien</div> }
-
                     </Col>
+                    
+                    {/* Bar */}
+                    <Col>
+                        <div className={`${isBigScreen ? "vl" : "hl"}`}></div>
+                    </Col>
+
+                    {/* Serving Size */}
+                    <Col className="gutter-row" span={5}>
+                        <div className="detail_header" >Serving Size</div>
+                        <div className="information_header">{Math.floor(props.recipe.servings * props.scale)}</div>
+                    </Col>
+
+                    {/* Print Button */}
                     <Col className="gutter-row" span={3}>
-                        {/* Print Button */}
                         {!isSafari() &&
                             <ReactToPrint
                             trigger={() =>

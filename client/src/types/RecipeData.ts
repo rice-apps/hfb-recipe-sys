@@ -2,8 +2,8 @@ export default interface RecipeData {
   id: string,
   photo: string,
   title: string,
-  course: Array<string>,
-  cuisine: Array<string>,
+  course: string[],
+  cuisine: string[],
   servings: number,
   calories: number,
   ingredientList: {
