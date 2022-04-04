@@ -1,7 +1,7 @@
 import React from 'react'
 import RecipeData from '../../../types/RecipeData'
-import { BottomHeader } from './NavigationHeader'
-import { TopHeader } from './RecipeInfoHeader'
+import { BottomHeader } from './BottomHeader'
+import { TopHeader } from './TopHeader'
 
 function Header(props: { recipe: RecipeData; scale: number }) {
   return (
