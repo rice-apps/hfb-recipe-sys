@@ -55,7 +55,7 @@ export const Recipe = (props: { recipe: RecipeData, updateScale: Function}) => {
                         <div className="ingrRestContainer">
                             <div className="tags">
                                 <RestrictionTags data={props.recipe} showText={true} />
-                                <CourseTags data={props.recipe} />
+                                {/* <CourseTags data={props.recipe} /> */}
                             </div>
                             <h3>Change serving number: &nbsp; x{scale}</h3>
                             <Slider

@@ -78,6 +78,8 @@ header {
 @media (max-width: 800px){
   .info_row{
     flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 0px;
   }
 }
 .print_button {

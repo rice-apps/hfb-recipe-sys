@@ -39,8 +39,6 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
                             {props.recipe.course.map(course => 
                                 <div className="information_header2"> {course}</div>
                             )}
-                            {/* <div className="detail_header">Cuisine</div>
-                            <div className="information_header">{props.recipe.cuisine}</div> */}
                         </div>
                     </Col>
 
@@ -102,90 +100,81 @@ export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
             {isSmallScreen && 
                 <div>
                 <div className="info_row">
+                {/* Cuisine */}
                 <Row gutter={3} className="info_row" justify="center">
-                    <Col className="gutter-row" span={30} >
-                        {/* Cuisine Type */}
-                        <div id = "parent" >
-                            <div className="detail_header">Cuisine: </div>
-                        </div>
-                    </Col>
-
-                    <Col className="gutter-row" span={50} >
-                        {/* Cuisine Type */}
-                        <div id = "parent" >
-                            <div className="detail_header">{props.recipe.cuisine}</div>
-                        </div>
-                    </Col>
+                    <div id = "parent" >
+                        {props.recipe.course.map(course => 
+                            <div className="information_header2"> {course}</div>
+                        )}
+                    </div>
                  </Row>
-                    
+                
+                {/* Bar */}
                 <Col>
-                    {/* Bar */}
                     {/* <div className={`${isBigScreen ? "vl" : "hl"}`}></div> */}
                     <div className="hl"></div>
                 </Col>
 
+                {/* Food group */}
                 <Row gutter={3} className="info_row" justify="center">
                     <Col className="gutter-row" span={25} >
-                        {/* Cuisine Type */}
-                        <div id = "parent" >
-                            <div className="detail_header">Serving Size: </div>
-                        </div>
-                    </Col>
-
-                    <Col className="gutter-row" span={25} >
-                        {/* Cuisine Type */}
-                        <div id = "parent" >
-                            <div className="detail_header">{props.recipe.servings}</div>
-                        </div>
-                    </Col>
-                 </Row>
-                  
-                <Col>
-                    {/* Bar */}
-                    <div className={`${isBigScreen ? "vl" : "hl"}`}></div>
-                </Col>
-
-                <Row gutter={3} className="info_row" justify="center">
-                    <Col className="gutter-row" span={25} >
-                        {/* Cuisine Type */}
                         <div id = "parent" >
                         {props.recipe.dairyFoodGroup && <div className="information_header2"> Dairy</div> }
                         {props.recipe.vegatableFoodGroup && <div className="information_header2"> Vegatable</div> }
                         {props.recipe.grainFoodGroup && <div className="information_header2"> Grain</div> }
                         {props.recipe.fruitFoodGroup && <div className="information_header2"> Fruit</div> }
                         {props.recipe.proteinFoodGroup && <div className="information_header2"> Protien</div> }
+                        </div>
+                    </Col>
+                 </Row>
+                  
+                {/* Bar */}
+                <Col>
+                    <div className={`${isBigScreen ? "vl" : "hl"}`}></div>
+                </Col>
 
+                {/* Serving Size */}
+                <Row gutter={3} className="info_row" justify="center">
+                    <Col className="gutter-row" span={25} >
+                        <div id = "parent" >
+                            <div className="detail_header">Serving Size: </div>
                         </div>
                     </Col>
 
+                    <Col className="gutter-row" span={25} >
+                        <div id = "parent" >
+                            <div className="detail_header">{props.recipe.servings}</div>
+                        </div>
+                    </Col>
                  </Row>
 
-                    <Col className="gutter-row" span={10}>
-                        {/* Print Button */}
-                        { !isSafari() &&
-                        
-                            <ReactToPrint
-                            trigger={() =>
-                                <div className="print_button">  <Icon name='print' size='large' color='green' />
-                                    <p className="print_text">Print Recipe</p></div>
-                            }
-                            content={() => printComponentRef.current}
-                            documentTitle="AwesomeFileName"
-                        />
+                {/* Row */}
+                 <Row gutter={50} className="info_row" justify="center"/>
+
+                {/* Print Button */}
+                <Col className="gutter-row" span={10}>
+                    { !isSafari() &&
+                    
+                        <ReactToPrint
+                        trigger={() =>
+                            <div className="print_button">  <Icon name='print' size='large' color='green' />
+                                <p className="print_text">Print Recipe</p></div>
                         }
-                        {isSafari() &&
-                            <div className="print_button" onClick={handlePrint}> <Icon name='print' size='large' color='green' />
-                            <p className="print_text">Print Recipe</p></div>
-                        }
-                        {/* Prints from the print div below*/}
-    
-                    </Col>
+                        content={() => printComponentRef.current}
+                        documentTitle="AwesomeFileName"
+                    />
+                    }
+                    {isSafari() &&
+                        <div className="print_button" onClick={handlePrint}> <Icon name='print' size='large' color='green' />
+                        <p className="print_text">Print Recipe</p></div>
+                    }
+                    {/* Prints from the print div below*/}
+
+                </Col>
+
                 {/* </Row> */}
                 </div>
-
-                <Row gutter={50} className="info_row" justify="center">
-
-                 </Row>
+                <Row gutter={50} className="info_row" justify="center"/>
             </div>
             
             }
