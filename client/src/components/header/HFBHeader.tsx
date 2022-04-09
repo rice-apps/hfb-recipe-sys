@@ -3,10 +3,12 @@ import styled from "styled-components";
 import { Menu, Dropdown, Button } from 'antd';
 import GoogleTranslate from "../main/GoogleTranslate";
 import { SocialIcon } from 'react-social-icons';
+import {useMediaQuery} from 'react-responsive'
 
 function HFBHeader() {
     // Changes the size of the social media icons in pixels.
     var size = 40;
+    const isSmallScreen = useMediaQuery({ query: '(max-width: 1100px)' })
 
     // For implementing nested menus
     const { SubMenu } = Menu;
@@ -448,6 +450,8 @@ function HFBHeader() {
       
       
   return (
+    <div>
+    { !isSmallScreen &&
     <Frame23Root>
       <Frame22>
         <Rectangle />
@@ -558,14 +562,16 @@ function HFBHeader() {
         </Rectangle10>
         <Rectangle21 />
       </Frame22>
+
     </Frame23Root>
+    }
+    </div>
   );
 };
 
 export default HFBHeader;
 
 const Socials = styled.div`
-  // margin-left: -30%
   width: 1820px;
   display: flex;
   flex-direction: row;
@@ -575,7 +581,7 @@ const Socials = styled.div`
 
 const Frame23Root = styled.div`
   background-color: #ffffff;
-  height: 140px;
+  height: 135px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -596,6 +602,7 @@ const Rectangle = styled.div`
   top: 15px;
   left: 0;
 `;
+/* Container for main menu bar */
 const Rectangle1 = styled.div`
   background-color: #ffffff;
   position: absolute;
@@ -606,15 +613,17 @@ const Rectangle1 = styled.div`
   justify-content: center;
   padding-top: 0.38px;
   padding-bottom: 0.62px;
+  width: 100vw;
 `;
+/* Main menu bar */
 const Frame10 = styled.div`
-  width: 1100px;
+  max-width: 1200px;
+  width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   padding-bottom: 2px;
-  margin-left:30%;
   align-items: flex-end;
+  padding-left: 2%;
 `;
 const Frame9 = styled.div`
   width: 801.94px;
@@ -622,7 +631,7 @@ const Frame9 = styled.div`
   align-self: stretch;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding-left: 0.06px;
   padding-right: 0.06px;
   padding-top: 25.62px;
@@ -707,13 +716,11 @@ const FindHelp = styled.div`
     color: red;
   }
 `;
-
+/* Social bar at top */
 const Rectangle10 = styled.div`
   background-color: #66cc00;
-  width: 1600px;
+  width: 100vw;
   position: absolute;
-  top: -0.38px;
-  left: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -721,18 +728,16 @@ const Rectangle10 = styled.div`
   padding-bottom: 0.62px;
 `;
 const Frame20 = styled.div`
-  width: 699.94px;
+  margin-left: -17.5vw;
+  width: 0;
   height: 44px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 13px;
-  padding-left: 200px;
-  padding-right: 200.03px;
   align-items: center;
 `;
 const Frame18 = styled.div`
-  margin-left:-155%;
   width: 800px;
   display: flex;
   flex-direction: row;
@@ -824,9 +829,6 @@ const Rectangle15 = styled.div`
   justify-content: center;
 `;
 const Rectangle16 = styled.div`
-  border-width: 1px;
-  border-color: #cccccc;
-  border-style: solid;
   width: 161px;
   display: flex;
   flex-direction: row;

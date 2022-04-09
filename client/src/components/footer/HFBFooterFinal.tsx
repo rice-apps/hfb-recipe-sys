@@ -601,18 +601,15 @@ const Twitter = styled.div`
 `;
 
 const LinkedIn = styled.div`
-  position: absolute;
-  width: 59px;
-  top: 0;
-  left: 108px;
-  font-family: var(--font-family-roboto);
-  font-weight: 400;
-  color: var(--outer-space);
-  font-size: var(--font-size-xl);
-  text-align: right;
-  letter-spacing: 0;
-  line-height: 16px;
-  white-space: nowrap;
+${RobotoNormalOuterSpace14px}
+position: absolute;
+width: 46px;
+top: 0;
+left: 36px;
+text-align: right;
+letter-spacing: 0;
+line-height: 16px;
+white-space: nowrap;
 `;
 
 const hFBFooterData = {
