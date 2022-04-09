@@ -450,7 +450,6 @@ const Copyright2021Houst = styled.p`
   font-size: var(--font-size-s);
   line-height: 15px;
 `;
-//   width: 305px;
 
 const OverlapGroup1 = styled.div`
   height: 72px;
