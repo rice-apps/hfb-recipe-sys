@@ -507,7 +507,7 @@ const Copyright2021Houst = styled.p`
   margin-top: 1px;
   font-family: var(--font-family-roboto);
   font-weight: 400;
-  color: var(--white);
+  color: white;
   font-size: var(--font-size-s);
   letter-spacing: 0;
   line-height: 15px;
