@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import HFBLogo from './image@2x.png';
 import { SocialIcon } from 'react-social-icons';
-
+import './footer.css';
 
 function HFBFooterFinal() {
   return <HFBFooter {...hFBFooterData} />;
@@ -167,7 +167,7 @@ const UpperFooter = styled.div`
   height: 446px;
   display: flex;
   padding: 43px 49px;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
   min-width: 1200px;
   background-color: #363839;
