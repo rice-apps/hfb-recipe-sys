@@ -87,7 +87,7 @@ function HFBFooter(props:any) {
           </PrivacyStatement>
         </UpperFooter>
         <Copyright>
-
+          <RectangleCopyRight></RectangleCopyRight>
           <Copyright2021Houst>{copyright2021Houst}</Copyright2021Houst>
 
           <OverlapGroup1>
@@ -319,6 +319,12 @@ const Rectangle = styled.div`
   margin-top: 12px;
   background-color: var(--abbey);
 `;
+const RectangleCopyRight = styled.div`
+  width: 100px;
+  height: 1px;
+  margin-top: 12px;
+  background-color: var(--abbey);
+`;
 
 const MediaInquiries = styled.div`
   ${RobotoNormalAlto15px}
@@ -429,25 +435,22 @@ const AssistsTheHouston = styled.p`
 const Copyright = styled.div`
   height: 72px;
   display: flex;
-  padding: 27px 0;
-  justify-content: flex-end;
+  padding: 27px;
   align-items: center;
   min-width: 1200px;
   background-color: #282a2b;
 `;
 
 const Copyright2021Houst = styled.p`
-  width: 305px;
   min-height: 15px;
   margin-top: 1px;
   font-family: var(--font-family-roboto);
   font-weight: 400;
   color: white;
   font-size: var(--font-size-s);
-  letter-spacing: 0;
   line-height: 15px;
-  white-space: nowrap;
 `;
+//   width: 305px;
 
 const OverlapGroup1 = styled.div`
   height: 72px;
