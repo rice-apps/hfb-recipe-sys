@@ -458,7 +458,7 @@ const OverlapGroup1 = styled.div`
   padding: 27px;
   justify-content: flex-end;
   align-items: center;
-  min-width: 1100px;
+  min-width: 1000px;
   background-color: #282a2b;
 `;
 
