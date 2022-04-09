@@ -9,7 +9,19 @@ import CourseTags from '../shared/CourseTags';
 import { useMediaQuery } from 'react-responsive';
 import Slider from '@mui/material/Slider';
 import Fraction from 'fraction.js';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+const theme = createTheme({
+  palette: {
+    primary: {
+        main: 'rgb(102,205,0)',
+    },
+    secondary: {
+    main: 'rgb(102,205,0)',
+    
+    },
+  },
+});
 export const formatFraction = (frac: string, sc: number) => {
     if(frac == "0" || frac == undefined) {
         return "";
@@ -58,6 +70,7 @@ export const Recipe = (props: { recipe: RecipeData, updateScale: Function}) => {
                                 {/* <CourseTags data={props.recipe} /> */}
                             </div>
                             <h3>Change serving number: &nbsp; x{scale}</h3>
+                            <ThemeProvider theme = {theme}>
                             <Slider
                                 className="servingsSlider"
                                 aria-label="Serving"
@@ -68,7 +81,9 @@ export const Recipe = (props: { recipe: RecipeData, updateScale: Function}) => {
                                 min={0.5}
                                 max={10}
                                 onChange={handleChange}
+                                color = "primary"
                                 />
+                                </ThemeProvider>
                             <Ingredients recipe={props.recipe} scale={scale} />
                         </div>
                     </div>
