@@ -30,7 +30,6 @@ function HFBFooter(props:any) {
     frequentlyAskedQuestions,
     requestASpeaker,
     nondiscriminationStatement,
-    languageTranslator,
     privacyStatement,
     theHoustonFoodBan,
     nonProfitOrganizat,
@@ -114,14 +113,6 @@ function HFBFooter(props:any) {
     </div>
   );
 }
-
-const RobotoNormalOuterSpace14px = styled.div`
-  color: var(--outer-space);
-  font-family: var(--font-family-roboto);
-  font-size: var(--font-size-l);
-  font-weight: 400;
-  font-style: normal;
-`;
 const RobotoNormalWhite16px = styled.div`
   color: var(--white);
   font-family: var(--font-family-roboto);
@@ -380,62 +371,6 @@ const NondiscriminationStatement = styled.div`
   
 `;
 
-const LanguageAndSearch = styled.div`
-  width: 282px;
-  margin-left: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 203px;
-  color: white;
-`;
-
-const Language = styled.div`
-  width: 252px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 78px;
-`;
-
-const Translate = styled.div`
-  width: 173px;
-  height: 32px;
-  margin-top: 28px;
-  background-color: var(--white);
-`;
-
-const Search = styled.div`
-  width: 252px;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 75px;
-`;
-
-const SearchBar = styled.div`
-  width: 252px;
-  margin-top: 28px;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-`;
-
-const Rectangle1 = styled.div`
-  width: 224px;
-  height: 29px;
-  margin-bottom: -0.05px;
-  background-color: var(--white);
-`;
-
-const Rectangle2 = styled.div`
-  width: 29px;
-  height: 29px;
-  margin-bottom: -0.05px;
-  background-color: var(--black);
-`;
-
 const PrivacyStatement = styled.div`
   width: 253px;
   margin-left: 16px;
@@ -524,70 +459,6 @@ const OverlapGroup1 = styled.div`
   background-color: #282a2b;
 `;
 
-
-const Facebook = styled.div`
-  ${RobotoNormalOuterSpace14px}
-  position: absolute;
-  width: 62px;
-  top: 0;
-  left: 0;
-  text-align: right;
-  letter-spacing: 0;
-  line-height: 16px;
-  white-space: nowrap;
-`;
-
-const Instagram = styled.div`
-  ${RobotoNormalOuterSpace14px}
-  position: absolute;
-  width: 64px;
-  top: 0;
-  left: 0px;
-  text-align: right;
-  letter-spacing: 0;
-  line-height: 16px;
-  white-space: nowrap;
-`;
-
-const YouTube = styled.div`
-  ${RobotoNormalOuterSpace14px}
-  position: absolute;
-  width: 58px;
-  top: 0;
-  left: 144px;
-  text-align: right;
-  letter-spacing: 0;
-  line-height: 0px;
-  white-space: nowrap;
-`;
-
-const Twitter = styled.div`
-  ${RobotoNormalOuterSpace14px}
-  position: absolute;
-  width: 46px;
-  top: 0;
-  left: 36px;
-  text-align: right;
-  letter-spacing: 0;
-  line-height: 16px;
-  white-space: nowrap;
-`;
-
-const LinkedIn = styled.div`
-  position: absolute;
-  width: 59px;
-  top: 0;
-  left: 108px;
-  font-family: var(--font-family-roboto);
-  font-weight: 400;
-  color: var(--outer-space);
-  font-size: var(--font-size-xl);
-  text-align: right;
-  letter-spacing: 0;
-  line-height: 16px;
-  white-space: nowrap;
-`;
-
 const hFBFooterData = {
   contactUs1: "CONTACT US",
   name1: "Houston Food Bank East Branch",
@@ -606,7 +477,6 @@ const hFBFooterData = {
   frequentlyAskedQuestions: "Frequently Asked Questions",
   requestASpeaker: "Request a Speaker",
   nondiscriminationStatement: "Nondiscrimination Statement",
-  languageTranslator: "LANGUAGE TRANSLATOR",
   privacyStatement: "PRIVACY STATEMENT",
   theHoustonFoodBan: "The Houston Food Bank is registered as a ",
   nonProfit501c3: "501(c)(3)",
