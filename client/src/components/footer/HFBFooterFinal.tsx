@@ -2,7 +2,6 @@
 import React from "react";
 import styled from "styled-components";
 import HFBLogo from './image@2x.png';
-import GoogleTranslate from "../main/GoogleTranslate";
 import { SocialIcon } from 'react-social-icons';
 
 
@@ -11,16 +10,6 @@ function HFBFooterFinal() {
 }
 
 export default HFBFooterFinal;
-// import {
-//   RobotoNormalAlto15px,
-//   HeeboNormalAlto11px,
-//   RobotoNormalWhite13px,
-//   RobotoNormalOuterSpace14px,
-//   RobotoNormalWhite16px,
-//   RobotoNormalAlto16px,
-//   RobotoNormalWhite15px,
-//   HeeboNormalAlto12px,
-// } from "./styledMixins";
 
 function HFBFooter(props:any) {
   const {
@@ -86,18 +75,7 @@ function HFBFooter(props:any) {
               <Rectangle></Rectangle>
             </Links>
           </QuickLinks>
-          <LanguageAndSearch>
-           
-            <Language>
-              <LanguageTranslator>{languageTranslator}</LanguageTranslator>
-            </Language>
-            <Search>
-              <SearchBar>
-                <Rectangle1></Rectangle1>
-                <Rectangle2></Rectangle2>
-              </SearchBar>
-            </Search>
-          </LanguageAndSearch>
+          
           <PrivacyStatement>
             <LanguageTranslator>{privacyStatement}</LanguageTranslator>
             <StatementText>
@@ -114,8 +92,9 @@ function HFBFooter(props:any) {
           <Copyright2021Houst>{copyright2021Houst}</Copyright2021Houst>
 
           <OverlapGroup1>
-            <div>
-                <Facebook><SocialIcon url="https://www.facebook.com/thehoustonfoodbank" network="facebook" bgColor="#66cc00" fgColor="#282a2b" style={{ height: 40, width: 40 }}/></Facebook>
+          
+              <div>
+                <Facebook><SocialIcon url="https://www.facebook.com/thehoustonfoodbank" network="facebook" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></Facebook>
                 </div>
                 <div>
                 <Twitter><SocialIcon url="https://twitter.com/HoustonFoodBank" network="twitter" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></Twitter>
@@ -128,7 +107,7 @@ function HFBFooter(props:any) {
                 </div>
                 <div>
                 <YouTube><SocialIcon url="https://www.youtube.com/HoustonFoodBank" network="youtube" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></YouTube>
-            </div>
+              </div>
           </OverlapGroup1>
         </Copyright>
       </div>
@@ -538,18 +517,12 @@ const Copyright2021Houst = styled.p`
 const OverlapGroup1 = styled.div`
   height: 72px;
   display: flex;
-  padding: 27px 0;
+  padding: 27px;
   justify-content: flex-end;
   align-items: center;
   min-width: 1200px;
   background-color: #282a2b;
 `;
-
-  // width: 202px;
-  // height: 16px;
-  // position: relative;
-  // align-self: flex-end;
-  // margin-left: 650px;
 
 
 const Facebook = styled.div`
