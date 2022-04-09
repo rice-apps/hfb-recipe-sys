@@ -94,19 +94,19 @@ function HFBFooter(props:any) {
           <OverlapGroup1>
           
               <div>
-                <Facebook><SocialIcon url="https://www.facebook.com/thehoustonfoodbank" network="facebook" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></Facebook>
+                <SocialIcon url="https://www.facebook.com/thehoustonfoodbank" network="facebook" bgColor="#282a2b" fgColor="white" style={{ height: 40, width: 40 }}/>
                 </div>
                 <div>
-                <Twitter><SocialIcon url="https://twitter.com/HoustonFoodBank" network="twitter" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></Twitter>
+                <SocialIcon url="https://twitter.com/HoustonFoodBank" network="twitter" bgColor="#282a2b" fgColor="white" style={{ height: 40, width: 40 }}/>
                 </div>
                 <div>
-                <Instagram><SocialIcon url="https://www.instagram.com/houstonfoodbank/" network="instagram" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></Instagram>
+                <SocialIcon url="https://www.instagram.com/houstonfoodbank/" network="instagram" bgColor="#282a2b" fgColor="white" style={{ height: 40, width: 40 }}/>
                 </div>
                 <div>
-                <LinkedIn><SocialIcon url="https://www.linkedin.com/company/houstonfoodbank" network="linkedin" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></LinkedIn>
+                <SocialIcon url="https://www.linkedin.com/company/houstonfoodbank" network="linkedin" bgColor="#282a2b" fgColor="white" style={{ height: 40, width: 40 }}/>
                 </div>
                 <div>
-                <YouTube><SocialIcon url="https://www.youtube.com/HoustonFoodBank" network="youtube" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></YouTube>
+                <SocialIcon url="https://www.youtube.com/HoustonFoodBank" network="youtube" bgColor="#282a2b" fgColor="white" style={{ height: 40, width: 40 }}/>
               </div>
           </OverlapGroup1>
         </Copyright>
@@ -542,7 +542,7 @@ const Instagram = styled.div`
   position: absolute;
   width: 64px;
   top: 0;
-  left: 72px;
+  left: 0px;
   text-align: right;
   letter-spacing: 0;
   line-height: 16px;
@@ -557,7 +557,7 @@ const YouTube = styled.div`
   left: 144px;
   text-align: right;
   letter-spacing: 0;
-  line-height: 16px;
+  line-height: 0px;
   white-space: nowrap;
 `;
 
