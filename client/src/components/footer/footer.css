@@ -66,11 +66,11 @@
   width: 252px;
 }
 
-.image {
+/* .image {
   height: 74px;
   object-fit: cover;
   width: 200px;
-}
+} */
 
 .name {
   letter-spacing: 0;
