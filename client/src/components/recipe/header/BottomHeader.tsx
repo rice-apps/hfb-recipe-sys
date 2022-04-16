@@ -1,12 +1,10 @@
-import React from 'react';
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { Row, Col } from 'antd';
 import { Icon } from 'semantic-ui-react'
 import RecipeData from '../../../types/RecipeData';
 import ReactToPrint from "react-to-print";
 import { PrintableRecipe } from '../PrintableRecipe';
 import {useMediaQuery} from 'react-responsive'
-import { useReactToPrint } from 'react-to-print';
 
 import '../../../style/Recipe.css';
 import { usePrint, isSafari } from "../hooks";
@@ -14,18 +12,9 @@ import { usePrint, isSafari } from "../hooks";
 export const BottomHeader = (props: { recipe: RecipeData; scale: number }) => {
     const printComponentRef = useRef(null);
 
-    const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-width: 1224px)'
-      })
-      const isSmallScreen = useMediaQuery({ query: '(max-width: 800px)' })
-      const isBigScreen = useMediaQuery({ query: '(min-width: 800px)' })
-      const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-      const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
-      const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
-      const handlePrint = usePrint(printComponentRef, "Recipe");
-      const handlePrint2 = useReactToPrint({
-        content: () => printComponentRef.current,
-      });
+    const isSmallScreen = useMediaQuery({ query: '(max-width: 800px)' })
+    const isBigScreen = useMediaQuery({ query: '(min-width: 800px)' })
+    const handlePrint = usePrint(printComponentRef, "Recipe");
  
     return (
         <div>

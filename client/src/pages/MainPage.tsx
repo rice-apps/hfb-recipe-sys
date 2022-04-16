@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import RecipeData from '../types/RecipeData';
 import { RecipeCard } from '../components/main/RecipeCard';
 import Header from '../components/main/Header';
-import MediaQuery, { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
 
 import '../style/Main.css'
 import filterRecipes from '../util/filterRecipes';

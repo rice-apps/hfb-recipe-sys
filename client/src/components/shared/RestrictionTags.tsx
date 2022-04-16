@@ -1,5 +1,4 @@
 import React from 'react';
-import { Icon, SemanticICONS } from 'semantic-ui-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition, faLeaf, faBreadSlice, faSeedling, faLemon, faCheese } from '@fortawesome/free-solid-svg-icons'
 import RecipeData from '../../types/RecipeData';

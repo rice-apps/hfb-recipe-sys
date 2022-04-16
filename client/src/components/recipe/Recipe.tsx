@@ -5,7 +5,6 @@ import { Ingredients } from './Ingredients';
 import { RecipeImage } from './RecipeImage';
 import { Instructions } from './Instructions';
 import RestrictionTags from '../shared/RestrictionTags';
-import CourseTags from '../shared/CourseTags';
 import { useMediaQuery } from 'react-responsive';
 import Slider from '@mui/material/Slider';
 import Fraction from 'fraction.js';
@@ -23,7 +22,7 @@ const theme = createTheme({
   },
 });
 export const formatFraction = (frac: string, sc: number) => {
-    if(frac == "0" || frac == undefined) {
+    if(frac === "0" || frac === undefined) {
         return "";
     }
 

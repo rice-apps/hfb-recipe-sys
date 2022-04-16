@@ -1,4 +1,3 @@
-import { Row, Col } from 'antd';
 import RecipeData from '../../types/RecipeData';
 import '../../style/PrintableRecipe.css';
 import { formatFraction } from './Recipe';
@@ -8,7 +7,7 @@ const PrintableContainer = (props: { recipe: RecipeData, scale: number }) => {
     return (
         <div>
             <div className="printableContainer" >
-                <img className="appleLogo" src={appleLogo}></img>
+                <img alt="Houston Food Bank Apple Icon" className="appleLogo" src={appleLogo}></img>
                 <h1 className="recipeTitle">{props.recipe.title}</h1>
                 {/* Ingredients */}
                 <h2 className="ingredientsHeader">Ingredients</h2>
@@ -31,7 +30,7 @@ const PrintableContainer = (props: { recipe: RecipeData, scale: number }) => {
                     })}
                 </div>
                 <div  className="USDA">USDA label: USDA is an equal opportunity provider and employer. This material was funded by USDA’s Supplemental Nutrition Assistance Program — SNAP. For more information about SNAP and how to apply, visit YourTexasBenefits.com</div>
-                <img className="hfbLogo" src="https://www.houstonfoodbank.org/wp-content/uploads/2018/08/Logo_HFB_Horz_color_6in_300dpi.jpg"></img>
+                <img alt="Houston Food Bank Logo" className="hfbLogo" src="https://www.houstonfoodbank.org/wp-content/uploads/2018/08/Logo_HFB_Horz_color_6in_300dpi.jpg"></img>
             </div>
         </div>
     )
