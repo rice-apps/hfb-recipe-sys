@@ -2,25 +2,14 @@
 import React from "react";
 import styled from "styled-components";
 import HFBLogo from './image@2x.png';
-import GoogleTranslate from "../main/GoogleTranslate";
 import { SocialIcon } from 'react-social-icons';
-
+import './footer.css';
 
 function HFBFooterFinal() {
   return <HFBFooter {...hFBFooterData} />;
 }
 
 export default HFBFooterFinal;
-// import {
-//   RobotoNormalAlto15px,
-//   HeeboNormalAlto11px,
-//   RobotoNormalWhite13px,
-//   RobotoNormalOuterSpace14px,
-//   RobotoNormalWhite16px,
-//   RobotoNormalAlto16px,
-//   RobotoNormalWhite15px,
-//   HeeboNormalAlto12px,
-// } from "./styledMixins";
 
 function HFBFooter(props:any) {
   const {
@@ -41,7 +30,6 @@ function HFBFooter(props:any) {
     frequentlyAskedQuestions,
     requestASpeaker,
     nondiscriminationStatement,
-    languageTranslator,
     privacyStatement,
     theHoustonFoodBan,
     nonProfitOrganizat,
@@ -86,18 +74,7 @@ function HFBFooter(props:any) {
               <Rectangle></Rectangle>
             </Links>
           </QuickLinks>
-          <LanguageAndSearch>
-           
-            <Language>
-              <LanguageTranslator>{languageTranslator}</LanguageTranslator>
-            </Language>
-            <Search>
-              <SearchBar>
-                <Rectangle1></Rectangle1>
-                <Rectangle2></Rectangle2>
-              </SearchBar>
-            </Search>
-          </LanguageAndSearch>
+          
           <PrivacyStatement>
             <LanguageTranslator>{privacyStatement}</LanguageTranslator>
             <StatementText>
@@ -110,39 +87,32 @@ function HFBFooter(props:any) {
           </PrivacyStatement>
         </UpperFooter>
         <Copyright>
-
+          <RectangleCopyRight></RectangleCopyRight>
           <Copyright2021Houst>{copyright2021Houst}</Copyright2021Houst>
 
           <OverlapGroup1>
-            <div>
-                <Facebook><SocialIcon url="https://www.facebook.com/thehoustonfoodbank" network="facebook" bgColor="#66cc00" fgColor="#282a2b" style={{ height: 40, width: 40 }}/></Facebook>
+          
+              <div>
+                <SocialIcon url="https://www.facebook.com/thehoustonfoodbank" network="facebook" bgColor="#282a2b" fgColor="white" style={{ height: 40, width: 40 }}/>
                 </div>
                 <div>
-                <Twitter><SocialIcon url="https://twitter.com/HoustonFoodBank" network="twitter" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></Twitter>
+                <SocialIcon url="https://twitter.com/HoustonFoodBank" network="twitter" bgColor="#282a2b" fgColor="white" style={{ height: 40, width: 40 }}/>
                 </div>
                 <div>
-                <Instagram><SocialIcon url="https://www.instagram.com/houstonfoodbank/" network="instagram" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></Instagram>
+                <SocialIcon url="https://www.instagram.com/houstonfoodbank/" network="instagram" bgColor="#282a2b" fgColor="white" style={{ height: 40, width: 40 }}/>
                 </div>
                 <div>
-                <LinkedIn><SocialIcon url="https://www.linkedin.com/company/houstonfoodbank" network="linkedin" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></LinkedIn>
+                <SocialIcon url="https://www.linkedin.com/company/houstonfoodbank" network="linkedin" bgColor="#282a2b" fgColor="white" style={{ height: 40, width: 40 }}/>
                 </div>
                 <div>
-                <YouTube><SocialIcon url="https://www.youtube.com/HoustonFoodBank" network="youtube" bgColor="#66cc00" fgColor="white" style={{ height: 40, width: 40 }}/></YouTube>
-            </div>
+                <SocialIcon url="https://www.youtube.com/HoustonFoodBank" network="youtube" bgColor="#282a2b" fgColor="white" style={{ height: 40, width: 40 }}/>
+              </div>
           </OverlapGroup1>
         </Copyright>
       </div>
     </div>
   );
 }
-
-const RobotoNormalOuterSpace14px = styled.div`
-  color: var(--outer-space);
-  font-family: var(--font-family-roboto);
-  font-size: var(--font-size-l);
-  font-weight: 400;
-  font-style: normal;
-`;
 const RobotoNormalWhite16px = styled.div`
   color: var(--white);
   font-family: var(--font-family-roboto);
@@ -197,7 +167,7 @@ const UpperFooter = styled.div`
   height: 446px;
   display: flex;
   padding: 43px 49px;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
   min-width: 1200px;
   background-color: #363839;
@@ -349,6 +319,12 @@ const Rectangle = styled.div`
   margin-top: 12px;
   background-color: var(--abbey);
 `;
+const RectangleCopyRight = styled.div`
+  width: 100px;
+  height: 1px;
+  margin-top: 12px;
+  background-color: var(--abbey);
+`;
 
 const MediaInquiries = styled.div`
   ${RobotoNormalAlto15px}
@@ -399,62 +375,6 @@ const NondiscriminationStatement = styled.div`
     }
   }
   
-`;
-
-const LanguageAndSearch = styled.div`
-  width: 282px;
-  margin-left: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 203px;
-  color: white;
-`;
-
-const Language = styled.div`
-  width: 252px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 78px;
-`;
-
-const Translate = styled.div`
-  width: 173px;
-  height: 32px;
-  margin-top: 28px;
-  background-color: var(--white);
-`;
-
-const Search = styled.div`
-  width: 252px;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 75px;
-`;
-
-const SearchBar = styled.div`
-  width: 252px;
-  margin-top: 28px;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-`;
-
-const Rectangle1 = styled.div`
-  width: 224px;
-  height: 29px;
-  margin-bottom: -0.05px;
-  background-color: var(--white);
-`;
-
-const Rectangle2 = styled.div`
-  width: 29px;
-  height: 29px;
-  margin-bottom: -0.05px;
-  background-color: var(--black);
 `;
 
 const PrivacyStatement = styled.div`
@@ -515,101 +435,30 @@ const AssistsTheHouston = styled.p`
 const Copyright = styled.div`
   height: 72px;
   display: flex;
-  padding: 27px 0;
-  justify-content: flex-end;
+  padding: 27px;
   align-items: center;
   min-width: 1200px;
   background-color: #282a2b;
 `;
 
 const Copyright2021Houst = styled.p`
-  width: 305px;
   min-height: 15px;
   margin-top: 1px;
   font-family: var(--font-family-roboto);
   font-weight: 400;
-  color: var(--white);
+  color: white;
   font-size: var(--font-size-s);
-  letter-spacing: 0;
   line-height: 15px;
-  white-space: nowrap;
 `;
 
 const OverlapGroup1 = styled.div`
   height: 72px;
   display: flex;
-  padding: 27px 0;
+  padding: 27px;
   justify-content: flex-end;
   align-items: center;
-  min-width: 1200px;
+  min-width: 1000px;
   background-color: #282a2b;
-`;
-
-  // width: 202px;
-  // height: 16px;
-  // position: relative;
-  // align-self: flex-end;
-  // margin-left: 650px;
-
-
-const Facebook = styled.div`
-  ${RobotoNormalOuterSpace14px}
-  position: absolute;
-  width: 62px;
-  top: 0;
-  left: 0;
-  text-align: right;
-  letter-spacing: 0;
-  line-height: 16px;
-  white-space: nowrap;
-`;
-
-const Instagram = styled.div`
-  ${RobotoNormalOuterSpace14px}
-  position: absolute;
-  width: 64px;
-  top: 0;
-  left: 72px;
-  text-align: right;
-  letter-spacing: 0;
-  line-height: 16px;
-  white-space: nowrap;
-`;
-
-const YouTube = styled.div`
-  ${RobotoNormalOuterSpace14px}
-  position: absolute;
-  width: 58px;
-  top: 0;
-  left: 144px;
-  text-align: right;
-  letter-spacing: 0;
-  line-height: 16px;
-  white-space: nowrap;
-`;
-
-const Twitter = styled.div`
-  ${RobotoNormalOuterSpace14px}
-  position: absolute;
-  width: 46px;
-  top: 0;
-  left: 36px;
-  text-align: right;
-  letter-spacing: 0;
-  line-height: 16px;
-  white-space: nowrap;
-`;
-
-const LinkedIn = styled.div`
-${RobotoNormalOuterSpace14px}
-position: absolute;
-width: 46px;
-top: 0;
-left: 36px;
-text-align: right;
-letter-spacing: 0;
-line-height: 16px;
-white-space: nowrap;
 `;
 
 const hFBFooterData = {
@@ -630,7 +479,6 @@ const hFBFooterData = {
   frequentlyAskedQuestions: "Frequently Asked Questions",
   requestASpeaker: "Request a Speaker",
   nondiscriminationStatement: "Nondiscrimination Statement",
-  languageTranslator: "LANGUAGE TRANSLATOR",
   privacyStatement: "PRIVACY STATEMENT",
   theHoustonFoodBan: "The Houston Food Bank is registered as a ",
   nonProfit501c3: "501(c)(3)",
