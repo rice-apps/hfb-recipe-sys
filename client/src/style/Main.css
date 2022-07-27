@@ -18,6 +18,14 @@
   justify-content: center;
 }
 
+.recipeRecContainer {
+  display: flex;
+  flex-flow: row wrap;
+}
+.mobile .recipeRecContainer {
+  justify-content: center;
+}
+
 .recipeCard {
   /* was 360 */
   width: 300px;

@@ -48,10 +48,9 @@ export const Recipe = (props: { recipe: RecipeData }) => {
                     {/* Photo of the recipe */}
                     <RecipeImage recipe={props.recipe} />
                 </div>
-                            {/* Intstructions*/}
+                {/* Instructions*/}
               <Instructions recipe={props.recipe} />
             </div>
-
         </div>
     )
 }
