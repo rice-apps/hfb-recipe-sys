@@ -2,6 +2,7 @@
 const express = require('express');
 const contentful = require('contentful');
 const cors = require('cors');
+const { createServer } = require('@graphql-yoga/node')
 
 // Load environment variables from .env
 require('dotenv').config();
@@ -9,9 +10,12 @@ require('dotenv').config();
 // Create app
 const app = express();
 
+//graphql 
+const GraphQLServer = createServer()
+
 // Define Constants
 const port = process.env.PORT || 8000;
-const accessToken = process.env.ACCESS_TOKEN; 
+const accessToken = process.env.ACCESS_TOKEN;
 const space_ID = process.env.SPACE_ID;
 
 // Allow cross-origin resource sharing
@@ -30,11 +34,11 @@ const client = contentful.createClient({
 
 // Define /recipes endpoint to return a list of all recipes in contentful
 app.get('/recipes', (req, res) => {
-  client.getEntries({order: 'sys.createdAt'})
+  client.getEntries({ order: 'sys.createdAt' })
     // Extract fields from each contentful object
     .then(data => data.items.map(item => item.fields))
     // Extract url from photo data
-    .then(recipes => recipes.map(recipe => { 
+    .then(recipes => recipes.map(recipe => {
       return {
         ...recipe,
         photo: recipe.photo.fields.file.url
