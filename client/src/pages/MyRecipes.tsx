@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 import RecipeData from '../types/RecipeData';
-import { RecipeCardMyRecipe } from '../components/main/RecipeCardMyRecipe';
+import { RecipeCard} from '../components/main/RecipeCard';
 import Header from '../components/main/Header';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
 
@@ -49,13 +49,13 @@ function MyRecipes(props: { recipes: RecipeData[] }) {
               {/** Maps and displays recipes by the checked dietary restrictions tags in the filter */}
               {getRecipesToDisplay().map(recipe => {
                 return (
-                  <div className="recipeCard" onClick={() => navigate(`/${recipe.id}`)} key={recipe.id}>
+                  <div className="recipeCard">
 
-                    <RecipeCardMyRecipe data={recipe} />
+                    <RecipeCard data={recipe} />
                     
-                    <div className="mybuttonoverlap">	
+                    {/* <div className="mybuttonoverlap">	
 	                    <button type="button" className="mybuttonoverlap">UNSAVE</button>
-                    </div>
+                    </div> */}
                   </div>
                 );
               })}

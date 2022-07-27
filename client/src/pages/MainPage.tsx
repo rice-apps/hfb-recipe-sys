@@ -3,7 +3,7 @@ import {  useNavigate } from 'react-router-dom';
 
 
 import RecipeData from '../types/RecipeData';
-import { RecipeCardMain } from '../components/main/RecipeCardMain';
+import { RecipeCard} from '../components/main/RecipeCard';
 import Header from '../components/main/Header';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
 
@@ -51,9 +51,13 @@ function MainPage(props: { recipes: RecipeData[] }) {
               {/** Maps and displays recipes by the checked dietary restrictions tags in the filter */}
               {getRecipesToDisplay().map(recipe => {
                 return (
-                  <div className="recipeCard" onClick={() => navigate(`/${recipe.id}`)} key={recipe.id}>
-                    <RecipeCardMain data={recipe} />
+                  <div className="recipeCard" >
+                    <RecipeCard data={recipe} />
                   </div>
+
+                  // <div className="recipeCard" onClick={() => navigate(`/${recipe.id}`)} key={recipe.id}>
+                  //   <RecipeCardMain data={recipe} />
+                  // </div>
                 );
               })}
             </div>

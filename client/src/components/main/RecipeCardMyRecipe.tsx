@@ -5,7 +5,7 @@ import { Row, Col } from 'antd';
 import RestrictionTags from '../shared/RestrictionTags';
 import saved from '../saved.png';
 
-import '../../style/RecipeCard.css';
+import '../../style/RecipeCardMyRecipe.css';
 
 // Recipe card, displays recipe photo, meal types, and dietary restrictions
 export const RecipeCardMyRecipe = (props: { data: RecipeData }) => {
