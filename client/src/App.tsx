@@ -1,7 +1,9 @@
 import React from 'react';
 import MainPage from './pages/MainPage';
 import RecipePage from './pages/RecipePage';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import MyRecipes from './pages/MyRecipes';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import RecipeData from './types/RecipeData';
 
@@ -25,14 +27,14 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Switch>
-          <Route path={`/:id`}>
-            <RecipePage recipes = {recipes}/>
+        <Routes>
+          <Route path="/:id" element={<RecipePage recipes={recipes} />}>
           </Route>
-          <Route path={`/`}>
-            <MainPage recipes = {recipes}/>
+          <Route path="/" element={<MainPage recipes={recipes} />}>
           </Route>
-        </Switch>
+          <Route path="/MyRecipes" element={<MyRecipes recipes={recipes} />}>
+          </Route>
+        </Routes>
       </div>
     </Router>
   );

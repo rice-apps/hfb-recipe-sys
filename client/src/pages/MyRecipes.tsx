@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 import RecipeData from '../types/RecipeData';
-import { RecipeCardMain } from '../components/main/RecipeCardMain';
+import { RecipeCardMyRecipe } from '../components/main/RecipeCardMyRecipe';
 import Header from '../components/main/Header';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
 
-import '../style/Main.css'
+import '../style/MyRecipes.css'
 import searchAndFilterRecipes from '../util/searchAndFilterRecipes';
-import SearchBar from '../components/main/SearchBar';
 import FilterPanel from '../components/main/FilterPanel';
 
 
-function MainPage(props: { recipes: RecipeData[] }) {
+function MyRecipes(props: { recipes: RecipeData[] }) {
   const navigate = useNavigate();
 
   const [searchString, setSearchString] = useState('');
@@ -30,32 +29,37 @@ function MainPage(props: { recipes: RecipeData[] }) {
     
     <div>
       <div className="titleContainer">
-        <Header title="Recipes" margin-top="30px"/>
-        <SearchBar setSearchString={setSearchString} />
-
-        <div className="myRecipe" onClick={() => navigate(`/MyRecipes`)} >
-          <div className="print_text">View My Recipes</div>
+        <Header title="My Recipes" />
+        <div className="home" onClick={() => navigate(`/`)} >
+          <div className="print_text">View All Recipes</div>
         </div>
       </div>
 
-      <div className="info" margin-top= "30px">
-        click on a recipe to view it or save it!
+      <div className="info">
+        click on a recipe to view it or unsave it!
       </div>
       
       <div className={isBigScreen ? "" : "mobile"}>
         <div className="bottomContainer">
           <FilterPanel checkedFilters={checkedFilters} setCheckedFilters={setCheckedFilters} />
           <div className="searchContainer">
-         
+
             <div className="recipeCardContainer">
+                {/* <div className="container"> */}
               {/** Maps and displays recipes by the checked dietary restrictions tags in the filter */}
               {getRecipesToDisplay().map(recipe => {
                 return (
                   <div className="recipeCard" onClick={() => navigate(`/${recipe.id}`)} key={recipe.id}>
-                    <RecipeCardMain data={recipe} />
+
+                    <RecipeCardMyRecipe data={recipe} />
+                    
+                    <div className="mybuttonoverlap">	
+	                    <button type="button" className="mybuttonoverlap">UNSAVE</button>
+                    </div>
                   </div>
                 );
               })}
+              {/* </div> */}
             </div>
           </div>
         </div>
@@ -67,4 +71,5 @@ function MainPage(props: { recipes: RecipeData[] }) {
 }
 
 
-export default MainPage;
+export default MyRecipes;
+

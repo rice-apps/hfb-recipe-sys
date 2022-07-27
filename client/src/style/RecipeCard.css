@@ -6,6 +6,7 @@
   width: 100%;
   border-radius: 50px;
   background-color: white;
+  position: relative;
 }
 
 /* Recipe card photo */
@@ -15,6 +16,39 @@
   flex: 0 1 300px;
   object-fit: cover;
   border-radius: 50px 50px 0px 0px;
+  
+}
+
+.recipeCardData:hover .recipePhoto{
+ opacity: .5;
+}
+
+.middle{
+  opacity: 0;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  /* width: 20px;
+  height: 20px; */
+  /* display: none; */
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.recipeCardData:hover .middle{
+  opacity: 1;
+  z-index: 2;
+}
+
+.middle:hover {
+  cursor: pointer;
+}
+.text {
+  background-color: #7EAF53;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
 }
 
 /* Recipe title and tags container */
@@ -68,4 +102,17 @@
 .whiteIcon {
   color: white;
   width: 50%;
+}
+
+.saved{
+  width: 10%;
+  height: 10%;
+  object-fit: scale-down;
+  flex-flow: column wrap;
+  align-items:flex-end;
+  float: right; 
+}
+
+.h4{
+  float: left; 
 }

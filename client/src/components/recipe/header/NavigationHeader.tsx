@@ -6,12 +6,14 @@ import RecipeData from '../../../types/RecipeData';
 import ReactToPrint from "react-to-print";
 import { PrintableRecipe } from '../PrintableRecipe';
 import {useMediaQuery} from 'react-responsive'
+import {  useNavigate } from 'react-router-dom';
 
 import '../../../style/Recipe.css';
 
 
 export const BottomHeader = (props: { recipe: RecipeData }) => {
     const printComponentRef = useRef<HTMLDivElement>(null);
+    const navigate = useNavigate();
 
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1224px)'
@@ -27,7 +29,8 @@ export const BottomHeader = (props: { recipe: RecipeData }) => {
             {
                 isBigScreen && 
                 <div>
-                <div className="info_row">
+                
+                <div className="info_row" >
                 {/* <Row gutter={8} className="info_row" justify="center"> */}
                     <Col className="gutter-row" span={5} >
                         {/* Cuisine Type */}
@@ -59,6 +62,9 @@ export const BottomHeader = (props: { recipe: RecipeData }) => {
                         <div className="information_header">{props.recipe.calories}</div>
                     </Col>
                     <Col className="gutter-row" span={3}>
+                        <div className="myRecipe" onClick={() => navigate(`/MyRecipes`)} >
+                            <div className="print_text">View My Recipes</div>
+                        </div>
                         {/* Print Button */}
                         <ReactToPrint
                             trigger={() =>
@@ -71,6 +77,11 @@ export const BottomHeader = (props: { recipe: RecipeData }) => {
                         {/* Prints from the print div below*/}
     
                     </Col>
+                    {/* <Col className = "myRecipe" span = {3}>
+                    <div className="myRecipe">
+                    <div className="text">View My Recipes</div>
+                </div>
+                    </Col> */}
                 {/* </Row> */}
                 </div>
                 <div style={{ display: "none" }}>
@@ -145,11 +156,16 @@ export const BottomHeader = (props: { recipe: RecipeData }) => {
                  </Row>
 
                     <Col className="gutter-row" span={10}>
+                    <div className="myRecipe" onClick={() => navigate(`/MyRecipes`)} >
+                    <div className="print_text">View My Recipes</div>
+                </div>
                         {/* Print Button */}
                         <ReactToPrint
                             trigger={() =>
                                 <div className="print_button">                <Icon name='print' size='large' color='green' />
                                     <text className="print_text">Print Recipe</text></div>
+                                
+                                    
                             }
                             content={() => printComponentRef.current}
                             documentTitle="AwesomeFileName"
@@ -167,7 +183,7 @@ export const BottomHeader = (props: { recipe: RecipeData }) => {
 
                 </div>
 
-                <Row gutter={50} className="info_row" justify="center">
+                <Row gutter={50} className="info_row" justify="center" margin-bottom="50px">
 
                  </Row>
             </div>

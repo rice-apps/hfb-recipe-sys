@@ -21,7 +21,7 @@ app.use(cors());
 app.get('/', (req, res) => {
   res.send('HFB Recipe System Backend')
 });
-
+console.log(process.env)
 // Create authenticated contentful client
 const client = contentful.createClient({
   space: space_ID,

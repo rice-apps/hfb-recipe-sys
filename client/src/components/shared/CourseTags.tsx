@@ -2,7 +2,7 @@ import React from 'react';
 import RecipeData from '../../types/RecipeData';
 import { Row, Col } from 'antd';
 
-import '../../style/RecipeCard.css';
+import '../../style/RecipeCardMain.css';
 
 // Course tag, displays meal type
 const CourseTag = (props: { text: string }) => {

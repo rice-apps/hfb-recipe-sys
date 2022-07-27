@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition, faLeaf, faBreadSlice, faSeedling, faLemon, faCheese } from '@fortawesome/free-solid-svg-icons'
 import RecipeData from '../../types/RecipeData';
 
-import '../../style/RecipeCard.css';
+import '../../style/RecipeCardMain.css';
 
 // Tag colors
 const RTColors = {

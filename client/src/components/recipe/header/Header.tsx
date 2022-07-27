@@ -5,7 +5,7 @@ import { TopHeader } from './RecipeInfoHeader'
 
 function Header(props: { recipe: RecipeData }) {
   return (
-    <div className="header_bar">
+    <div className="header_bar" margin-bottom="30px">
       <header>
         <TopHeader recipe={props.recipe} />
         {/* Sub information to title on the next row underneath */}
