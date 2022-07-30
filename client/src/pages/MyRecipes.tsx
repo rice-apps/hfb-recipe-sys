@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 import RecipeData from '../types/RecipeData';
@@ -9,11 +9,14 @@ import MediaQuery, { useMediaQuery } from 'react-responsive';
 
 import '../style/MyRecipes.css'
 import searchAndFilterRecipes from '../util/searchAndFilterRecipes';
+import getRecommendedRecipes from '../util/recommendRecipes'
 import FilterPanel from '../components/main/FilterPanel';
 
+import { Button } from 'antd';
+import { ReloadOutlined } from "@ant-design/icons";
 
 function MyRecipes(props: { recipes: RecipeData[] }) {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [searchString, setSearchString] = useState('');
   const [checkedFilters, setCheckedFilters] = useState<string[]>([]); // State where the checked dietary restrictions tags are stored
@@ -25,12 +28,23 @@ function MyRecipes(props: { recipes: RecipeData[] }) {
     return searchAndFilterRecipes(props.recipes, searchString, checkedFilters)
   }
 
+  const allRecipes = props.recipes;
+  const myRecipes = props.recipes.slice(0, 3);
+  const [numRefreshes, setNumRefreshes] = useState(0);
+  // myRecipes.forEach(recipe => console.log(recipe))
+
+  const reloadIcon = <ReloadOutlined style={{ "fontSize": "30px" }} />;
+  const handleRecRefresh = () => {
+    setNumRefreshes(numRefreshes + 1);
+    //window.location.reload();
+  };
+
   return (
     
     <div>
       <div className="titleContainer">
         <Header title="My Recipes" />
-        <div className="home" onClick={() => navigate(`/`)} >
+        <div className="home" onClick={() => history.push(`/`)} >
           <div className="print_text">View All Recipes</div>
         </div>
       </div>
@@ -38,33 +52,42 @@ function MyRecipes(props: { recipes: RecipeData[] }) {
       <div className="info">
         click on a recipe to view it or unsave it!
       </div>
-      
+
       <div className={isBigScreen ? "" : "mobile"}>
         <div className="bottomContainer">
-          <FilterPanel checkedFilters={checkedFilters} setCheckedFilters={setCheckedFilters} />
-          <div className="searchContainer">
-
-            <div className="recipeCardContainer">
-                {/* <div className="container"> */}
-              {/** Maps and displays recipes by the checked dietary restrictions tags in the filter */}
-              {getRecipesToDisplay().map(recipe => {
-                return (
-                  <div className="recipeCard">
-
-                    <RecipeCard data={recipe} />
-                    
-                    {/* <div className="mybuttonoverlap">	
-	                    <button type="button" className="mybuttonoverlap">UNSAVE</button>
-                    </div> */}
-                  </div>
-                );
-              })}
-              {/* </div> */}
+          <div>
+            <div> {/* style={{ "background-color": "#e5e5e5" }} */}
+              <h1 style={{ "margin": "20px" }}>Saved Recipes</h1>
+              <div className="recipeCardContainer">
+                {myRecipes.map(recipe => {
+                    return (
+                      <div className="recipeCard">
+                        <RecipeCard data={recipe} />
+                      </div>
+                    );
+                  })}
+                </div>
+            </div>
+            <div style={{ "backgroundColor": "#f0f0f0", "padding": "10px", "margin": "20px" }}>
+              <div style={{ "justifyContent": "space-between", "flexDirection": "column"}}>
+                <h1 style={{ "margin": "20px", "display": "inline-block" }}>Recommended Recipes</h1>
+                <Button style={{ "padding": "10px", "alignSelf": "flex-end"}} onClick={handleRecRefresh}>
+                  {reloadIcon}
+                </Button>
+              </div>
+              <div className="recipeCardContainer"> 
+                {getRecommendedRecipes(allRecipes, myRecipes, numRefreshes).map(recipe => { //recipeCardContainer
+                  return (
+                    <div className="recipeCard">
+                      <RecipeCard data={recipe} />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
       </div>
-            
     </div>
           
   )

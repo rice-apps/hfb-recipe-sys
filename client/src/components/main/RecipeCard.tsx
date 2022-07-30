@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import RecipeData from '../../types/RecipeData';
 import CourseTags from  '../shared/CourseTags';
 import RestrictionTags from '../shared/RestrictionTags';
-import {  useNavigate } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import unsaved from '../unsaved.png';
 import saved from '../saved.png';
@@ -13,7 +13,7 @@ import '../../style/RecipeCard.css';
 // Recipe card, displays recipe photo, meal types, and dietary restrictions
 export const RecipeCard = (props: { data: RecipeData }) => {
   // FIX!
-  const navigate = useNavigate();
+  const history = useHistory();
   const [isSaved, setIsSaved] = useState(false);
 
   // fix feature
@@ -32,7 +32,7 @@ export const RecipeCard = (props: { data: RecipeData }) => {
         <div className="text"> { isSaved ? "Unsave!" : "Save!"}</div>
       </div>
 
-      <div className="view" onClick={() => navigate(`/${props.data.id}`)} key={props.data.id}>
+      <div className="view" onClick={() => history.push(`/${props.data.id}`)} key={props.data.id}>
         <div className="text">View Recipe</div>
       </div>
           <div className="recipeCardInfo">

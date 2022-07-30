@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  useNavigate } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 
 
 import RecipeData from '../types/RecipeData';
@@ -14,7 +14,7 @@ import FilterPanel from '../components/main/FilterPanel';
 
 
 function MainPage(props: { recipes: RecipeData[] }) {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [searchString, setSearchString] = useState('');
   const [checkedFilters, setCheckedFilters] = useState<string[]>([]); // State where the checked dietary restrictions tags are stored
@@ -33,7 +33,7 @@ function MainPage(props: { recipes: RecipeData[] }) {
         <Header title="Recipes" margin-top="30px"/>
         <SearchBar setSearchString={setSearchString} />
 
-        <div className="myRecipe" onClick={() => navigate(`/MyRecipes`)} >
+        <div className="myRecipe" onClick={() => history.push(`/MyRecipes`)} >
           <div className="print_text">View My Recipes</div>
         </div>
       </div>

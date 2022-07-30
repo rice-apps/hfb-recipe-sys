@@ -6,14 +6,14 @@ import RecipeData from '../../../types/RecipeData';
 import ReactToPrint from "react-to-print";
 import { PrintableRecipe } from '../PrintableRecipe';
 import {useMediaQuery} from 'react-responsive'
-import {  useNavigate } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 
 import '../../../style/Recipe.css';
 
 
 export const BottomHeader = (props: { recipe: RecipeData }) => {
     const printComponentRef = useRef<HTMLDivElement>(null);
-    const navigate = useNavigate();
+    const history = useHistory();
 
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1224px)'
@@ -62,7 +62,7 @@ export const BottomHeader = (props: { recipe: RecipeData }) => {
                         <div className="information_header">{props.recipe.calories}</div>
                     </Col>
                     <Col className="gutter-row" span={3}>
-                        <div className="myRecipe" onClick={() => navigate(`/MyRecipes`)} >
+                        <div className="myRecipe" onClick={() => history.push(`/MyRecipes`)} >
                             <div className="print_text">View My Recipes</div>
                         </div>
                         {/* Print Button */}
@@ -156,7 +156,7 @@ export const BottomHeader = (props: { recipe: RecipeData }) => {
                  </Row>
 
                     <Col className="gutter-row" span={10}>
-                    <div className="myRecipe" onClick={() => navigate(`/MyRecipes`)} >
+                    <div className="myRecipe" onClick={() => history.push(`/MyRecipes`)} >
                     <div className="print_text">View My Recipes</div>
                 </div>
                         {/* Print Button */}

@@ -2,14 +2,22 @@ import React from 'react';
 import MainPage from './pages/MainPage';
 import RecipePage from './pages/RecipePage';
 import MyRecipes from './pages/MyRecipes';
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import RecipeData from './types/RecipeData';
 
 import 'antd/dist/antd.css';
 import 'semantic-ui-css/semantic.min.css'
 import './index.css';
+
+// import createHistory from "history/createBrowserHistory"
+
+// export const history = createHistory()
+
+// history.listen(() => {
+//     window.scrollTo(0, 0)
+// })
+
 
 function App() {
   const [recipes, setRecipes] = useState<RecipeData[]>([]);
@@ -27,14 +35,17 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Routes>
-          <Route path="/:id" element={<RecipePage recipes={recipes} />}>
+        <Switch>
+          <Route path={`/MyRecipes`}>
+            <MyRecipes recipes = {recipes}/>
           </Route>
-          <Route path="/" element={<MainPage recipes={recipes} />}>
+          <Route path={`/:id`}>
+            <RecipePage recipes = {recipes}/>
           </Route>
-          <Route path="/MyRecipes" element={<MyRecipes recipes={recipes} />}>
+          <Route path={`/`}>
+            <MainPage recipes = {recipes}/>
           </Route>
-        </Routes>
+        </Switch>
       </div>
     </Router>
   );
