@@ -3,7 +3,6 @@ import { SearchOutlined } from "@ant-design/icons";
 import '../../style/Main.css';
 import { Input } from 'antd';
 
-
 function SearchBar(props: { setSearchString: (searchString: string) => void }) {
     /**
      * Saves the new search state

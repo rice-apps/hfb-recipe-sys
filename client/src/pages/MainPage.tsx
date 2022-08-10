@@ -11,7 +11,6 @@ import searchAndFilterRecipes from '../util/searchAndFilterRecipes';
 import SearchBar from '../components/main/SearchBar';
 import FilterPanel from '../components/main/FilterPanel';
 
-
 function MainPage(props: { recipes: RecipeData[] }) {
   const history = useHistory();
 
@@ -32,30 +31,30 @@ function MainPage(props: { recipes: RecipeData[] }) {
         <Header title="Recipes" />
         <SearchBar setSearchString={setSearchString} />
       </div>
-      
+  
+  
+
       <div className={isBigScreen ? "" : "mobile"}>
         <div className="bottomContainer">
           <FilterPanel checkedFilters={checkedFilters} setCheckedFilters={setCheckedFilters} />
           <div className="searchContainer">
-
             <div className="recipeCardContainer">
               {/** Maps and displays recipes by the checked dietary restrictions tags in the filter */}
               {getRecipesToDisplay().map(recipe => {
                 return (
                   <div className="recipeCard" onClick={() => history.push(`/${recipe.id}`)} key={recipe.id}>
                     <RecipeCard data={recipe} />
+                    
                   </div>
                 );
               })}
             </div>
           </div>
         </div>
-      </div>
-            
+      </div>   
     </div>
           
   )
 }
-
 
 export default MainPage;

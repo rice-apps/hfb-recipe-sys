@@ -1,0 +1,201 @@
+/* 
+  @font-face {
+    font-family: "FuturaM";
+    src: local("FuturaM"), url("./fonts/FuturaLight.ttf") format("truetype");
+  }
+
+h1, label, button {
+    font-family: "FuturaM";
+}
+*/
+
+/* .signup-box {
+
+    display: flex;
+    background-color: white;
+    justify-content: space-evenly;
+    border: 2px solid;
+    border-radius: 5px;
+    width: auto;
+    margin: auto;
+    position: fixed;
+}
+*/
+
+.Userbutton {
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    
+}
+.signup-box {
+    position: fixed;
+    top: 0;
+    left: 0 ;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup-inner {
+    display: flex;
+    position: relative;
+    padding: 32px;
+    width: 60%;
+    height: 70%;
+   
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid black;
+
+}
+
+
+.signup-box1 {
+    position: fixed;
+    top: 0;
+    left: 0 ;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup-inner1 {
+    display: flex;
+    position: relative;
+    padding: 32px;
+    width: 25%;
+    height: 15%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid black;
+
+}
+
+.foodbank-logo {
+    display: inline;
+    flex-direction: row;
+    align-self: center;    
+}
+
+.hfblogo {
+    width: 300px;
+
+    
+}
+.signup-form {
+    display: inline;
+    margin-left: 50px;
+}
+
+.input-form{
+    height: 300px;
+    display: flex;
+    flex-direction: column;   
+    justify-content: center;
+    
+    
+}
+
+.signin-form {
+    margin-left: 50px;
+}
+
+.email-box, .password-box {
+    width: 292px;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    
+}
+ .Google, .Account, .Google-signin, .Login {
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    color: rgb(4, 100, 129);
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 5px;
+    
+}
+.Account, .Login {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background-color:#6c0;
+    color: white;
+    margin-top: 5px;
+    width: 300px;
+    height: 50px;
+}
+
+
+.Google, .Google-signin {
+    
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    color: rgb(9, 110, 177);
+    
+    width: 300px;
+    height: 50px;
+    border: 1px solid #6c0;
+}
+
+.google-icon {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.signin-form, .signup-form {
+    align-self: center;
+
+}
+
+.close {
+    background-color: white;
+    
+    position: absolute;
+    top: 3px;
+    right: 0px;
+    height: 5%;
+    width: 5%;
+    border: none;
+
+}
+
+.closelogo {
+    width: 100%;
+    height: 100%;
+}
+
+.closelogomessage {
+    height: 100%;
+    width: 100%
+
+
+}
+
+.close1 {
+    background-color: white;
+    
+    position: absolute;
+    top: 4px;
+    right: 0px;
+    height: 20%;
+    width: 10%;
+    border: none;
+
+}
